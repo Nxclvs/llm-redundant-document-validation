@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Results & Logs
+results/
+logs/
+
+# Secrets
+structure.txt
+notes.txt
+localconfig.py
+*.key
