@@ -94,13 +94,25 @@ def aggregate_validation(
         else:
             num_infos += 1
 
+    # 5) cross-model-redundancy
+    cm_errors = cm_warnings = cm_infos = 0
+    cm_conflicts = []
+
+    if cross_model_result is not None:
+        cm_conflicts = cross_model_result.get("conflicts", [])
+        stats = cross_model_result.get("stats", {})
+        cm_errors = stats.get("errors", 0)
+        cm_warnings = stats.get("warnings", 0)
+        cm_infos = stats.get("infos", 0)
+
     # final status
-    if sem_status == "invalid" or num_errors > 0 or rule_errors > 0 or schema_errors > 0:
+    if sem_status == "invalid" or num_errors > 0 or rule_errors > 0 or schema_errors > 0 or cm_errors > 0:
         final_status = "invalid"
-    elif sem_status in ("parse_error", "uncertain") or num_warnings > 0 or rule_warnings > 0 or schema_warnings > 0:
+    elif sem_status in ("parse_error", "uncertain") or num_warnings > 0 or rule_warnings > 0 or schema_warnings > 0 or cm_warnings > 0:
         final_status = "review_needed"
     else:
         final_status = "valid"
+
 
 
     # build up summary
@@ -131,12 +143,12 @@ def aggregate_validation(
         f"Errors={num_errors}, Warnings={num_warnings}, Infos={num_infos}"
     )
     
-    # 5) cross-model-redundancy
+    # 5) cross-model validation
     if cross_model_result is not None:
-        conflicts = cross_model_result.get("conflicts", [])
         summary_parts.append(
-            f"Cross-Model-Validation: Conflicts={len(conflicts)}"
+            f"Cross-Model-Validation: Errors={cm_errors}, Warnings={cm_warnings}, Infos={cm_infos}"
         )
+
 
     # 6) final result
     summary_parts.append(f"Finaler Status: {final_status}")
