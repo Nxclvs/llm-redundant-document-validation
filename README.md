@@ -104,24 +104,38 @@ config = {
 
 ---
 
-## ▶️ Usage
+# ▶️ Usage
 
-1. **Generate Synthetic Data**
-   Generates test documents (invoices, applications, notifications) based on the schemas in `data/schemas/`:
-   ```bash
-   python scripts/generate_data.py --count 75 --output_dir data/input/generated_v1
-   ```
+## 1. Generate Synthetic Data
+Generates test documents (invoices, applications, notifications) to populate `tests/datasets/`.
 
-2. **Run Validation Pipeline**
-   Executes the extraction and validation process. You can select specific experiment configurations via YAML files.
-   ```bash
-   # Run Baseline (E1V0: Extraction + Rules only)
-   python scripts/run_experiment.py --config configs/e1v0_baseline.yaml
+```bash
+python generate_data.py
+```
 
-   # Run Mixed Validation (E1V2b: Extraction + Rules + Semantic Check)
-   python scripts/run_experiment.py --config configs/e1v2b_mixed.yaml
-   ```
-   Results are saved to `results/experiments/` as structured JSON files.
+## 2. Run Experiment Batch
+The main execution is handled via `batch_run.py`. You must specify the input dataset folder (located inside `tests/datasets/`) and the experiment ID (defined in `config/experiments.json`).
+
+**Syntax:**
+```bash
+python batch_run.py --input <DATASET_FOLDER> --experiment <EXPERIMENT_ID>
+```
+
+### Example: Run Baseline (E1V0)
+Executes the pipeline with extraction and deterministic rules only (Hard Gate).
+
+```bash
+python batch_run.py --input generated_de_v1 --experiment E1V0_gpt_only_no_validation
+```
+
+### Example: Run Mixed Validation (E1V2b)
+Executes the full pipeline including heterogeneous semantic validation (GPT-4o + Pixtral).
+
+```bash
+python batch_run.py --input generated_de_v1 --experiment E1V2b_mixed_gpt_pixtral
+```
+
+**Results** are saved to `results/<EXPERIMENT_ID/` as structured JSON files.
 
 ---
 
