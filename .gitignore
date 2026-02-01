@@ -13,11 +13,17 @@ venv/
 .idea/
 
 # Results & Logs
-results/
+results/thesis_export/
+results/plots/
 logs/
 
 # Secrets
 structure.txt
 notes.txt
+batch_commands.txt
 localconfig.py
+export_thesis.py
 *.key
+thesis_export.py
+plot_metrics.py
+plot_significance.py

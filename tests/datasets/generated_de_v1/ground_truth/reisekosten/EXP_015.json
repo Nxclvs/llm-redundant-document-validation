@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Herr Orhan Weinhold MBA.",
+  "zielort": "Königs Wusterhausen",
+  "start": "01.01.2026",
+  "ende": "03.01.2026",
+  "kosten_details": {
+    "transport": 37.3,
+    "hotel": 101.15,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 222.45
+}

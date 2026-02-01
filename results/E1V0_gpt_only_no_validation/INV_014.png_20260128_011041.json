@@ -1,0 +1,280 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_014.png",
+    "name": "INV_014.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: INV_014.png | Schema-Validation: Errors=0, Warnings=3, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=20, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Schüler, Musterstraße 1, 12345 Musterstadt",
+          "empfaenger": "Dr. Isabell Ring B.Sc., Edda-Bloch-Weg 83-44, 91074 Calau",
+          "rechnungsnummer": "RE-2026-3035",
+          "datum": "20.01.2026",
+          "items": [
+            {
+              "beschreibung": "Scale wireless niches",
+              "menge": 8,
+              "einzelpreis": 105.27,
+              "gesamtpreis": 842.16
+            },
+            {
+              "beschreibung": "Syndicate ubiquitous e-markets",
+              "menge": 9,
+              "einzelpreis": 45.43,
+              "gesamtpreis": 408.87
+            },
+            {
+              "beschreibung": "Engineer interactive synergies",
+              "menge": 3,
+              "einzelpreis": 116.89,
+              "gesamtpreis": 350.67
+            },
+            {
+              "beschreibung": "Maximize web-enabled networks",
+              "menge": 10,
+              "einzelpreis": 90.27,
+              "gesamtpreis": 902.7
+            },
+            {
+              "beschreibung": "Matrix web-enabled e-tailers",
+              "menge": 5,
+              "einzelpreis": 135.46,
+              "gesamtpreis": 677.3
+            }
+          ],
+          "total_net": "3181.70",
+          "total_vat": "604.52",
+          "total_gross": "3786.22"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Schüler, Musterstraße 1, 12345 Musterstadt\",\n  \"empfaenger\": \"Dr. Isabell Ring B.Sc., Edda-Bloch-Weg 83-44, 91074 Calau\",\n  \"rechnungsnummer\": \"RE-2026-3035\",\n  \"datum\": \"20.01.2026\",\n  \"items\": [\n    {\n      \"beschreibung\": \"Scale wireless niches\",\n      \"menge\": 8,\n      \"einzelpreis\": 105.27,\n      \"gesamtpreis\": 842.16\n    },\n    {\n      \"beschreibung\": \"Syndicate ubiquitous e-markets\",\n      \"menge\": 9,\n      \"einzelpreis\": 45.43,\n      \"gesamtpreis\": 408.87\n    },\n    {\n      \"beschreibung\": \"Engineer interactive synergies\",\n      \"menge\": 3,\n      \"einzelpreis\": 116.89,\n      \"gesamtpreis\": 350.67\n    },\n    {\n      \"beschreibung\": \"Maximize web-enabled networks\",\n      \"menge\": 10,\n      \"einzelpreis\": 90.27,\n      \"gesamtpreis\": 902.70\n    },\n    {\n      \"beschreibung\": \"Matrix web-enabled e-tailers\",\n      \"menge\": 5,\n      \"einzelpreis\": 135.46,\n      \"gesamtpreis\": 677.30\n    }\n  ],\n  \"total_net\": \"3181.70\",\n  \"total_vat\": \"604.52\",\n  \"total_gross\": \"3786.22\"\n}",
+        "duration_seconds": 10.768,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Schüler, Musterstraße 1, 12345 Musterstadt",
+      "empfaenger": "Dr. Isabell Ring B.Sc., Edda-Bloch-Weg 83-44, 91074 Calau",
+      "rechnungsnummer": "RE-2026-3035",
+      "datum": "20.01.2026",
+      "items": [
+        {
+          "beschreibung": "Scale wireless niches",
+          "menge": 8,
+          "einzelpreis": 105.27,
+          "gesamtpreis": 842.16
+        },
+        {
+          "beschreibung": "Syndicate ubiquitous e-markets",
+          "menge": 9,
+          "einzelpreis": 45.43,
+          "gesamtpreis": 408.87
+        },
+        {
+          "beschreibung": "Engineer interactive synergies",
+          "menge": 3,
+          "einzelpreis": 116.89,
+          "gesamtpreis": 350.67
+        },
+        {
+          "beschreibung": "Maximize web-enabled networks",
+          "menge": 10,
+          "einzelpreis": 90.27,
+          "gesamtpreis": 902.7
+        },
+        {
+          "beschreibung": "Matrix web-enabled e-tailers",
+          "menge": 5,
+          "einzelpreis": 135.46,
+          "gesamtpreis": 677.3
+        }
+      ],
+      "total_net": "3181.70",
+      "total_vat": "604.52",
+      "total_gross": "3786.22"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items[0].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[3].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[3].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[3].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[3].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[4].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[4].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[4].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[4].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:10:41"
+}

@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Univ.Prof. Hilda Wirth B.Sc.",
+  "zielort": "Hettstedt",
+  "start": "19.01.2026",
+  "ende": "21.01.2026",
+  "kosten_details": {
+    "transport": 105.89,
+    "hotel": 154.56,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 344.45
+}

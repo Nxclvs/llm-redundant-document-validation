@@ -1,0 +1,496 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_015.png",
+    "name": "REQ_015.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_015.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=20 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "77141",
+          "name": "Alfred Fechner B.Sc.",
+          "abteilung": "HR",
+          "art": "Bildungsurlaub",
+          "von": "09.10.2025",
+          "bis": "21.10.2025",
+          "tage": "12",
+          "datum": "17.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"77141\",\n  \"name\": \"Alfred Fechner B.Sc.\",\n  \"abteilung\": \"HR\",\n  \"art\": \"Bildungsurlaub\",\n  \"von\": \"09.10.2025\",\n  \"bis\": \"21.10.2025\",\n  \"tage\": \"12\",\n  \"datum\": \"17.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 17.665,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "77141",
+      "name": "Alfred Fechner B.Sc.",
+      "abteilung": "HR",
+      "art": "Bildungsurlaub",
+      "von": "09.10.2025",
+      "bis": "21.10.2025",
+      "tage": "12",
+      "datum": "17.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+      },
+      {
+        "field": "personalnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Alfred Fechner B.Sc.' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Abteilung 'HR' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '09.10.2025' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '21.10.2025' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Anzahl der Tage '12' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+      },
+      {
+        "field": "personalnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Alfred Fechner B.Sc.' ist korrekt extrahiert."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '09.10.2025' ist korrekt extrahiert."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '21.10.2025' ist korrekt extrahiert."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Anzahl der Tage '12' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle Felder wurden korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten. | Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+          },
+          {
+            "field": "personalnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Alfred Fechner B.Sc.' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Abteilung 'HR' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '09.10.2025' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '21.10.2025' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Anzahl der Tage '12' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt.\"\n    },\n    {\n      \"field\": \"personalnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Personalnummer '77141' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Alfred Fechner B.Sc.' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Abteilung 'HR' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '09.10.2025' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '21.10.2025' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Anzahl der Tage '12' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '17.01.2026' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 12.873,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+            },
+            {
+              "field": "personalnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Alfred Fechner B.Sc.' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Abteilung 'HR' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '09.10.2025' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '21.10.2025' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Anzahl der Tage '12' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+          },
+          {
+            "field": "personalnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Alfred Fechner B.Sc.' ist korrekt extrahiert."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '09.10.2025' ist korrekt extrahiert."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '21.10.2025' ist korrekt extrahiert."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Anzahl der Tage '12' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt.\"\n    },\n    {\n      \"field\": \"personalnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Personalnummer '77141' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Alfred Fechner B.Sc.' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Abteilung 'HR' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '09.10.2025' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '21.10.2025' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Anzahl der Tage '12' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '17.01.2026' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 12.448,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+            },
+            {
+              "field": "personalnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Personalnummer '77141' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Alfred Fechner B.Sc.' ist korrekt extrahiert."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Urlaubsart 'Bildungsurlaub' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '09.10.2025' ist korrekt extrahiert."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '21.10.2025' ist korrekt extrahiert."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Anzahl der Tage '12' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '17.01.2026' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 25.321,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 20
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:40:36"
+}

@@ -1,0 +1,208 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_012.png",
+    "name": "REQ_012.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_012.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=4 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "14074",
+          "name": "Prof. Bianca Röhrdanz",
+          "abteilung": "Vertrieb",
+          "art": "Sonderurlaub",
+          "von": "17.10.2025",
+          "bis": "02.11.2025",
+          "tage": "16",
+          "datum": "08.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"14074\",\n  \"name\": \"Prof. Bianca Röhrdanz\",\n  \"abteilung\": \"Vertrieb\",\n  \"art\": \"Sonderurlaub\",\n  \"von\": \"17.10.2025\",\n  \"bis\": \"02.11.2025\",\n  \"tage\": \"16\",\n  \"datum\": \"08.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 16.341,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "14074",
+      "name": "Prof. Bianca Röhrdanz",
+      "abteilung": "Vertrieb",
+      "art": "Sonderurlaub",
+      "von": "17.10.2025",
+      "bis": "02.11.2025",
+      "tage": "16",
+      "datum": "08.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, jedoch enthält das Dokument 'Prof. Bianca Röhrdanz' mit einem Umlaut im Nachnamen, der korrekt übernommen wurde."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Dokument nicht unterschrieben wurde."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, enthält jedoch ein Umlaut 'ö', das im Originaldokument als 'oe' geschrieben ist."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Originaldokument nicht unterschrieben ist."
+      }
+    ],
+    "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Fehler, lediglich zwei Hinweise zu korrekten Details. | Alle relevanten Felder sind korrekt extrahiert. Es gibt keine wesentlichen Fehler oder Unsicherheiten. Die Extraktion ist valide.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, jedoch enthält das Dokument 'Prof. Bianca Röhrdanz' mit einem Umlaut im Nachnamen, der korrekt übernommen wurde."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Dokument nicht unterschrieben wurde."
+          }
+        ],
+        "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Fehler, lediglich zwei Hinweise zu korrekten Details.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, jedoch enthält das Dokument 'Prof. Bianca Röhrdanz' mit einem Umlaut im Nachnamen, der korrekt übernommen wurde.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Dokument nicht unterschrieben wurde.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Fehler, lediglich zwei Hinweise zu korrekten Details.\"\n}",
+        "duration_seconds": 6.259,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, jedoch enthält das Dokument 'Prof. Bianca Röhrdanz' mit einem Umlaut im Nachnamen, der korrekt übernommen wurde."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Dokument nicht unterschrieben wurde."
+            }
+          ],
+          "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Fehler, lediglich zwei Hinweise zu korrekten Details."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, enthält jedoch ein Umlaut 'ö', das im Originaldokument als 'oe' geschrieben ist."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Originaldokument nicht unterschrieben ist."
+          }
+        ],
+        "comments": "Alle relevanten Felder sind korrekt extrahiert. Es gibt keine wesentlichen Fehler oder Unsicherheiten. Die Extraktion ist valide.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, enthält jedoch ein Umlaut 'ö', das im Originaldokument als 'oe' geschrieben ist.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Originaldokument nicht unterschrieben ist.\"\n    }\n  ],\n  \"comments\": \"Alle relevanten Felder sind korrekt extrahiert. Es gibt keine wesentlichen Fehler oder Unsicherheiten. Die Extraktion ist valide.\"\n}",
+        "duration_seconds": 6.294,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert, enthält jedoch ein Umlaut 'ö', das im Originaldokument als 'oe' geschrieben ist."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert, jedoch handelt es sich um einen Platzhalter, der im Originaldokument nicht unterschrieben ist."
+            }
+          ],
+          "comments": "Alle relevanten Felder sind korrekt extrahiert. Es gibt keine wesentlichen Fehler oder Unsicherheiten. Die Extraktion ist valide."
+        }
+      }
+    ],
+    "duration_seconds_total": 12.553,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:38:30"
+}

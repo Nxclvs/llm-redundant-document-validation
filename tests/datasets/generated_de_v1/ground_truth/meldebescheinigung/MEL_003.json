@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Artern",
+  "person": {
+    "name": "Christiana Trubin",
+    "geburtsdatum": "12.07.1961"
+  },
+  "wohnungen": {
+    "aktuell": "Binnergasse 89-29, 25249 Artern",
+    "einzugsdatum": "18.10.2021",
+    "vorherig": "Monika-Schenk-Platz 8-9, 50783 Teterow"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

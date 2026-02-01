@@ -1,0 +1,565 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_010.png",
+    "name": "INV_010.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: INV_010.png | Schema-Validation: Errors=0, Warnings=3, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=12, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=17 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Kaul Ziegert AG & Co. OHG\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Univ.Prof. Claus-Peter Römer\nWojciech-Etzold-Straße 31-20\n21816 Stendal",
+          "rechnungsnummer": "RE-2026-5919",
+          "datum": "25.01.2026",
+          "items": [
+            {
+              "beschreibung": "Harness distributed action-items",
+              "menge": 9,
+              "einzelpreis": 144.24,
+              "gesamtpreis": 1298.16
+            },
+            {
+              "beschreibung": "Incubate end-to-end bandwidth",
+              "menge": 8,
+              "einzelpreis": 88.16,
+              "gesamtpreis": 705.28
+            },
+            {
+              "beschreibung": "Syndicate world-class metrics",
+              "menge": 5,
+              "einzelpreis": 44.92,
+              "gesamtpreis": 224.6
+            }
+          ],
+          "total_net": "2228.04",
+          "total_vat": "423.33",
+          "total_gross": "2651.37"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Kaul Ziegert AG & Co. OHG\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Univ.Prof. Claus-Peter Römer\\nWojciech-Etzold-Straße 31-20\\n21816 Stendal\",\n  \"rechnungsnummer\": \"RE-2026-5919\",\n  \"datum\": \"25.01.2026\",\n  \"items\": [\n    {\n      \"beschreibung\": \"Harness distributed action-items\",\n      \"menge\": 9,\n      \"einzelpreis\": 144.24,\n      \"gesamtpreis\": 1298.16\n    },\n    {\n      \"beschreibung\": \"Incubate end-to-end bandwidth\",\n      \"menge\": 8,\n      \"einzelpreis\": 88.16,\n      \"gesamtpreis\": 705.28\n    },\n    {\n      \"beschreibung\": \"Syndicate world-class metrics\",\n      \"menge\": 5,\n      \"einzelpreis\": 44.92,\n      \"gesamtpreis\": 224.60\n    }\n  ],\n  \"total_net\": \"2228.04\",\n  \"total_vat\": \"423.33\",\n  \"total_gross\": \"2651.37\"\n}",
+        "duration_seconds": 18.639,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Kaul Ziegert AG & Co. OHG\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Univ.Prof. Claus-Peter Römer\nWojciech-Etzold-Straße 31-20\n21816 Stendal",
+      "rechnungsnummer": "RE-2026-5919",
+      "datum": "25.01.2026",
+      "items": [
+        {
+          "beschreibung": "Harness distributed action-items",
+          "menge": 9,
+          "einzelpreis": 144.24,
+          "gesamtpreis": 1298.16
+        },
+        {
+          "beschreibung": "Incubate end-to-end bandwidth",
+          "menge": 8,
+          "einzelpreis": 88.16,
+          "gesamtpreis": 705.28
+        },
+        {
+          "beschreibung": "Syndicate world-class metrics",
+          "menge": 5,
+          "einzelpreis": 44.92,
+          "gesamtpreis": 224.6
+        }
+      ],
+      "total_net": "2228.04",
+      "total_vat": "423.33",
+      "total_gross": "2651.37"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items[0].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[0].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[1].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].description",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].quantity",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].unit_price",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      },
+      {
+        "field": "items[2].total",
+        "rule": "missing_key",
+        "severity": "warning",
+        "message": "Key fehlt in Item."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "rechnungsnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Rechnungsnummer korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "sender",
+        "type": "info",
+        "severity": "info",
+        "message": "Absender korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "empfaenger",
+        "type": "info",
+        "severity": "info",
+        "message": "Empfänger korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Alle Positionen (Beschreibung, Menge, Einzelpreis, Gesamtpreis) korrekt extrahiert, entsprechen dem Dokument."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Netto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "Mehrwertsteuer korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Brutto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+      },
+      {
+        "field": "sender",
+        "type": "info",
+        "severity": "info",
+        "message": "Absender korrekt extrahiert."
+      },
+      {
+        "field": "empfaenger",
+        "type": "info",
+        "severity": "info",
+        "message": "Empfänger korrekt extrahiert."
+      },
+      {
+        "field": "rechnungsnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Rechnungsnummer korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Alle Positionen korrekt extrahiert."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Netto-Betrag korrekt extrahiert."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "MwSt korrekt extrahiert."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Gesamtbetrag korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "rechnungsnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Rechnungsnummer korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "sender",
+            "type": "info",
+            "severity": "info",
+            "message": "Absender korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "empfaenger",
+            "type": "info",
+            "severity": "info",
+            "message": "Empfänger korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Alle Positionen (Beschreibung, Menge, Einzelpreis, Gesamtpreis) korrekt extrahiert, entsprechen dem Dokument."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Netto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "Mehrwertsteuer korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Brutto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+          }
+        ],
+        "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"rechnungsnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Rechnungsnummer korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"sender\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Absender korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Empfänger korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Alle Positionen (Beschreibung, Menge, Einzelpreis, Gesamtpreis) korrekt extrahiert, entsprechen dem Dokument.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Netto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Mehrwertsteuer korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Brutto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 10.145,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "rechnungsnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Rechnungsnummer korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "sender",
+              "type": "info",
+              "severity": "info",
+              "message": "Absender korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "empfaenger",
+              "type": "info",
+              "severity": "info",
+              "message": "Empfänger korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Alle Positionen (Beschreibung, Menge, Einzelpreis, Gesamtpreis) korrekt extrahiert, entsprechen dem Dokument."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Netto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "Mehrwertsteuer korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Brutto-Gesamtsumme korrekt extrahiert, entspricht dem Dokument."
+            }
+          ],
+          "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+          },
+          {
+            "field": "sender",
+            "type": "info",
+            "severity": "info",
+            "message": "Absender korrekt extrahiert."
+          },
+          {
+            "field": "empfaenger",
+            "type": "info",
+            "severity": "info",
+            "message": "Empfänger korrekt extrahiert."
+          },
+          {
+            "field": "rechnungsnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Rechnungsnummer korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Alle Positionen korrekt extrahiert."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Netto-Betrag korrekt extrahiert."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "MwSt korrekt extrahiert."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Gesamtbetrag korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'rechnung' erkannt.\"\n    },\n    {\n      \"field\": \"sender\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Absender korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Empfänger korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"rechnungsnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Rechnungsnummer korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Alle Positionen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Netto-Betrag korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"MwSt korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Gesamtbetrag korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 20.645,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+            },
+            {
+              "field": "sender",
+              "type": "info",
+              "severity": "info",
+              "message": "Absender korrekt extrahiert."
+            },
+            {
+              "field": "empfaenger",
+              "type": "info",
+              "severity": "info",
+              "message": "Empfänger korrekt extrahiert."
+            },
+            {
+              "field": "rechnungsnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Rechnungsnummer korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Alle Positionen korrekt extrahiert."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Netto-Betrag korrekt extrahiert."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "MwSt korrekt extrahiert."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Gesamtbetrag korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 30.79,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 17
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:21:26"
+}

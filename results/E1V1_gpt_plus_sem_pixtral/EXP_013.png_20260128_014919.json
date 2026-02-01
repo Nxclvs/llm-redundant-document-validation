@@ -1,0 +1,169 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_013.png",
+    "name": "EXP_013.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_013.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=1, Warnings=0, Infos=2 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Christoph Stadelmann",
+          "zielort": "Calau",
+          "start": "02.01.2026",
+          "ende": "04.01.2026",
+          "kosten_details": "Fahrtkosten: 110.64, Übernachtungskosten: 160.28, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "354.92"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Christoph Stadelmann\",\n  \"zielort\": \"Calau\",\n  \"start\": \"02.01.2026\",\n  \"ende\": \"04.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 110.64, Übernachtungskosten: 160.28, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"354.92\"\n}",
+        "duration_seconds": 5.508,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Christoph Stadelmann",
+      "zielort": "Calau",
+      "start": "02.01.2026",
+      "ende": "04.01.2026",
+      "kosten_details": "Fahrtkosten: 110.64, Übernachtungskosten: 160.28, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "354.92"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '154.92', während in den JSON-Daten '354.92' angegeben ist."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unstrukturiert."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '154.92', während in den JSON-Daten '354.92' angegeben ist."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unstrukturiert."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '154.92', während in den JSON-Daten '354.92' angegeben ist.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unstrukturiert.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden.\"\n}",
+        "duration_seconds": 6.023,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '154.92', während in den JSON-Daten '354.92' angegeben ist."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unstrukturiert."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden."
+        }
+      }
+    ],
+    "duration_seconds_total": 6.023,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 0,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:49:19"
+}

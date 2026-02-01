@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Univ.Prof. Adelinde Spieß B.Eng.",
+  "zielort": "Oschatz",
+  "start": "18.01.2026",
+  "ende": "20.01.2026",
+  "kosten_details": {
+    "transport": 98.31,
+    "hotel": 198.06,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 380.37
+}

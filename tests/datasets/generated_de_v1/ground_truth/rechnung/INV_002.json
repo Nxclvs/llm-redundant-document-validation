@@ -1,0 +1,40 @@
+{
+  "typ": "rechnung",
+  "sender": "Möchlichen\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Univ.Prof. Sabrina Steuer\nOrtmannring 7/9\n05961 Grafenau",
+  "rechnungsnummer": "RE-2026-2215",
+  "datum": "24.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Redefine b2b initiatives",
+      "menge": 8,
+      "einzelpreis": 79.39,
+      "gesamtpreis": 635.12
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Morph back-end infrastructures",
+      "menge": 4,
+      "einzelpreis": 31.76,
+      "gesamtpreis": 127.04
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Monetize global paradigms",
+      "menge": 3,
+      "einzelpreis": 21.15,
+      "gesamtpreis": 63.45
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Incubate impactful niches",
+      "menge": 7,
+      "einzelpreis": 123.67,
+      "gesamtpreis": 865.69
+    }
+  ],
+  "total_net": 1691.3,
+  "total_vat": 321.35,
+  "total_gross": 2012.65
+}

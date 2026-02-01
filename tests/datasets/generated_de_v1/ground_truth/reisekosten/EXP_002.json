@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Jürgen Gerlach",
+  "zielort": "Miesbach",
+  "start": "16.01.2026",
+  "ende": "18.01.2026",
+  "kosten_details": {
+    "transport": 56.36,
+    "hotel": 195.22,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 335.58
+}

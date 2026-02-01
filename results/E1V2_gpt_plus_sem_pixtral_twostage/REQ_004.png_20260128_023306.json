@@ -1,0 +1,262 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_004.png",
+    "name": "REQ_004.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: REQ_004.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=1, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "38291",
+          "name": "Saban Mülichen-Stahr",
+          "abteilung": "IT",
+          "art": "Bildungsurlaub",
+          "von": "12.06.2026",
+          "bis": "18.06.2026",
+          "tage": "6",
+          "datum": "05.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"38291\",\n  \"name\": \"Saban Mülichen-Stahr\",\n  \"abteilung\": \"IT\",\n  \"art\": \"Bildungsurlaub\",\n  \"von\": \"12.06.2026\",\n  \"bis\": \"18.06.2026\",\n  \"tage\": \"6\",\n  \"datum\": \"05.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 5.348,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "38291",
+      "name": "Saban Mülichen-Stahr",
+      "abteilung": "IT",
+      "art": "Bildungsurlaub",
+      "von": "12.06.2026",
+      "bis": "18.06.2026",
+      "tage": "6",
+      "datum": "05.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während im JSON 'Saban Mülichen-Stahr' steht. Dies ist ein Tippfehler."
+      },
+      {
+        "field": "art",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Feld 'art' im JSON lautet 'Bildungsurlaub', während im Dokument 'Urlaubsart' mit dem Wert 'Bildungsurlaub' steht. Dies ist eine falsche Zuordnung."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'tage' ist korrekt extrahiert, aber es ist unklar, ob es sich um Arbeitstage oder Kalendertage handelt."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'unterschrift_arbeitnehmer' ist korrekt extrahiert, aber es handelt sich um einen Platzhalter, keine tatsächliche Unterschrift."
+      },
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während in der JSON 'Saban Mülichen-Stahr' steht. Möglicher Tippfehler oder OCR-Fehler."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Wert im Dokument."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Wert im Dokument."
+      }
+    ],
+    "comments": "Die Extraktion enthält klare Fehler bei der Schreibweise des Namens und der Zuordnung des Feldes 'art'. Die restlichen Felder sind korrekt, aber es gibt Unsicherheiten bei der Interpretation der 'Tage'. | Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die auf einen möglichen Fehler hinweist. Alle anderen Werte sind korrekt extrahiert.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während im JSON 'Saban Mülichen-Stahr' steht. Dies ist ein Tippfehler."
+          },
+          {
+            "field": "art",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Feld 'art' im JSON lautet 'Bildungsurlaub', während im Dokument 'Urlaubsart' mit dem Wert 'Bildungsurlaub' steht. Dies ist eine falsche Zuordnung."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'tage' ist korrekt extrahiert, aber es ist unklar, ob es sich um Arbeitstage oder Kalendertage handelt."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'unterschrift_arbeitnehmer' ist korrekt extrahiert, aber es handelt sich um einen Platzhalter, keine tatsächliche Unterschrift."
+          }
+        ],
+        "comments": "Die Extraktion enthält klare Fehler bei der Schreibweise des Namens und der Zuordnung des Feldes 'art'. Die restlichen Felder sind korrekt, aber es gibt Unsicherheiten bei der Interpretation der 'Tage'.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Name im Dokument lautet 'Saban Müllchen-Stahr', während im JSON 'Saban Mülichen-Stahr' steht. Dies ist ein Tippfehler.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Feld 'art' im JSON lautet 'Bildungsurlaub', während im Dokument 'Urlaubsart' mit dem Wert 'Bildungsurlaub' steht. Dies ist eine falsche Zuordnung.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'tage' ist korrekt extrahiert, aber es ist unklar, ob es sich um Arbeitstage oder Kalendertage handelt.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'unterschrift_arbeitnehmer' ist korrekt extrahiert, aber es handelt sich um einen Platzhalter, keine tatsächliche Unterschrift.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion enthält klare Fehler bei der Schreibweise des Namens und der Zuordnung des Feldes 'art'. Die restlichen Felder sind korrekt, aber es gibt Unsicherheiten bei der Interpretation der 'Tage'.\"\n}",
+        "duration_seconds": 11.834,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während im JSON 'Saban Mülichen-Stahr' steht. Dies ist ein Tippfehler."
+            },
+            {
+              "field": "art",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Feld 'art' im JSON lautet 'Bildungsurlaub', während im Dokument 'Urlaubsart' mit dem Wert 'Bildungsurlaub' steht. Dies ist eine falsche Zuordnung."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'tage' ist korrekt extrahiert, aber es ist unklar, ob es sich um Arbeitstage oder Kalendertage handelt."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'unterschrift_arbeitnehmer' ist korrekt extrahiert, aber es handelt sich um einen Platzhalter, keine tatsächliche Unterschrift."
+            }
+          ],
+          "comments": "Die Extraktion enthält klare Fehler bei der Schreibweise des Namens und der Zuordnung des Feldes 'art'. Die restlichen Felder sind korrekt, aber es gibt Unsicherheiten bei der Interpretation der 'Tage'."
+        }
+      },
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während in der JSON 'Saban Mülichen-Stahr' steht. Möglicher Tippfehler oder OCR-Fehler."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Wert im Dokument."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Wert im Dokument."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die auf einen möglichen Fehler hinweist. Alle anderen Werte sind korrekt extrahiert.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Der Name im Dokument lautet 'Saban Müllchen-Stahr', während in der JSON 'Saban Mülichen-Stahr' steht. Möglicher Tippfehler oder OCR-Fehler.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Wert im Dokument.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Wert im Dokument.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die auf einen möglichen Fehler hinweist. Alle anderen Werte sind korrekt extrahiert.\"\n}",
+        "duration_seconds": 6.725,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während in der JSON 'Saban Mülichen-Stahr' steht. Möglicher Tippfehler oder OCR-Fehler."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Wert im Dokument."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Wert im Dokument."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die auf einen möglichen Fehler hinweist. Alle anderen Werte sind korrekt extrahiert."
+        }
+      }
+    ],
+    "duration_seconds_total": 18.559,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 1,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:33:06"
+}

@@ -1,0 +1,246 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_005.png",
+    "name": "INV_005.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_005.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=6 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Jacob\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Meik Wulff\nJockelallee 4-2\n57628 Stade",
+          "rechnungsnummer": "RE-2026-4173",
+          "datum": "23.01.2026",
+          "items": "1 Implement robust methodologies, 1, 99.50, 99.50\n2 Seize visionary e-tailers, 2, 106.62, 213.24\n3 Harness turn-key synergies, 7, 57.93, 405.51\n4 Matrix efficient systems, 4, 31.00, 124.00\n5 Benchmark world-class schemas, 3, 122.88, 368.64",
+          "total_net": "1210.89",
+          "total_vat": "230.07",
+          "total_gross": "1440.96"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Jacob\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Meik Wulff\\nJockelallee 4-2\\n57628 Stade\",\n  \"rechnungsnummer\": \"RE-2026-4173\",\n  \"datum\": \"23.01.2026\",\n  \"items\": \"1 Implement robust methodologies, 1, 99.50, 99.50\\n2 Seize visionary e-tailers, 2, 106.62, 213.24\\n3 Harness turn-key synergies, 7, 57.93, 405.51\\n4 Matrix efficient systems, 4, 31.00, 124.00\\n5 Benchmark world-class schemas, 3, 122.88, 368.64\",\n  \"total_net\": \"1210.89\",\n  \"total_vat\": \"230.07\",\n  \"total_gross\": \"1440.96\"\n}",
+        "duration_seconds": 20.344,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Jacob\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Meik Wulff\nJockelallee 4-2\n57628 Stade",
+      "rechnungsnummer": "RE-2026-4173",
+      "datum": "23.01.2026",
+      "items": "1 Implement robust methodologies, 1, 99.50, 99.50\n2 Seize visionary e-tailers, 2, 106.62, 213.24\n3 Harness turn-key synergies, 7, 57.93, 405.51\n4 Matrix efficient systems, 4, 31.00, 124.00\n5 Benchmark world-class schemas, 3, 122.88, 368.64",
+      "total_net": "1210.89",
+      "total_vat": "230.07",
+      "total_gross": "1440.96"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Originaldokument überein."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Nettobetrag (1210.89 €) ist korrekt extrahiert."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Mehrwertsteuerbetrag (230.07 €) ist korrekt extrahiert."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Gesamtbetrag (1440.96 €) ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum (23.01.2026) ist korrekt extrahiert."
+      },
+      {
+        "field": "rechnungsnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Rechnungsnummer (RE-2026-4173) ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Originaldokument überein."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Nettobetrag (1210.89 €) ist korrekt extrahiert."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Mehrwertsteuerbetrag (230.07 €) ist korrekt extrahiert."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Gesamtbetrag (1440.96 €) ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum (23.01.2026) ist korrekt extrahiert."
+          },
+          {
+            "field": "rechnungsnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Rechnungsnummer (RE-2026-4173) ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Beschreibungen und Werte der Positionen stimmen mit dem Originaldokument überein.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Nettobetrag (1210.89 €) ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Mehrwertsteuerbetrag (230.07 €) ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Gesamtbetrag (1440.96 €) ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum (23.01.2026) ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"rechnungsnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Rechnungsnummer (RE-2026-4173) ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 9.356,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Originaldokument überein."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Nettobetrag (1210.89 €) ist korrekt extrahiert."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Mehrwertsteuerbetrag (230.07 €) ist korrekt extrahiert."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Gesamtbetrag (1440.96 €) ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum (23.01.2026) ist korrekt extrahiert."
+            },
+            {
+              "field": "rechnungsnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Rechnungsnummer (RE-2026-4173) ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 9.356,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 6
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:39:20"
+}

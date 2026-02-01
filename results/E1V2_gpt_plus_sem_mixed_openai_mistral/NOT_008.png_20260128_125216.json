@@ -1,0 +1,404 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_008.png",
+    "name": "NOT_008.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: NOT_008.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=15 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "gebührenbescheid",
+          "behoerde": "Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg",
+          "adressat": "Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg",
+          "aktenzeichen": "AZ-280107",
+          "datum": "14.01.2026",
+          "grund": "Hundesteuer",
+          "betrag": "23.44 Euro",
+          "zahlungsfrist": "07.02.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"gebührenbescheid\",\n  \"behoerde\": \"Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg\",\n  \"adressat\": \"Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg\",\n  \"aktenzeichen\": \"AZ-280107\",\n  \"datum\": \"14.01.2026\",\n  \"grund\": \"Hundesteuer\",\n  \"betrag\": \"23.44 Euro\",\n  \"zahlungsfrist\": \"07.02.2026\"\n}",
+        "duration_seconds": 17.064,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "gebührenbescheid",
+      "behoerde": "Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg",
+      "adressat": "Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg",
+      "aktenzeichen": "AZ-280107",
+      "datum": "14.01.2026",
+      "grund": "Hundesteuer",
+      "betrag": "23.44 Euro",
+      "zahlungsfrist": "07.02.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, einschließlich Anrede, Name und Adresse."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert, einschließlich Währung."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg' ist korrekt extrahiert."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Adressat 'Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg' ist korrekt extrahiert."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Aktenzeichen 'AZ-280107' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '14.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Betrag '23.44 Euro' ist korrekt extrahiert."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Zahlungsfrist '07.02.2026' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen oder Unsicherheiten festgestellt.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, einschließlich Anrede, Name und Adresse."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert, einschließlich Währung."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt extrahiert, einschließlich Adresse und Amt.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, einschließlich Anrede, Name und Adresse.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund der Gebühr korrekt als 'Hundesteuer' extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert, einschließlich Währung.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 8.266,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, einschließlich Anrede, Name und Adresse."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert, einschließlich Währung."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg' ist korrekt extrahiert."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Adressat 'Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg' ist korrekt extrahiert."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Aktenzeichen 'AZ-280107' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '14.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Betrag '23.44 Euro' ist korrekt extrahiert."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Zahlungsfrist '07.02.2026' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen oder Unsicherheiten festgestellt.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'gebührenbescheid' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Adressat 'Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Aktenzeichen 'AZ-280107' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '14.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Grund 'Hundesteuer' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Betrag '23.44 Euro' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Zahlungsfrist '07.02.2026' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen oder Unsicherheiten festgestellt.\"\n}",
+        "duration_seconds": 27.885,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'Stadtverwaltung Perleberg, Amt für öffentliche Ordnung, 71558 Perleberg' ist korrekt extrahiert."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Adressat 'Ing. Samir Peukert, Emilie-Seifert-Allee 86-94, 89145 Tecklenburg' ist korrekt extrahiert."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Aktenzeichen 'AZ-280107' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '14.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Betrag '23.44 Euro' ist korrekt extrahiert."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Zahlungsfrist '07.02.2026' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen oder Unsicherheiten festgestellt."
+        }
+      }
+    ],
+    "duration_seconds_total": 36.151,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 15
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T12:52:16"
+}

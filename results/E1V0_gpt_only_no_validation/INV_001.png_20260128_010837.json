@@ -1,0 +1,110 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_001.png",
+    "name": "INV_001.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_001.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Täsche KGaA\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Sigfried Etzler\nEckhart-Eckbauer-Gasse 13-66\n40451 Tecklenburg",
+          "rechnungsnummer": "RE-2026-3434",
+          "datum": "13.01.2026",
+          "items": "1. Seize out-of-the-box paradigms, Menge: 2, Einzel: 83.48, Gesamt: 166.96\n2. Incentivize plug-and-play roi, Menge: 9, Einzel: 54.56, Gesamt: 491.04\n3. Synthesize real-time infrastructures, Menge: 6, Einzel: 82.74, Gesamt: 496.44",
+          "total_net": "1154.44",
+          "total_vat": "219.34",
+          "total_gross": "1373.78"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Täsche KGaA\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Sigfried Etzler\\nEckhart-Eckbauer-Gasse 13-66\\n40451 Tecklenburg\",\n  \"rechnungsnummer\": \"RE-2026-3434\",\n  \"datum\": \"13.01.2026\",\n  \"items\": \"1. Seize out-of-the-box paradigms, Menge: 2, Einzel: 83.48, Gesamt: 166.96\\n2. Incentivize plug-and-play roi, Menge: 9, Einzel: 54.56, Gesamt: 491.04\\n3. Synthesize real-time infrastructures, Menge: 6, Einzel: 82.74, Gesamt: 496.44\",\n  \"total_net\": \"1154.44\",\n  \"total_vat\": \"219.34\",\n  \"total_gross\": \"1373.78\"\n}",
+        "duration_seconds": 9.867,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Täsche KGaA\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Sigfried Etzler\nEckhart-Eckbauer-Gasse 13-66\n40451 Tecklenburg",
+      "rechnungsnummer": "RE-2026-3434",
+      "datum": "13.01.2026",
+      "items": "1. Seize out-of-the-box paradigms, Menge: 2, Einzel: 83.48, Gesamt: 166.96\n2. Incentivize plug-and-play roi, Menge: 9, Einzel: 54.56, Gesamt: 491.04\n3. Synthesize real-time infrastructures, Menge: 6, Einzel: 82.74, Gesamt: 496.44",
+      "total_net": "1154.44",
+      "total_vat": "219.34",
+      "total_gross": "1373.78"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:08:37"
+}

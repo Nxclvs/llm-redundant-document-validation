@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "29898",
+  "name": "Henry Hesse",
+  "abteilung": "Logistik",
+  "art": "Sonderurlaub",
+  "von": "07.04.2025",
+  "bis": "23.04.2025",
+  "tage": 16
+}

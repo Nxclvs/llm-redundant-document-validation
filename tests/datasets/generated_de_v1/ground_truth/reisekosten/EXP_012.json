@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Waltraut Franke",
+  "zielort": "Lüdinghausen",
+  "start": "01.01.2026",
+  "ende": "03.01.2026",
+  "kosten_details": {
+    "transport": 96.94,
+    "hotel": 280.38,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 461.32
+}

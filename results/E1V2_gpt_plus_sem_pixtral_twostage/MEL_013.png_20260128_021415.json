@@ -1,0 +1,422 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_013.png",
+    "name": "MEL_013.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_013.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=16 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Kornelia Kraus MBA.",
+          "geburtsdatum": "11.06.1936",
+          "anschrift_aktuell": "Mosemannring 62/89, 87733 Eichstätt",
+          "einzugsdatum": "10.05.2024",
+          "anschrift_vorher": "Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden",
+          "datum": "28.01.2026",
+          "siegel": "true"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Kornelia Kraus MBA.\",\n  \"geburtsdatum\": \"11.06.1936\",\n  \"anschrift_aktuell\": \"Mosemannring 62/89, 87733 Eichstätt\",\n  \"einzugsdatum\": \"10.05.2024\",\n  \"anschrift_vorher\": \"Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"true\"\n}",
+        "duration_seconds": 14.824,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Kornelia Kraus MBA.",
+      "geburtsdatum": "11.06.1936",
+      "anschrift_aktuell": "Mosemannring 62/89, 87733 Eichstätt",
+      "einzugsdatum": "10.05.2024",
+      "anschrift_vorher": "Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden",
+      "datum": "28.01.2026",
+      "siegel": "true"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'Kornelia Kraus MBA.' extrahiert."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '11.06.1936' extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'Mosemannring 62/89, 87733 Eichstätt' extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '10.05.2024' extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt als 'true' extrahiert, da ein Siegel im Dokument sichtbar ist."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Kornelia Kraus MBA.' ist korrekt extrahiert, der Punkt am Ende ist im Originaldokument enthalten."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Geburtsdatum '11.06.1936' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift 'Mosemannring 62/89, 87733 Eichstätt' ist korrekt extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Einzugsdatum '10.05.2024' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist im Dokument sichtbar und korrekt als 'true' extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle extrahierten Felder stimmen mit den Informationen im Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'Kornelia Kraus MBA.' extrahiert."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '11.06.1936' extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'Mosemannring 62/89, 87733 Eichstätt' extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '10.05.2024' extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt als 'true' extrahiert, da ein Siegel im Dokument sichtbar ist."
+          }
+        ],
+        "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Typ korrekt als 'amtliche meldebescheinigung' extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro' extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'Kornelia Kraus MBA.' extrahiert.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '11.06.1936' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'Mosemannring 62/89, 87733 Eichstätt' extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '10.05.2024' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt als 'true' extrahiert, da ein Siegel im Dokument sichtbar ist.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 13.474,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'Stadt Eichstätt, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'Kornelia Kraus MBA.' extrahiert."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '11.06.1936' extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'Mosemannring 62/89, 87733 Eichstätt' extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '10.05.2024' extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt als 'true' extrahiert, da ein Siegel im Dokument sichtbar ist."
+            }
+          ],
+          "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Kornelia Kraus MBA.' ist korrekt extrahiert, der Punkt am Ende ist im Originaldokument enthalten."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Geburtsdatum '11.06.1936' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift 'Mosemannring 62/89, 87733 Eichstätt' ist korrekt extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Einzugsdatum '10.05.2024' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist im Dokument sichtbar und korrekt als 'true' extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Kornelia Kraus MBA.' ist korrekt extrahiert, der Punkt am Ende ist im Originaldokument enthalten.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Geburtsdatum '11.06.1936' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift 'Mosemannring 62/89, 87733 Eichstätt' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Einzugsdatum '10.05.2024' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist im Dokument sichtbar und korrekt als 'true' extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 10.975,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Kornelia Kraus MBA.' ist korrekt extrahiert, der Punkt am Ende ist im Originaldokument enthalten."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Geburtsdatum '11.06.1936' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift 'Mosemannring 62/89, 87733 Eichstätt' ist korrekt extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Einzugsdatum '10.05.2024' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift 'Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist im Dokument sichtbar und korrekt als 'true' extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 24.449,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 16
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:14:15"
+}

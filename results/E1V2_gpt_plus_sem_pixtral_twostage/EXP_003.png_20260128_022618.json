@@ -1,0 +1,244 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_003.png",
+    "name": "EXP_003.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_003.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=4, Warnings=0, Infos=2 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Univ.Prof. Radmila Wirth B.Sc.",
+          "zielort": "Delitzsch",
+          "start": "23.01.2026",
+          "ende": "25.01.2026",
+          "kosten_details": "Fahrtkosten: 44.67, Übernachtungskosten: 124.37, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "253.04"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Univ.Prof. Radmila Wirth B.Sc.\",\n  \"zielort\": \"Delitzsch\",\n  \"start\": \"23.01.2026\",\n  \"ende\": \"25.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 44.67, Übernachtungskosten: 124.37, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"253.04\"\n}",
+        "duration_seconds": 4.889,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Univ.Prof. Radmila Wirth B.Sc.",
+      "zielort": "Delitzsch",
+      "start": "23.01.2026",
+      "ende": "25.01.2026",
+      "kosten_details": "Fahrtkosten: 44.67, Übernachtungskosten: 124.37, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "253.04"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch enthält das Originaldokument ein '€'-Symbol, das hier nicht übernommen wurde."
+      },
+      {
+        "field": "start",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Startdatum im Dokument lautet '23.01.2026', während das JSON-Datum '23.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+      },
+      {
+        "field": "ende",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Enddatum im Dokument lautet '25.01.2026', während das JSON-Datum '25.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+      },
+      {
+        "field": "kosten_details",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Die Kosten im Dokument sind korrekt, aber die Formatierung im JSON ist unstrukturiert und enthält keine klare Trennung der Werte."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '53.04', während das JSON '253.04' angibt. Dies ist ein klarer Fehler."
+      }
+    ],
+    "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine klaren Fehler, jedoch könnte die Struktur der Kostenaufstellung verbessert werden. | Die Extraktion enthält mehrere klare Fehler, insbesondere beim Erstattungsbetrag und der unstrukturierten Darstellung der Kosten. Die Daten sind daher als ungültig zu betrachten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch enthält das Originaldokument ein '€'-Symbol, das hier nicht übernommen wurde."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine klaren Fehler, jedoch könnte die Struktur der Kostenaufstellung verbessert werden.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert, jedoch enthält das Originaldokument ein '€'-Symbol, das hier nicht übernommen wurde.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine klaren Fehler, jedoch könnte die Struktur der Kostenaufstellung verbessert werden.\"\n}",
+        "duration_seconds": 5.803,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch enthält das Originaldokument ein '€'-Symbol, das hier nicht übernommen wurde."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Originaldokument überein. Es gibt keine klaren Fehler, jedoch könnte die Struktur der Kostenaufstellung verbessert werden."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "start",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Startdatum im Dokument lautet '23.01.2026', während das JSON-Datum '23.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+          },
+          {
+            "field": "ende",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Enddatum im Dokument lautet '25.01.2026', während das JSON-Datum '25.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+          },
+          {
+            "field": "kosten_details",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Die Kosten im Dokument sind korrekt, aber die Formatierung im JSON ist unstrukturiert und enthält keine klare Trennung der Werte."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '53.04', während das JSON '253.04' angibt. Dies ist ein klarer Fehler."
+          }
+        ],
+        "comments": "Die Extraktion enthält mehrere klare Fehler, insbesondere beim Erstattungsbetrag und der unstrukturierten Darstellung der Kosten. Die Daten sind daher als ungültig zu betrachten.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"start\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Startdatum im Dokument lautet '23.01.2026', während das JSON-Datum '23.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen).\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Enddatum im Dokument lautet '25.01.2026', während das JSON-Datum '25.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen).\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Die Kosten im Dokument sind korrekt, aber die Formatierung im JSON ist unstrukturiert und enthält keine klare Trennung der Werte.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '53.04', während das JSON '253.04' angibt. Dies ist ein klarer Fehler.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion enthält mehrere klare Fehler, insbesondere beim Erstattungsbetrag und der unstrukturierten Darstellung der Kosten. Die Daten sind daher als ungültig zu betrachten.\"\n}",
+        "duration_seconds": 8.628,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "start",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Startdatum im Dokument lautet '23.01.2026', während das JSON-Datum '23.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+            },
+            {
+              "field": "ende",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Enddatum im Dokument lautet '25.01.2026', während das JSON-Datum '25.01.2026' korrekt ist, aber das Format unklar ist (z.B. Trennzeichen)."
+            },
+            {
+              "field": "kosten_details",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Die Kosten im Dokument sind korrekt, aber die Formatierung im JSON ist unstrukturiert und enthält keine klare Trennung der Werte."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '53.04', während das JSON '253.04' angibt. Dies ist ein klarer Fehler."
+            }
+          ],
+          "comments": "Die Extraktion enthält mehrere klare Fehler, insbesondere beim Erstattungsbetrag und der unstrukturierten Darstellung der Kosten. Die Daten sind daher als ungültig zu betrachten."
+        }
+      }
+    ],
+    "duration_seconds_total": 14.431,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 4,
+      "warnings": 0,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:26:18"
+}

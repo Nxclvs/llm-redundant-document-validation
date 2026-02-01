@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Christoph Stadelmann",
+  "zielort": "Calau",
+  "start": "02.01.2026",
+  "ende": "04.01.2026",
+  "kosten_details": {
+    "transport": 110.64,
+    "hotel": 160.28,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 354.92
+}

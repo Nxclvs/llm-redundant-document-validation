@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Gina Nette",
+  "zielort": "Cottbus",
+  "start": "25.01.2026",
+  "ende": "27.01.2026",
+  "kosten_details": {
+    "transport": 135.86,
+    "hotel": 189.32,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 409.18
+}

@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Neustadt am Rübenberge",
+  "person": {
+    "name": "Slawomir Heydrich MBA.",
+    "geburtsdatum": "06.06.1964"
+  },
+  "wohnungen": {
+    "aktuell": "Naserallee 9/2, 05925 Neustadt am Rübenberge",
+    "einzugsdatum": "22.06.2025",
+    "vorherig": "Bienstr. 6943, 83682 Germersheim"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

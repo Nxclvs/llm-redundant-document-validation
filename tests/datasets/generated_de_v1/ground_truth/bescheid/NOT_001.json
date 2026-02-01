@@ -1,0 +1,10 @@
+{
+  "typ": "bescheid",
+  "behoerde": "Stadtverwaltung Neuruppin\nAmt für öffentliche Ordnung",
+  "adressat": "Sophia Bolnbach\nTherese-Fechner-Gasse 4/5\n48269 Rochlitz",
+  "aktenzeichen": "AZ-753394",
+  "datum": "03.01.2026",
+  "grund": "Falschparken",
+  "betrag": 42.17,
+  "zahlungsfrist": "21.01.2026"
+}

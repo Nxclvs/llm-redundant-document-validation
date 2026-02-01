@@ -1,0 +1,151 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_002.png",
+    "name": "EXP_002.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_002.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=1, Warnings=0, Infos=1 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Jürgen Gerlach",
+          "zielort": "Miesbach",
+          "start": "16.01.2026",
+          "ende": "18.01.2026",
+          "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "335.58"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Jürgen Gerlach\",\n  \"zielort\": \"Miesbach\",\n  \"start\": \"16.01.2026\",\n  \"ende\": \"18.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"335.58\"\n}",
+        "duration_seconds": 15.795,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Jürgen Gerlach",
+      "zielort": "Miesbach",
+      "start": "16.01.2026",
+      "ende": "18.01.2026",
+      "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "335.58"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag und die Kostenformate sollten überprüft werden, um sicherzustellen, dass sie in nachgelagerten Systemen korrekt verarbeitet werden.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag und die Kostenformate sollten überprüft werden, um sicherzustellen, dass sie in nachgelagerten Systemen korrekt verarbeitet werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag und die Kostenformate sollten überprüft werden, um sicherzustellen, dass sie in nachgelagerten Systemen korrekt verarbeitet werden.\"\n}",
+        "duration_seconds": 7.399,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung (z.B. Tausenderpunkt) könnte in anderen Systemen problematisch sein."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag und die Kostenformate sollten überprüft werden, um sicherzustellen, dass sie in nachgelagerten Systemen korrekt verarbeitet werden."
+        }
+      }
+    ],
+    "duration_seconds_total": 7.399,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 0,
+      "infos": 1
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:45:20"
+}

@@ -1,0 +1,262 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_006.png",
+    "name": "EXP_006.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_006.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=5 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Mirosław Rogner-Kobelt",
+          "zielort": "Oschatz",
+          "start": "27.01.2026",
+          "ende": "29.01.2026",
+          "kosten_details": "Fahrtkosten: 91.41, Übernachtungskosten: 272.41, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "447.82"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Mirosław Rogner-Kobelt\",\n  \"zielort\": \"Oschatz\",\n  \"start\": \"27.01.2026\",\n  \"ende\": \"29.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 91.41, Übernachtungskosten: 272.41, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"447.82\"\n}",
+        "duration_seconds": 5.268,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Mirosław Rogner-Kobelt",
+      "zielort": "Oschatz",
+      "start": "27.01.2026",
+      "ende": "29.01.2026",
+      "kosten_details": "Fahrtkosten: 91.41, Übernachtungskosten: 272.41, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "447.82"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '47.82', nicht '447.82'."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung als durchgehender Text ist unnötig."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datumsformat ist korrekt, aber die Schreibweise '27.01.2026' könnte auch als '27/01/2026' interpretiert werden."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datumsformat ist korrekt, aber die Schreibweise '29.01.2026' könnte auch als '29/01/2026' interpretiert werden."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '47.82', während in den JSON-Daten '447.82' angegeben ist."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender Text nicht ideal."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Status 'invalid' rechtfertigt. Die Kosten sind korrekt, aber die Formatierung könnte verbessert werden. | Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der die Daten ungültig macht.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '47.82', nicht '447.82'."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung als durchgehender Text ist unnötig."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datumsformat ist korrekt, aber die Schreibweise '27.01.2026' könnte auch als '27/01/2026' interpretiert werden."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datumsformat ist korrekt, aber die Schreibweise '29.01.2026' könnte auch als '29/01/2026' interpretiert werden."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Status 'invalid' rechtfertigt. Die Kosten sind korrekt, aber die Formatierung könnte verbessert werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '47.82', nicht '447.82'.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, aber die Formatierung als durchgehender Text ist unnötig.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datumsformat ist korrekt, aber die Schreibweise '27.01.2026' könnte auch als '27/01/2026' interpretiert werden.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datumsformat ist korrekt, aber die Schreibweise '29.01.2026' könnte auch als '29/01/2026' interpretiert werden.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Status 'invalid' rechtfertigt. Die Kosten sind korrekt, aber die Formatierung könnte verbessert werden.\"\n}",
+        "duration_seconds": 8.782,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '47.82', nicht '447.82'."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung als durchgehender Text ist unnötig."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datumsformat ist korrekt, aber die Schreibweise '27.01.2026' könnte auch als '27/01/2026' interpretiert werden."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datumsformat ist korrekt, aber die Schreibweise '29.01.2026' könnte auch als '29/01/2026' interpretiert werden."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Status 'invalid' rechtfertigt. Die Kosten sind korrekt, aber die Formatierung könnte verbessert werden."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '47.82', während in den JSON-Daten '447.82' angegeben ist."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender Text nicht ideal."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der die Daten ungültig macht.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '47.82', während in den JSON-Daten '447.82' angegeben ist.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender Text nicht ideal.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der die Daten ungültig macht.\"\n}",
+        "duration_seconds": 7.952,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '47.82', während in den JSON-Daten '447.82' angegeben ist."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender Text nicht ideal."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der die Daten ungültig macht."
+        }
+      }
+    ],
+    "duration_seconds_total": 16.734,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 5
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:27:34"
+}

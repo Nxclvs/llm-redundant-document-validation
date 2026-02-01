@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "45740",
+  "name": "Silva Drewes",
+  "abteilung": "HR",
+  "art": "Erholungsurlaub",
+  "von": "30.12.2025",
+  "bis": "16.01.2026",
+  "tage": 17
+}

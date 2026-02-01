@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Burgdorf",
+  "person": {
+    "name": "Danuta Mohaupt-Holzapfel",
+    "geburtsdatum": "17.09.1985"
+  },
+  "wohnungen": {
+    "aktuell": "Junkweg 4742, 71980 Burgdorf",
+    "einzugsdatum": "03.03.2024",
+    "vorherig": "Amanda-Peukert-Gasse 6/6, 03664 Schwarzenberg"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

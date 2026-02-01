@@ -1,0 +1,458 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_007.png",
+    "name": "MEL_007.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_007.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=1, Infos=17 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "stadt biedenkopf",
+          "name": "sophia holsten b.eng.",
+          "geburtsdatum": "25.08.1992",
+          "anschrift_aktuell": "elisabet-gerlach-allee 77, 07130 biedenkopf",
+          "einzugsdatum": "21.09.2022",
+          "anschrift_vorher": "hörleweg 2-5, 83421 luckau",
+          "datum": "28.01.2026",
+          "siegel": "siegel"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"stadt biedenkopf\",\n  \"name\": \"sophia holsten b.eng.\",\n  \"geburtsdatum\": \"25.08.1992\",\n  \"anschrift_aktuell\": \"elisabet-gerlach-allee 77, 07130 biedenkopf\",\n  \"einzugsdatum\": \"21.09.2022\",\n  \"anschrift_vorher\": \"hörleweg 2-5, 83421 luckau\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"siegel\"\n}",
+        "duration_seconds": 14.151,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "stadt biedenkopf",
+      "name": "sophia holsten b.eng.",
+      "geburtsdatum": "25.08.1992",
+      "anschrift_aktuell": "elisabet-gerlach-allee 77, 07130 biedenkopf",
+      "einzugsdatum": "21.09.2022",
+      "anschrift_vorher": "hörleweg 2-5, 83421 luckau",
+      "datum": "28.01.2026",
+      "siegel": "siegel"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'stadt biedenkopf' extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'sophia holsten b.eng.' extrahiert."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '25.08.1992' extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'elisabet-gerlach-allee 77, 07130 biedenkopf' extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '21.09.2022' extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'hörleweg 2-5, 83421 luckau' extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt als 'siegel' extrahiert, obwohl es sich um ein Platzhalterwort handelt."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'stadt biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'sophia holsten b.eng.' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Geburtsdatum '25.08.1992' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift 'elisabet-gerlach-allee 77, 07130 biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Einzugsdatum '21.09.2022' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift 'hörleweg 2-5, 83421 luckau' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "datum",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert, jedoch liegt es in der Zukunft, was ungewöhnlich ist und auf einen möglichen Fehler hinweisen könnte."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist korrekt als 'siegel' extrahiert, entspricht dem Dokument."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Die meisten Felder sind korrekt extrahiert. Das zukünftige Datum '28.01.2026' ist jedoch auffällig und sollte überprüft werden, da es ungewöhnlich ist.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'stadt biedenkopf' extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'sophia holsten b.eng.' extrahiert."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '25.08.1992' extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'elisabet-gerlach-allee 77, 07130 biedenkopf' extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '21.09.2022' extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'hörleweg 2-5, 83421 luckau' extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt als 'siegel' extrahiert, obwohl es sich um ein Platzhalterwort handelt."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Typ korrekt als 'amtliche meldebescheinigung' extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'stadt biedenkopf' extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'sophia holsten b.eng.' extrahiert.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '25.08.1992' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'elisabet-gerlach-allee 77, 07130 biedenkopf' extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '21.09.2022' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'hörleweg 2-5, 83421 luckau' extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt als 'siegel' extrahiert, obwohl es sich um ein Platzhalterwort handelt.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 12.249,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'stadt biedenkopf' extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'sophia holsten b.eng.' extrahiert."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '25.08.1992' extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'elisabet-gerlach-allee 77, 07130 biedenkopf' extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '21.09.2022' extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'hörleweg 2-5, 83421 luckau' extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt als 'siegel' extrahiert, obwohl es sich um ein Platzhalterwort handelt."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'stadt biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'sophia holsten b.eng.' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Geburtsdatum '25.08.1992' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift 'elisabet-gerlach-allee 77, 07130 biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Einzugsdatum '21.09.2022' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift 'hörleweg 2-5, 83421 luckau' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "datum",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert, jedoch liegt es in der Zukunft, was ungewöhnlich ist und auf einen möglichen Fehler hinweisen könnte."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist korrekt als 'siegel' extrahiert, entspricht dem Dokument."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert. Das zukünftige Datum '28.01.2026' ist jedoch auffällig und sollte überprüft werden, da es ungewöhnlich ist.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'stadt biedenkopf' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'sophia holsten b.eng.' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Geburtsdatum '25.08.1992' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift 'elisabet-gerlach-allee 77, 07130 biedenkopf' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Einzugsdatum '21.09.2022' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift 'hörleweg 2-5, 83421 luckau' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert, jedoch liegt es in der Zukunft, was ungewöhnlich ist und auf einen möglichen Fehler hinweisen könnte.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist korrekt als 'siegel' extrahiert, entspricht dem Dokument.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert. Das zukünftige Datum '28.01.2026' ist jedoch auffällig und sollte überprüft werden, da es ungewöhnlich ist.\"\n}",
+        "duration_seconds": 15.553,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'stadt biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'sophia holsten b.eng.' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Geburtsdatum '25.08.1992' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift 'elisabet-gerlach-allee 77, 07130 biedenkopf' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Einzugsdatum '21.09.2022' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift 'hörleweg 2-5, 83421 luckau' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "datum",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert, jedoch liegt es in der Zukunft, was ungewöhnlich ist und auf einen möglichen Fehler hinweisen könnte."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist korrekt als 'siegel' extrahiert, entspricht dem Dokument."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert. Das zukünftige Datum '28.01.2026' ist jedoch auffällig und sollte überprüft werden, da es ungewöhnlich ist."
+        }
+      }
+    ],
+    "duration_seconds_total": 27.802,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 1,
+      "infos": 17
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:09:59"
+}

@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Univ.Prof. Radmila Wirth B.Sc.",
+  "zielort": "Delitzsch",
+  "start": "23.01.2026",
+  "ende": "25.01.2026",
+  "kosten_details": {
+    "transport": 44.67,
+    "hotel": 124.37,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 253.04
+}

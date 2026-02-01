@@ -1,0 +1,440 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_013.png",
+    "name": "NOT_013.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: NOT_013.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=2, Infos=15 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "gebührenbescheid",
+          "behoerde": "Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg",
+          "adressat": "Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt",
+          "aktenzeichen": "AZ-465199",
+          "datum": "08.01.2026",
+          "grund": "Meldebescheinigung",
+          "betrag": "38.11 Euro",
+          "zahlungsfrist": "05.02.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"gebührenbescheid\",\n  \"behoerde\": \"Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg\",\n  \"adressat\": \"Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt\",\n  \"aktenzeichen\": \"AZ-465199\",\n  \"datum\": \"08.01.2026\",\n  \"grund\": \"Meldebescheinigung\",\n  \"betrag\": \"38.11 Euro\",\n  \"zahlungsfrist\": \"05.02.2026\"\n}",
+        "duration_seconds": 17.266,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "gebührenbescheid",
+      "behoerde": "Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg",
+      "adressat": "Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt",
+      "aktenzeichen": "AZ-465199",
+      "datum": "08.01.2026",
+      "grund": "Meldebescheinigung",
+      "betrag": "38.11 Euro",
+      "zahlungsfrist": "05.02.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, Anrede 'Herrn/Frau' und Name stimmen mit dem Dokument überein."
+      },
+      {
+        "field": "adresse",
+        "type": "info",
+        "severity": "info",
+        "message": "Adresse korrekt extrahiert, Straße und Postleitzahl stimmen mit dem Dokument überein."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert, stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert, stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund korrekt extrahiert, 'Meldebescheinigung' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert, '38.11 Euro' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert, '05.02.2026' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "rechtsbehelfsbelehrung",
+        "type": "missing",
+        "severity": "warning",
+        "message": "Rechtsbehelfsbelehrung im Dokument vorhanden, aber nicht in den JSON-Daten enthalten."
+      },
+      {
+        "field": "kontext",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Unklarheit, ob alle relevanten Informationen extrahiert wurden, da keine weiteren Felder wie 'Verwaltungsgebühr' oder 'Kontoangabe' vorhanden sind."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg' ist korrekt extrahiert."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Adressat 'Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt' ist korrekt extrahiert."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Aktenzeichen 'AZ-465199' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Grund 'Meldebescheinigung' ist korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Betrag '38.11 Euro' ist korrekt extrahiert."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Zahlungsfrist '05.02.2026' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Die extrahierten Daten stimmen weitgehend mit dem Dokument überein. Es gibt jedoch Unsicherheiten, da nicht alle im Dokument enthaltenen Informationen (z.B. Rechtsbehelfsbelehrung) extrahiert wurden. Insgesamt ist die Extraktion korrekt, aber möglicherweise unvollständig. | Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, Anrede 'Herrn/Frau' und Name stimmen mit dem Dokument überein."
+          },
+          {
+            "field": "adresse",
+            "type": "info",
+            "severity": "info",
+            "message": "Adresse korrekt extrahiert, Straße und Postleitzahl stimmen mit dem Dokument überein."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert, stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert, stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund korrekt extrahiert, 'Meldebescheinigung' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert, '38.11 Euro' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert, '05.02.2026' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "rechtsbehelfsbelehrung",
+            "type": "missing",
+            "severity": "warning",
+            "message": "Rechtsbehelfsbelehrung im Dokument vorhanden, aber nicht in den JSON-Daten enthalten."
+          },
+          {
+            "field": "kontext",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Unklarheit, ob alle relevanten Informationen extrahiert wurden, da keine weiteren Felder wie 'Verwaltungsgebühr' oder 'Kontoangabe' vorhanden sind."
+          }
+        ],
+        "comments": "Die extrahierten Daten stimmen weitgehend mit dem Dokument überein. Es gibt jedoch Unsicherheiten, da nicht alle im Dokument enthaltenen Informationen (z.B. Rechtsbehelfsbelehrung) extrahiert wurden. Insgesamt ist die Extraktion korrekt, aber möglicherweise unvollständig.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, Anrede 'Herrn/Frau' und Name stimmen mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"adresse\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adresse korrekt extrahiert, Straße und Postleitzahl stimmen mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert, stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert, stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund korrekt extrahiert, 'Meldebescheinigung' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert, '38.11 Euro' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert, '05.02.2026' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"rechtsbehelfsbelehrung\",\n      \"type\": \"missing\",\n      \"severity\": \"warning\",\n      \"message\": \"Rechtsbehelfsbelehrung im Dokument vorhanden, aber nicht in den JSON-Daten enthalten.\"\n    },\n    {\n      \"field\": \"kontext\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Unklarheit, ob alle relevanten Informationen extrahiert wurden, da keine weiteren Felder wie 'Verwaltungsgebühr' oder 'Kontoangabe' vorhanden sind.\"\n    }\n  ],\n  \"comments\": \"Die extrahierten Daten stimmen weitgehend mit dem Dokument überein. Es gibt jedoch Unsicherheiten, da nicht alle im Dokument enthaltenen Informationen (z.B. Rechtsbehelfsbelehrung) extrahiert wurden. Insgesamt ist die Extraktion korrekt, aber möglicherweise unvollständig.\"\n}",
+        "duration_seconds": 12.24,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, Anrede 'Herrn/Frau' und Name stimmen mit dem Dokument überein."
+            },
+            {
+              "field": "adresse",
+              "type": "info",
+              "severity": "info",
+              "message": "Adresse korrekt extrahiert, Straße und Postleitzahl stimmen mit dem Dokument überein."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert, stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert, stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund korrekt extrahiert, 'Meldebescheinigung' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert, '38.11 Euro' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert, '05.02.2026' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "rechtsbehelfsbelehrung",
+              "type": "missing",
+              "severity": "warning",
+              "message": "Rechtsbehelfsbelehrung im Dokument vorhanden, aber nicht in den JSON-Daten enthalten."
+            },
+            {
+              "field": "kontext",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Unklarheit, ob alle relevanten Informationen extrahiert wurden, da keine weiteren Felder wie 'Verwaltungsgebühr' oder 'Kontoangabe' vorhanden sind."
+            }
+          ],
+          "comments": "Die extrahierten Daten stimmen weitgehend mit dem Dokument überein. Es gibt jedoch Unsicherheiten, da nicht alle im Dokument enthaltenen Informationen (z.B. Rechtsbehelfsbelehrung) extrahiert wurden. Insgesamt ist die Extraktion korrekt, aber möglicherweise unvollständig."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg' ist korrekt extrahiert."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Adressat 'Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt' ist korrekt extrahiert."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Aktenzeichen 'AZ-465199' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Grund 'Meldebescheinigung' ist korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Betrag '38.11 Euro' ist korrekt extrahiert."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Zahlungsfrist '05.02.2026' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'gebührenbescheid' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Adressat 'Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Aktenzeichen 'AZ-465199' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '08.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Grund 'Meldebescheinigung' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Betrag '38.11 Euro' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Zahlungsfrist '05.02.2026' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 28.799,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'Stadtverwaltung Bamberg, Amt für öffentliche Ordnung, 91085 Bamberg' ist korrekt extrahiert."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Adressat 'Herrn/Frau Katharina Dehmel, Freudenbergerplatz 1-6, 99789 Hettstedt' ist korrekt extrahiert."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Aktenzeichen 'AZ-465199' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Grund 'Meldebescheinigung' ist korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Betrag '38.11 Euro' ist korrekt extrahiert."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Zahlungsfrist '05.02.2026' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 41.039,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 2,
+      "infos": 15
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T12:56:58"
+}

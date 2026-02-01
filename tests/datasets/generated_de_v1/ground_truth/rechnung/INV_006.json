@@ -1,0 +1,33 @@
+{
+  "typ": "rechnung",
+  "sender": "Neureuther Briemer GmbH\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Hartmuth Walter-Wirth\nUndine-Steinberg-Platz 2\n37490 Rastatt",
+  "rechnungsnummer": "RE-2026-7625",
+  "datum": "26.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Drive plug-and-play systems",
+      "menge": 1,
+      "einzelpreis": 28.11,
+      "gesamtpreis": 28.11
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Disintermediate plug-and-play web-readiness",
+      "menge": 2,
+      "einzelpreis": 20.7,
+      "gesamtpreis": 41.4
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Cultivate strategic mindshare",
+      "menge": 7,
+      "einzelpreis": 61.22,
+      "gesamtpreis": 428.54
+    }
+  ],
+  "total_net": 498.05,
+  "total_vat": 94.63,
+  "total_gross": 592.68
+}

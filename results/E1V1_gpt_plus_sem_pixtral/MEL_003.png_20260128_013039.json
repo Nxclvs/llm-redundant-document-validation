@@ -1,0 +1,203 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_003.png",
+    "name": "MEL_003.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: MEL_003.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=1, Warnings=1, Infos=3 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Artern, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Christiana Trubin",
+          "geburtsdatum": "12.07.1961",
+          "anschrift_aktuell": "Binnergasse 89-29, 25249 Artern",
+          "einzugsdatum": "18.10.2021",
+          "anschrift_vorher": "Monika-Schenk-Platz 8-9, 50783 Teterow",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Artern, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Christiana Trubin\",\n  \"geburtsdatum\": \"12.07.1961\",\n  \"anschrift_aktuell\": \"Binnergasse 89-29, 25249 Artern\",\n  \"einzugsdatum\": \"18.10.2021\",\n  \"anschrift_vorher\": \"Monika-Schenk-Platz 8-9, 50783 Teterow\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 16.469,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Artern, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Christiana Trubin",
+      "geburtsdatum": "12.07.1961",
+      "anschrift_aktuell": "Binnergasse 89-29, 25249 Artern",
+      "einzugsdatum": "18.10.2021",
+      "anschrift_vorher": "Monika-Schenk-Platz 8-9, 50783 Teterow",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Vorname im Dokument lautet 'Christiana', während die JSON-Daten 'Christiana Trubin' enthalten. Dies könnte ein Fehler sein, da der Nachname separat behandelt werden sollte."
+      },
+      {
+        "field": "siegel",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was möglicherweise ein Platzhalter ist. Es ist unklar, ob dies korrekt extrahiert wurde oder ob es sich um einen Fehler handelt."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift 'Binnergasse 89-29, 25249 Artern' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift 'Monika-Schenk-Platz 8-9, 50783 Teterow' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine klare Abweichung beim Namen und Unsicherheiten beim Siegel. Der Status ist daher 'uncertain'.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Vorname im Dokument lautet 'Christiana', während die JSON-Daten 'Christiana Trubin' enthalten. Dies könnte ein Fehler sein, da der Nachname separat behandelt werden sollte."
+          },
+          {
+            "field": "siegel",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was möglicherweise ein Platzhalter ist. Es ist unklar, ob dies korrekt extrahiert wurde oder ob es sich um einen Fehler handelt."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift 'Binnergasse 89-29, 25249 Artern' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift 'Monika-Schenk-Platz 8-9, 50783 Teterow' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine klare Abweichung beim Namen und Unsicherheiten beim Siegel. Der Status ist daher 'uncertain'.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Vorname im Dokument lautet 'Christiana', während die JSON-Daten 'Christiana Trubin' enthalten. Dies könnte ein Fehler sein, da der Nachname separat behandelt werden sollte.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Das Siegel ist im Dokument als 'SIEGEL' markiert, was möglicherweise ein Platzhalter ist. Es ist unklar, ob dies korrekt extrahiert wurde oder ob es sich um einen Fehler handelt.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift 'Binnergasse 89-29, 25249 Artern' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift 'Monika-Schenk-Platz 8-9, 50783 Teterow' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine klare Abweichung beim Namen und Unsicherheiten beim Siegel. Der Status ist daher 'uncertain'.\"\n}",
+        "duration_seconds": 10.087,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Vorname im Dokument lautet 'Christiana', während die JSON-Daten 'Christiana Trubin' enthalten. Dies könnte ein Fehler sein, da der Nachname separat behandelt werden sollte."
+            },
+            {
+              "field": "siegel",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was möglicherweise ein Platzhalter ist. Es ist unklar, ob dies korrekt extrahiert wurde oder ob es sich um einen Fehler handelt."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift 'Binnergasse 89-29, 25249 Artern' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift 'Monika-Schenk-Platz 8-9, 50783 Teterow' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine klare Abweichung beim Namen und Unsicherheiten beim Siegel. Der Status ist daher 'uncertain'."
+        }
+      }
+    ],
+    "duration_seconds_total": 10.087,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 1,
+      "infos": 3
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:30:39"
+}

@@ -1,0 +1,352 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_004.png",
+    "name": "MEL_004.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: MEL_004.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=10 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Arnd Schacht B.A.",
+          "geburtsdatum": "06.04.1944",
+          "anschrift_aktuell": "Heilwigplatz 2-8, 32217 Günzburg",
+          "einzugsdatum": "30.05.2025",
+          "anschrift_vorher": "Helmar-Cichorius-Platz 7848, 43309 Diepholz",
+          "datum": "28.01.2026",
+          "siegel": "true"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Arnd Schacht B.A.\",\n  \"geburtsdatum\": \"06.04.1944\",\n  \"anschrift_aktuell\": \"Heilwigplatz 2-8, 32217 Günzburg\",\n  \"einzugsdatum\": \"30.05.2025\",\n  \"anschrift_vorher\": \"Helmar-Cichorius-Platz 7848, 43309 Diepholz\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"true\"\n}",
+        "duration_seconds": 20.093,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Arnd Schacht B.A.",
+      "geburtsdatum": "06.04.1944",
+      "anschrift_aktuell": "Heilwigplatz 2-8, 32217 Günzburg",
+      "einzugsdatum": "30.05.2025",
+      "anschrift_vorher": "Helmar-Cichorius-Platz 7848, 43309 Diepholz",
+      "datum": "28.01.2026",
+      "siegel": "true"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "einzugsdatum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Einzugsdatum '30.05.2025' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+      },
+      {
+        "field": "datum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Datum '28.01.2026' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist korrekt als 'true' extrahiert, da es im Dokument sichtbar ist."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro' erkannt."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'Arnd Schacht B.A.' erkannt."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '06.04.1944' erkannt."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'Heilwigplatz 2-8, 32217 Günzburg' erkannt."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '30.05.2025' erkannt."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'Helmar-Cichorius-Platz 7848, 43309 Diepholz' erkannt."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' erkannt."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt als vorhanden erkannt."
+      }
+    ],
+    "comments": "Die meisten Felder stimmen mit dem Dokument überein, jedoch sind die Daten 'Einzugsdatum' und 'Datum' offensichtlich falsch, da sie in der Zukunft liegen. Dies deutet auf einen Fehler in der Extraktion oder im Dokument selbst hin. | Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "einzugsdatum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Einzugsdatum '30.05.2025' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+          },
+          {
+            "field": "datum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Datum '28.01.2026' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist korrekt als 'true' extrahiert, da es im Dokument sichtbar ist."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen mit dem Dokument überein, jedoch sind die Daten 'Einzugsdatum' und 'Datum' offensichtlich falsch, da sie in der Zukunft liegen. Dies deutet auf einen Fehler in der Extraktion oder im Dokument selbst hin.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Einzugsdatum '30.05.2025' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Datum '28.01.2026' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist korrekt als 'true' extrahiert, da es im Dokument sichtbar ist.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen mit dem Dokument überein, jedoch sind die Daten 'Einzugsdatum' und 'Datum' offensichtlich falsch, da sie in der Zukunft liegen. Dies deutet auf einen Fehler in der Extraktion oder im Dokument selbst hin.\"\n}",
+        "duration_seconds": 6.566,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "einzugsdatum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Einzugsdatum '30.05.2025' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+            },
+            {
+              "field": "datum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Datum '28.01.2026' ist unplausibel, da es in der Zukunft liegt und wahrscheinlich ein Fehler ist."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist korrekt als 'true' extrahiert, da es im Dokument sichtbar ist."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen mit dem Dokument überein, jedoch sind die Daten 'Einzugsdatum' und 'Datum' offensichtlich falsch, da sie in der Zukunft liegen. Dies deutet auf einen Fehler in der Extraktion oder im Dokument selbst hin."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro' erkannt."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'Arnd Schacht B.A.' erkannt."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '06.04.1944' erkannt."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'Heilwigplatz 2-8, 32217 Günzburg' erkannt."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '30.05.2025' erkannt."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'Helmar-Cichorius-Platz 7848, 43309 Diepholz' erkannt."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' erkannt."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt als vorhanden erkannt."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro' erkannt.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'Arnd Schacht B.A.' erkannt.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '06.04.1944' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'Heilwigplatz 2-8, 32217 Günzburg' erkannt.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '30.05.2025' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'Helmar-Cichorius-Platz 7848, 43309 Diepholz' erkannt.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' erkannt.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt als vorhanden erkannt.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 33.327,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'Stadt Günzburg, Einwohnermeldeamt / Bürgerbüro' erkannt."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'Arnd Schacht B.A.' erkannt."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '06.04.1944' erkannt."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'Heilwigplatz 2-8, 32217 Günzburg' erkannt."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '30.05.2025' erkannt."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'Helmar-Cichorius-Platz 7848, 43309 Diepholz' erkannt."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' erkannt."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt als vorhanden erkannt."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 39.893,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 10
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:02:31"
+}

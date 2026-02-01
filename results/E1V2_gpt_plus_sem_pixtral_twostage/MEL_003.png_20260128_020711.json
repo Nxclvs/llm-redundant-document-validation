@@ -1,0 +1,278 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_003.png",
+    "name": "MEL_003.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: MEL_003.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=3, Warnings=1, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Artern, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Christiana Trubin",
+          "geburtsdatum": "12.07.1961",
+          "anschrift_aktuell": "Binnergasse 89-29, 25249 Artern",
+          "einzugsdatum": "18.10.2021",
+          "anschrift_vorher": "Monika-Schenk-Platz 8-9, 50783 Teterow",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Artern, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Christiana Trubin\",\n  \"geburtsdatum\": \"12.07.1961\",\n  \"anschrift_aktuell\": \"Binnergasse 89-29, 25249 Artern\",\n  \"einzugsdatum\": \"18.10.2021\",\n  \"anschrift_vorher\": \"Monika-Schenk-Platz 8-9, 50783 Teterow\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 18.849,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Artern, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Christiana Trubin",
+      "geburtsdatum": "12.07.1961",
+      "anschrift_aktuell": "Binnergasse 89-29, 25249 Artern",
+      "einzugsdatum": "18.10.2021",
+      "anschrift_vorher": "Monika-Schenk-Platz 8-9, 50783 Teterow",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Vorname lautet im Dokument 'Christiana', während in der JSON 'Christiana Trubin' angegeben ist. Der Nachname ist korrekt, aber der Vorname enthält einen Tippfehler ('Christiana' statt 'Christiana')."
+      },
+      {
+        "field": "siegel",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, aber es ist unklar, ob es sich um einen Platzhalter oder eine tatsächliche Beschreibung handelt."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift ist korrekt extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Vorname ist falsch extrahiert. Im Dokument steht 'Christiana', nicht 'Christiana Trubin'. 'Trubin' ist der Familienname."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist korrekt als 'SIEGEL' extrahiert, obwohl es im Dokument nur als Platzhalter angezeigt wird."
+      },
+      {
+        "field": "datum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Datum ist falsch extrahiert. Im Dokument steht '28.01.2026', nicht '28.01.2026'."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, aber der Vorname enthält einen Tippfehler. Das Siegel ist unklar und sollte überprüft werden. | Die Extraktion enthält klare Fehler bei der Zuordnung von Vor- und Familiennamen sowie beim Datum. Die restlichen Felder stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Vorname lautet im Dokument 'Christiana', während in der JSON 'Christiana Trubin' angegeben ist. Der Nachname ist korrekt, aber der Vorname enthält einen Tippfehler ('Christiana' statt 'Christiana')."
+          },
+          {
+            "field": "siegel",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, aber es ist unklar, ob es sich um einen Platzhalter oder eine tatsächliche Beschreibung handelt."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, aber der Vorname enthält einen Tippfehler. Das Siegel ist unklar und sollte überprüft werden.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Vorname lautet im Dokument 'Christiana', während in der JSON 'Christiana Trubin' angegeben ist. Der Nachname ist korrekt, aber der Vorname enthält einen Tippfehler ('Christiana' statt 'Christiana').\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Das Siegel ist im Dokument als 'SIEGEL' markiert, aber es ist unklar, ob es sich um einen Platzhalter oder eine tatsächliche Beschreibung handelt.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, aber der Vorname enthält einen Tippfehler. Das Siegel ist unklar und sollte überprüft werden.\"\n}",
+        "duration_seconds": 8.528,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Vorname lautet im Dokument 'Christiana', während in der JSON 'Christiana Trubin' angegeben ist. Der Nachname ist korrekt, aber der Vorname enthält einen Tippfehler ('Christiana' statt 'Christiana')."
+            },
+            {
+              "field": "siegel",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, aber es ist unklar, ob es sich um einen Platzhalter oder eine tatsächliche Beschreibung handelt."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert und entspricht dem Dokument."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, aber der Vorname enthält einen Tippfehler. Das Siegel ist unklar und sollte überprüft werden."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Vorname ist falsch extrahiert. Im Dokument steht 'Christiana', nicht 'Christiana Trubin'. 'Trubin' ist der Familienname."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist korrekt als 'SIEGEL' extrahiert, obwohl es im Dokument nur als Platzhalter angezeigt wird."
+          },
+          {
+            "field": "datum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Datum ist falsch extrahiert. Im Dokument steht '28.01.2026', nicht '28.01.2026'."
+          }
+        ],
+        "comments": "Die Extraktion enthält klare Fehler bei der Zuordnung von Vor- und Familiennamen sowie beim Datum. Die restlichen Felder stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Vorname ist falsch extrahiert. Im Dokument steht 'Christiana', nicht 'Christiana Trubin'. 'Trubin' ist der Familienname.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist korrekt als 'SIEGEL' extrahiert, obwohl es im Dokument nur als Platzhalter angezeigt wird.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Datum ist falsch extrahiert. Im Dokument steht '28.01.2026', nicht '28.01.2026'.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion enthält klare Fehler bei der Zuordnung von Vor- und Familiennamen sowie beim Datum. Die restlichen Felder stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 7.133,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Vorname ist falsch extrahiert. Im Dokument steht 'Christiana', nicht 'Christiana Trubin'. 'Trubin' ist der Familienname."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist korrekt als 'SIEGEL' extrahiert, obwohl es im Dokument nur als Platzhalter angezeigt wird."
+            },
+            {
+              "field": "datum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Datum ist falsch extrahiert. Im Dokument steht '28.01.2026', nicht '28.01.2026'."
+            }
+          ],
+          "comments": "Die Extraktion enthält klare Fehler bei der Zuordnung von Vor- und Familiennamen sowie beim Datum. Die restlichen Felder stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 15.661,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 3,
+      "warnings": 1,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:07:11"
+}

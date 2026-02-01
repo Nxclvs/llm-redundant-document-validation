@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Aleksandr Sölzer",
+  "zielort": "Ansbach",
+  "start": "10.01.2026",
+  "ende": "12.01.2026",
+  "kosten_details": {
+    "transport": 57.98,
+    "hotel": 117.66,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 259.64
+}

@@ -1,0 +1,625 @@
+{
+  "source_metrics": "D:\\Dev\\ba_framework\\results\\metrics_summary.json",
+  "generated_at": "2026-01-29T14:57:50",
+  "alpha": 0.05,
+  "metrics": {
+    "accuracy": {
+      "metric": "accuracy",
+      "alpha": 0.05,
+      "correction": "holm",
+      "experiments": [
+        "E1V0_gpt_only_no_validation",
+        "E1V1_gpt_plus_sem_pixtral",
+        "E1V2_gpt_plus_sem_mixed_openai_mistral",
+        "E1V2_gpt_plus_sem_pixtral_twostage"
+      ],
+      "comparisons": [
+        {
+          "metric": "accuracy",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V1_gpt_plus_sem_pixtral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 7.379907003895746e-06,
+            "shapiro_p_y": 4.13248231071302e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2769.5,
+            "p": 0.8714143691865553,
+            "effect_cohens_d": -0.01853687567300036,
+            "effect_rank_biserial": 0.015288888888888907,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.535532,
+            "b": 0.541644
+          },
+          "stds": {
+            "a": 0.33042888966360723,
+            "b": 0.32901189177555534
+          }
+        },
+        {
+          "metric": "accuracy",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 7.379907003895746e-06,
+            "shapiro_p_y": 3.327242084750959e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2762.0,
+            "p": 0.8489200517181855,
+            "effect_cohens_d": -0.023519584145830084,
+            "effect_rank_biserial": 0.017955555555555502,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.535532,
+            "b": 0.5433106666666667
+          },
+          "stds": {
+            "a": 0.33042888966360723,
+            "b": 0.33103377617059826
+          }
+        },
+        {
+          "metric": "accuracy",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 7.379907003895746e-06,
+            "shapiro_p_y": 1.7125205647487483e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2743.0,
+            "p": 0.7926003521721057,
+            "effect_cohens_d": -0.0315522466398235,
+            "effect_rank_biserial": 0.024711111111111128,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.535532,
+            "b": 0.5459053333333334
+          },
+          "stds": {
+            "a": 0.33042888966360723,
+            "b": 0.32709640321806993
+          }
+        },
+        {
+          "metric": "accuracy",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 4.13248231071302e-06,
+            "shapiro_p_y": 3.327242084750959e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2805.0,
+            "p": 0.9787258328719578,
+            "effect_cohens_d": -0.005050131916865323,
+            "effect_rank_biserial": 0.002666666666666706,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.541644,
+            "b": 0.5433106666666667
+          },
+          "stds": {
+            "a": 0.32901189177555534,
+            "b": 0.33103377617059826
+          }
+        },
+        {
+          "metric": "accuracy",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 4.13248231071302e-06,
+            "shapiro_p_y": 1.7125205647487483e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2788.0,
+            "p": 0.9271374623346045,
+            "effect_cohens_d": -0.012989670167689045,
+            "effect_rank_biserial": 0.008711111111111114,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.541644,
+            "b": 0.5459053333333334
+          },
+          "stds": {
+            "a": 0.32901189177555534,
+            "b": 0.32709640321806993
+          }
+        },
+        {
+          "metric": "accuracy",
+          "a": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 3.327242084750959e-06,
+            "shapiro_p_y": 1.7125205647487483e-06,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2795.5,
+            "p": 0.9498516723352712,
+            "effect_cohens_d": -0.007884823746546223,
+            "effect_rank_biserial": 0.006044444444444408,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.5433106666666667,
+            "b": 0.5459053333333334
+          },
+          "stds": {
+            "a": 0.33103377617059826,
+            "b": 0.32709640321806993
+          }
+        }
+      ]
+    },
+    "audit_ready": {
+      "metric": "audit_ready",
+      "alpha": 0.05,
+      "correction": "holm",
+      "experiments": [
+        "E1V0_gpt_only_no_validation",
+        "E1V1_gpt_plus_sem_pixtral",
+        "E1V2_gpt_plus_sem_mixed_openai_mistral",
+        "E1V2_gpt_plus_sem_pixtral_twostage"
+      ],
+      "comparisons": [
+        {
+          "metric": "audit_ready",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V1_gpt_plus_sem_pixtral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.6513717691834646e-14,
+            "shapiro_p_y": 7.410127980882731e-13,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3225.0,
+            "p": 0.048028100222799804,
+            "effect_cohens_d": 0.3264892618375649,
+            "effect_rank_biserial": -0.14666666666666672,
+            "significant": true,
+            "p_holm": 0.19211240089119921,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.7866666666666666,
+            "b": 0.64
+          },
+          "stds": {
+            "a": 0.41241979837307774,
+            "b": 0.48323235975409745
+          }
+        },
+        {
+          "metric": "audit_ready",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.6513717691834646e-14,
+            "shapiro_p_y": 1.1194276940469355e-12,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3300.0,
+            "p": 0.021101549526123448,
+            "effect_cohens_d": 0.3826191639757455,
+            "effect_rank_biserial": -0.17333333333333334,
+            "significant": true,
+            "p_holm": 0.10550774763061724,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.7866666666666666,
+            "b": 0.6133333333333333
+          },
+          "stds": {
+            "a": 0.41241979837307774,
+            "b": 0.4902656018530775
+          }
+        },
+        {
+          "metric": "audit_ready",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.6513717691834646e-14,
+            "shapiro_p_y": 1.972582758861011e-12,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3450.0,
+            "p": 0.003204338144854502,
+            "effect_cohens_d": 0.4947333496617394,
+            "effect_rank_biserial": -0.22666666666666657,
+            "significant": true,
+            "p_holm": 0.019226028869127013,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 0.7866666666666666,
+            "b": 0.56
+          },
+          "stds": {
+            "a": 0.41241979837307774,
+            "b": 0.4997296566441997
+          }
+        },
+        {
+          "metric": "audit_ready",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 7.410127980882731e-13,
+            "shapiro_p_y": 1.1194276940469355e-12,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2887.5,
+            "p": 0.7381974307690047,
+            "effect_cohens_d": 0.0547838245025204,
+            "effect_rank_biserial": -0.026666666666666616,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.64,
+            "b": 0.6133333333333333
+          },
+          "stds": {
+            "a": 0.48323235975409745,
+            "b": 0.4902656018530775
+          }
+        },
+        {
+          "metric": "audit_ready",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 7.410127980882731e-13,
+            "shapiro_p_y": 1.972582758861011e-12,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3037.5,
+            "p": 0.32000564151815036,
+            "effect_cohens_d": 0.16275040936796656,
+            "effect_rank_biserial": -0.08000000000000007,
+            "significant": false,
+            "p_holm": 0.9600169245544511,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.64,
+            "b": 0.56
+          },
+          "stds": {
+            "a": 0.48323235975409745,
+            "b": 0.4997296566441997
+          }
+        },
+        {
+          "metric": "audit_ready",
+          "a": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.1194276940469355e-12,
+            "shapiro_p_y": 1.972582758861011e-12,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 2962.5,
+            "p": 0.5100122360012066,
+            "effect_cohens_d": 0.10773970084075257,
+            "effect_rank_biserial": -0.05333333333333323,
+            "significant": false,
+            "p_holm": 1.0,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 0.6133333333333333,
+            "b": 0.56
+          },
+          "stds": {
+            "a": 0.4902656018530775,
+            "b": 0.4997296566441997
+          }
+        }
+      ]
+    },
+    "semantic_stability": {
+      "metric": "semantic_stability",
+      "alpha": 0.05,
+      "correction": "holm",
+      "experiments": [
+        "E1V0_gpt_only_no_validation",
+        "E1V1_gpt_plus_sem_pixtral",
+        "E1V2_gpt_plus_sem_mixed_openai_mistral",
+        "E1V2_gpt_plus_sem_pixtral_twostage"
+      ],
+      "comparisons": [
+        {
+          "metric": "semantic_stability",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V1_gpt_plus_sem_pixtral",
+          "skipped": false,
+          "result": {
+            "test": "welch_t",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.0,
+            "shapiro_p_y": 1.0,
+            "normal_x": true,
+            "normal_y": true,
+            "warnings": [
+              "Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.",
+              "Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable."
+            ],
+            "stat": NaN,
+            "p": NaN,
+            "effect_cohens_d": 0.0,
+            "effect_rank_biserial": 0.0,
+            "significant": false,
+            "p_holm": NaN,
+            "significant_holm": false
+          },
+          "means": {
+            "a": 1.0,
+            "b": 1.0
+          },
+          "stds": {
+            "a": 0.0,
+            "b": 0.0
+          }
+        },
+        {
+          "metric": "semantic_stability",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.0,
+            "shapiro_p_y": 1.7686163029377326e-12,
+            "normal_x": true,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 4012.5,
+            "p": 2.0980848629698246e-10,
+            "effect_cohens_d": 1.2118280124600795,
+            "effect_rank_biserial": -0.42666666666666675,
+            "significant": true,
+            "p_holm": 8.392339451879299e-10,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 1.0,
+            "b": 0.7866666666666666
+          },
+          "stds": {
+            "a": 0.0,
+            "b": 0.24896180827986844
+          }
+        },
+        {
+          "metric": "semantic_stability",
+          "a": "E1V0_gpt_only_no_validation",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.0,
+            "shapiro_p_y": 1.7035005596184714e-16,
+            "normal_x": true,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3112.5,
+            "p": 0.0038222030015817375,
+            "effect_cohens_d": 0.485408993063853,
+            "effect_rank_biserial": -0.10666666666666669,
+            "significant": true,
+            "p_holm": 0.007644406003163475,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 1.0,
+            "b": 0.9466666666666667
+          },
+          "stds": {
+            "a": 0.0,
+            "b": 0.15538386062955237
+          }
+        },
+        {
+          "metric": "semantic_stability",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.0,
+            "shapiro_p_y": 1.7686163029377326e-12,
+            "normal_x": true,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 4012.5,
+            "p": 2.0980848629698246e-10,
+            "effect_cohens_d": 1.2118280124600795,
+            "effect_rank_biserial": -0.42666666666666675,
+            "significant": true,
+            "p_holm": 1.2588509177818947e-09,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 1.0,
+            "b": 0.7866666666666666
+          },
+          "stds": {
+            "a": 0.0,
+            "b": 0.24896180827986844
+          }
+        },
+        {
+          "metric": "semantic_stability",
+          "a": "E1V1_gpt_plus_sem_pixtral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.0,
+            "shapiro_p_y": 1.7035005596184714e-16,
+            "normal_x": true,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 3112.5,
+            "p": 0.0038222030015817375,
+            "effect_cohens_d": 0.485408993063853,
+            "effect_rank_biserial": -0.10666666666666669,
+            "significant": true,
+            "p_holm": 0.007644406003163475,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 1.0,
+            "b": 0.9466666666666667
+          },
+          "stds": {
+            "a": 0.0,
+            "b": 0.15538386062955237
+          }
+        },
+        {
+          "metric": "semantic_stability",
+          "a": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+          "b": "E1V2_gpt_plus_sem_pixtral_twostage",
+          "skipped": false,
+          "result": {
+            "test": "mannwhitney",
+            "alpha": 0.05,
+            "n_x": 75,
+            "n_y": 75,
+            "shapiro_p_x": 1.7686163029377326e-12,
+            "shapiro_p_y": 1.7035005596184714e-16,
+            "normal_x": false,
+            "normal_y": false,
+            "warnings": [],
+            "stat": 1912.5,
+            "p": 1.014571434056361e-05,
+            "effect_cohens_d": -0.7710233378100166,
+            "effect_rank_biserial": 0.31999999999999995,
+            "significant": true,
+            "p_holm": 3.043714302169083e-05,
+            "significant_holm": true
+          },
+          "means": {
+            "a": 0.7866666666666666,
+            "b": 0.9466666666666667
+          },
+          "stds": {
+            "a": 0.24896180827986844,
+            "b": 0.15538386062955237
+          }
+        }
+      ]
+    }
+  }
+}

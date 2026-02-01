@@ -1,0 +1,33 @@
+{
+  "typ": "rechnung",
+  "sender": "Peukert Trub GmbH\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Hanife Butte-Junken\nBernd-Heidrich-Straße 2588\n46882 Bersenbrück",
+  "rechnungsnummer": "RE-2026-3147",
+  "datum": "22.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Integrate turn-key roi",
+      "menge": 4,
+      "einzelpreis": 103.33,
+      "gesamtpreis": 413.32
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Re-contextualize impactful networks",
+      "menge": 8,
+      "einzelpreis": 14.32,
+      "gesamtpreis": 114.56
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Redefine robust communities",
+      "menge": 7,
+      "einzelpreis": 26.87,
+      "gesamtpreis": 188.09
+    }
+  ],
+  "total_net": 715.97,
+  "total_vat": 136.03,
+  "total_gross": 852.0
+}

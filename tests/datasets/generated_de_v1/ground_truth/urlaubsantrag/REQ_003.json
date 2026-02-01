@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "92530",
+  "name": "Marvin Ortmann",
+  "abteilung": "HR",
+  "art": "Sonderurlaub",
+  "von": "29.09.2026",
+  "bis": "02.10.2026",
+  "tage": 3
+}

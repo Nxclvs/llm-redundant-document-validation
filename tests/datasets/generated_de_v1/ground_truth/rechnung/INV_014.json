@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Schüler\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Dr. Isabell Ring B.Sc.\nEdda-Bloch-Weg 83-44\n91074 Calau",
+  "rechnungsnummer": "RE-2026-3035",
+  "datum": "20.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Scale wireless niches",
+      "menge": 8,
+      "einzelpreis": 105.27,
+      "gesamtpreis": 842.16
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Syndicate ubiquitous e-markets",
+      "menge": 9,
+      "einzelpreis": 45.43,
+      "gesamtpreis": 408.87
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Engineer interactive synergies",
+      "menge": 3,
+      "einzelpreis": 116.89,
+      "gesamtpreis": 350.67
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Maximize web-enabled networks",
+      "menge": 10,
+      "einzelpreis": 90.27,
+      "gesamtpreis": 902.7
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Matrix web-enabled e-tailers",
+      "menge": 5,
+      "einzelpreis": 135.46,
+      "gesamtpreis": 677.3
+    }
+  ],
+  "total_net": 3181.7,
+  "total_vat": 604.52,
+  "total_gross": 3786.22
+}

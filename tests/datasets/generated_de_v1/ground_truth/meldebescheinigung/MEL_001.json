@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Eisenberg",
+  "person": {
+    "name": "Herr Gundolf Atzler",
+    "geburtsdatum": "05.03.1998"
+  },
+  "wohnungen": {
+    "aktuell": "Seidelstraße 782, 96252 Eisenberg",
+    "einzugsdatum": "04.04.2024",
+    "vorherig": "Janet-Fechner-Gasse 4-1, 28409 Hersbruck"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

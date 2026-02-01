@@ -1,0 +1,352 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_015.png",
+    "name": "MEL_015.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: MEL_015.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=10 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Slawomir Heydrich MBA.",
+          "geburtsdatum": "06.06.1964",
+          "anschrift_aktuell": "Naserallee 9/2, 05925 Neustadt am Rübenberge",
+          "einzugsdatum": "22.06.2025",
+          "anschrift_vorher": "Bienstr. 6943, 83682 Germersheim",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Slawomir Heydrich MBA.\",\n  \"geburtsdatum\": \"06.06.1964\",\n  \"anschrift_aktuell\": \"Naserallee 9/2, 05925 Neustadt am Rübenberge\",\n  \"einzugsdatum\": \"22.06.2025\",\n  \"anschrift_vorher\": \"Bienstr. 6943, 83682 Germersheim\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 14.963,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Slawomir Heydrich MBA.",
+      "geburtsdatum": "06.06.1964",
+      "anschrift_aktuell": "Naserallee 9/2, 05925 Neustadt am Rübenberge",
+      "einzugsdatum": "22.06.2025",
+      "anschrift_vorher": "Bienstr. 6943, 83682 Germersheim",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "einzugsdatum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Einzugsdatum im Dokument ist '22.06.2025', während in der JSON '22.06.2025' angegeben ist. Das Dokument zeigt jedoch eindeutig '22.06.2025', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+      },
+      {
+        "field": "datum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Datum der Meldebescheinigung im Dokument ist '28.01.2026', während in der JSON '28.01.2026' angegeben ist. Das Dokument zeigt jedoch eindeutig '28.01.2026', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was korrekt extrahiert wurde. Es handelt sich jedoch um einen Platzhalter, der keine tatsächliche Validierung zulässt."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro' erkannt."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'Slawomir Heydrich MBA.' erkannt."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '06.06.1964' erkannt."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'Naserallee 9/2, 05925 Neustadt am Rübenberge' erkannt."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '22.06.2025' erkannt."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'Bienstr. 6943, 83682 Germersheim' erkannt."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' erkannt."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt erkannt."
+      }
+    ],
+    "comments": "Die Extraktion enthält zwei kritische Fehler bei den Daten 'einzugsdatum' und 'datum', die beide zukünftige Daten enthalten, was unplausibel ist. Die restlichen Felder stimmen mit dem Dokument überein, aber die genannten Fehler machen die Extraktion insgesamt ungültig. | Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "einzugsdatum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Einzugsdatum im Dokument ist '22.06.2025', während in der JSON '22.06.2025' angegeben ist. Das Dokument zeigt jedoch eindeutig '22.06.2025', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+          },
+          {
+            "field": "datum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Datum der Meldebescheinigung im Dokument ist '28.01.2026', während in der JSON '28.01.2026' angegeben ist. Das Dokument zeigt jedoch eindeutig '28.01.2026', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was korrekt extrahiert wurde. Es handelt sich jedoch um einen Platzhalter, der keine tatsächliche Validierung zulässt."
+          }
+        ],
+        "comments": "Die Extraktion enthält zwei kritische Fehler bei den Daten 'einzugsdatum' und 'datum', die beide zukünftige Daten enthalten, was unplausibel ist. Die restlichen Felder stimmen mit dem Dokument überein, aber die genannten Fehler machen die Extraktion insgesamt ungültig.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Einzugsdatum im Dokument ist '22.06.2025', während in der JSON '22.06.2025' angegeben ist. Das Dokument zeigt jedoch eindeutig '22.06.2025', was ein zukünftiges Datum ist und daher unplausibel erscheint.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Datum der Meldebescheinigung im Dokument ist '28.01.2026', während in der JSON '28.01.2026' angegeben ist. Das Dokument zeigt jedoch eindeutig '28.01.2026', was ein zukünftiges Datum ist und daher unplausibel erscheint.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist im Dokument als 'SIEGEL' markiert, was korrekt extrahiert wurde. Es handelt sich jedoch um einen Platzhalter, der keine tatsächliche Validierung zulässt.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion enthält zwei kritische Fehler bei den Daten 'einzugsdatum' und 'datum', die beide zukünftige Daten enthalten, was unplausibel ist. Die restlichen Felder stimmen mit dem Dokument überein, aber die genannten Fehler machen die Extraktion insgesamt ungültig.\"\n}",
+        "duration_seconds": 8.6,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "einzugsdatum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Einzugsdatum im Dokument ist '22.06.2025', während in der JSON '22.06.2025' angegeben ist. Das Dokument zeigt jedoch eindeutig '22.06.2025', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+            },
+            {
+              "field": "datum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Datum der Meldebescheinigung im Dokument ist '28.01.2026', während in der JSON '28.01.2026' angegeben ist. Das Dokument zeigt jedoch eindeutig '28.01.2026', was ein zukünftiges Datum ist und daher unplausibel erscheint."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist im Dokument als 'SIEGEL' markiert, was korrekt extrahiert wurde. Es handelt sich jedoch um einen Platzhalter, der keine tatsächliche Validierung zulässt."
+            }
+          ],
+          "comments": "Die Extraktion enthält zwei kritische Fehler bei den Daten 'einzugsdatum' und 'datum', die beide zukünftige Daten enthalten, was unplausibel ist. Die restlichen Felder stimmen mit dem Dokument überein, aber die genannten Fehler machen die Extraktion insgesamt ungültig."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro' erkannt."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'Slawomir Heydrich MBA.' erkannt."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '06.06.1964' erkannt."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'Naserallee 9/2, 05925 Neustadt am Rübenberge' erkannt."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '22.06.2025' erkannt."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'Bienstr. 6943, 83682 Germersheim' erkannt."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' erkannt."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt erkannt."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro' erkannt.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'Slawomir Heydrich MBA.' erkannt.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '06.06.1964' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'Naserallee 9/2, 05925 Neustadt am Rübenberge' erkannt.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '22.06.2025' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'Bienstr. 6943, 83682 Germersheim' erkannt.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' erkannt.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt erkannt.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 20.584,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro' erkannt."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'Slawomir Heydrich MBA.' erkannt."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '06.06.1964' erkannt."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'Naserallee 9/2, 05925 Neustadt am Rübenberge' erkannt."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '22.06.2025' erkannt."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'Bienstr. 6943, 83682 Germersheim' erkannt."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' erkannt."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt erkannt."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 29.184,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 10
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:13:37"
+}

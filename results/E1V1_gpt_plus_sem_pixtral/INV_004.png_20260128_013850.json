@@ -1,0 +1,246 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_004.png",
+    "name": "INV_004.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_004.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Peukert Trub GmbH\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Hanife Butte-Junken\nBernd-Heidrich-Straße 2588\n46862 Bersenbrück",
+          "rechnungsnummer": "RE-2026-3147",
+          "datum": "22.01.2026",
+          "items": "1. Integrate turn-key roi, Menge: 4, Einzel: 103.33, Gesamt: 413.32\n2. Re-contextualize impactful networks, Menge: 8, Einzel: 14.32, Gesamt: 114.56\n3. Redefine robust communities, Menge: 7, Einzel: 26.87, Gesamt: 188.09",
+          "total_net": "715.97",
+          "total_vat": "136.03",
+          "total_gross": "852.00"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Peukert Trub GmbH\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Hanife Butte-Junken\\nBernd-Heidrich-Straße 2588\\n46862 Bersenbrück\",\n  \"rechnungsnummer\": \"RE-2026-3147\",\n  \"datum\": \"22.01.2026\",\n  \"items\": \"1. Integrate turn-key roi, Menge: 4, Einzel: 103.33, Gesamt: 413.32\\n2. Re-contextualize impactful networks, Menge: 8, Einzel: 14.32, Gesamt: 114.56\\n3. Redefine robust communities, Menge: 7, Einzel: 26.87, Gesamt: 188.09\",\n  \"total_net\": \"715.97\",\n  \"total_vat\": \"136.03\",\n  \"total_gross\": \"852.00\"\n}",
+        "duration_seconds": 19.363,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Peukert Trub GmbH\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Hanife Butte-Junken\nBernd-Heidrich-Straße 2588\n46862 Bersenbrück",
+      "rechnungsnummer": "RE-2026-3147",
+      "datum": "22.01.2026",
+      "items": "1. Integrate turn-key roi, Menge: 4, Einzel: 103.33, Gesamt: 413.32\n2. Re-contextualize impactful networks, Menge: 8, Einzel: 14.32, Gesamt: 114.56\n3. Redefine robust communities, Menge: 7, Einzel: 26.87, Gesamt: 188.09",
+      "total_net": "715.97",
+      "total_vat": "136.03",
+      "total_gross": "852.00"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "empfaenger",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Postleitzahl des Empfängers ist falsch extrahiert: 46862 statt 46882."
+      },
+      {
+        "field": "datum",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Datum ist falsch extrahiert: 22.01.2026 statt 22.01.2025."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Dokument überein."
+      },
+      {
+        "field": "total_net",
+        "type": "match",
+        "severity": "info",
+        "message": "Nettobetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_vat",
+        "type": "match",
+        "severity": "info",
+        "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_gross",
+        "type": "match",
+        "severity": "info",
+        "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+      }
+    ],
+    "comments": "Die Extraktion enthält zwei kritische Fehler: die falsche Postleitzahl des Empfängers und das falsche Datum. Alle anderen Werte stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "empfaenger",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Postleitzahl des Empfängers ist falsch extrahiert: 46862 statt 46882."
+          },
+          {
+            "field": "datum",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Datum ist falsch extrahiert: 22.01.2026 statt 22.01.2025."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Dokument überein."
+          },
+          {
+            "field": "total_net",
+            "type": "match",
+            "severity": "info",
+            "message": "Nettobetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_vat",
+            "type": "match",
+            "severity": "info",
+            "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_gross",
+            "type": "match",
+            "severity": "info",
+            "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Die Extraktion enthält zwei kritische Fehler: die falsche Postleitzahl des Empfängers und das falsche Datum. Alle anderen Werte stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Postleitzahl des Empfängers ist falsch extrahiert: 46862 statt 46882.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Datum ist falsch extrahiert: 22.01.2026 statt 22.01.2025.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Beschreibungen und Werte der Positionen stimmen mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Nettobetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Mehrwertsteuerbetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Gesamtbetrag stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion enthält zwei kritische Fehler: die falsche Postleitzahl des Empfängers und das falsche Datum. Alle anderen Werte stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 13.577,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "empfaenger",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Postleitzahl des Empfängers ist falsch extrahiert: 46862 statt 46882."
+            },
+            {
+              "field": "datum",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Datum ist falsch extrahiert: 22.01.2026 statt 22.01.2025."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Beschreibungen und Werte der Positionen stimmen mit dem Dokument überein."
+            },
+            {
+              "field": "total_net",
+              "type": "match",
+              "severity": "info",
+              "message": "Nettobetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_vat",
+              "type": "match",
+              "severity": "info",
+              "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_gross",
+              "type": "match",
+              "severity": "info",
+              "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Die Extraktion enthält zwei kritische Fehler: die falsche Postleitzahl des Empfängers und das falsche Datum. Alle anderen Werte stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 13.577,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:38:50"
+}

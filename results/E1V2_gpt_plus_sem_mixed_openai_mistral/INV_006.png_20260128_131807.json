@@ -1,0 +1,287 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_006.png",
+    "name": "INV_006.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_006.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=1, Warnings=2, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Neureuther Briemer GmbH\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Hartmuth Walter-Wirth\nUndine-Steinberg-Platz 2\n37490 Rastatt",
+          "rechnungsnummer": "RE-2026-7625",
+          "datum": "26.01.2026",
+          "items": "1 Drive plug-and-play systems 1 28.11 28.11\n2 Disintermediate plug-and-play web-readin 2 20.70 41.40\n3 Cultivate strategic mindshare 7 61.22 428.54",
+          "total_net": "498.05 €",
+          "total_vat": "94.63 €",
+          "total_gross": "592.68 €"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Neureuther Briemer GmbH\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Hartmuth Walter-Wirth\\nUndine-Steinberg-Platz 2\\n37490 Rastatt\",\n  \"rechnungsnummer\": \"RE-2026-7625\",\n  \"datum\": \"26.01.2026\",\n  \"items\": \"1 Drive plug-and-play systems 1 28.11 28.11\\n2 Disintermediate plug-and-play web-readin 2 20.70 41.40\\n3 Cultivate strategic mindshare 7 61.22 428.54\",\n  \"total_net\": \"498.05 €\",\n  \"total_vat\": \"94.63 €\",\n  \"total_gross\": \"592.68 €\"\n}",
+        "duration_seconds": 16.176,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Neureuther Briemer GmbH\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Hartmuth Walter-Wirth\nUndine-Steinberg-Platz 2\n37490 Rastatt",
+      "rechnungsnummer": "RE-2026-7625",
+      "datum": "26.01.2026",
+      "items": "1 Drive plug-and-play systems 1 28.11 28.11\n2 Disintermediate plug-and-play web-readin 2 20.70 41.40\n3 Cultivate strategic mindshare 7 61.22 428.54",
+      "total_net": "498.05 €",
+      "total_vat": "94.63 €",
+      "total_gross": "592.68 €"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "items",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Die Beschreibung in Position 2 ('Disintermediate plug-and-play web-readin') scheint im Originaldokument 'Disintermediate plug-and-play web-readiness' zu lauten. Unklar, ob dies ein Tippfehler oder eine falsche Extraktion ist."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Einzelpreise, Mengen und Gesamtpreise der Positionen stimmen mit dem Originaldokument überein."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Nettobetrag (498,05 €) stimmt mit dem Originaldokument überein."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Mehrwertsteuerbetrag (94,63 €) stimmt mit dem Originaldokument überein."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Gesamtbetrag (592,68 €) stimmt mit dem Originaldokument überein."
+      },
+      {
+        "field": "empfaenger",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Postleitzahl und Ort sind '37490 Rastatt' im JSON, aber '37490 Rastatt' im Dokument."
+      },
+      {
+        "field": "items",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Beschreibung des zweiten Artikels ist im JSON unvollständig: 'Disintermediate plug-and-play web-readin' statt 'Disintermediate plug-and-play web-readiness'."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert. Es gibt jedoch eine Unsicherheit bei der Beschreibung in Position 2, die auf einen möglichen Fehler hinweist. Insgesamt ist die Extraktion weitgehend korrekt, aber eine Überprüfung der Beschreibung in Position 2 wird empfohlen. | Die meisten Felder sind korrekt, aber es gibt Abweichungen bei der Empfängeradresse und der Artikelbeschreibung.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "items",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Die Beschreibung in Position 2 ('Disintermediate plug-and-play web-readin') scheint im Originaldokument 'Disintermediate plug-and-play web-readiness' zu lauten. Unklar, ob dies ein Tippfehler oder eine falsche Extraktion ist."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Einzelpreise, Mengen und Gesamtpreise der Positionen stimmen mit dem Originaldokument überein."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Nettobetrag (498,05 €) stimmt mit dem Originaldokument überein."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Mehrwertsteuerbetrag (94,63 €) stimmt mit dem Originaldokument überein."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Gesamtbetrag (592,68 €) stimmt mit dem Originaldokument überein."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert. Es gibt jedoch eine Unsicherheit bei der Beschreibung in Position 2, die auf einen möglichen Fehler hinweist. Insgesamt ist die Extraktion weitgehend korrekt, aber eine Überprüfung der Beschreibung in Position 2 wird empfohlen.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"items\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Die Beschreibung in Position 2 ('Disintermediate plug-and-play web-readin') scheint im Originaldokument 'Disintermediate plug-and-play web-readiness' zu lauten. Unklar, ob dies ein Tippfehler oder eine falsche Extraktion ist.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Einzelpreise, Mengen und Gesamtpreise der Positionen stimmen mit dem Originaldokument überein.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Nettobetrag (498,05 €) stimmt mit dem Originaldokument überein.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Mehrwertsteuerbetrag (94,63 €) stimmt mit dem Originaldokument überein.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Gesamtbetrag (592,68 €) stimmt mit dem Originaldokument überein.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert. Es gibt jedoch eine Unsicherheit bei der Beschreibung in Position 2, die auf einen möglichen Fehler hinweist. Insgesamt ist die Extraktion weitgehend korrekt, aber eine Überprüfung der Beschreibung in Position 2 wird empfohlen.\"\n}",
+        "duration_seconds": 8.841,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "items",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Die Beschreibung in Position 2 ('Disintermediate plug-and-play web-readin') scheint im Originaldokument 'Disintermediate plug-and-play web-readiness' zu lauten. Unklar, ob dies ein Tippfehler oder eine falsche Extraktion ist."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Einzelpreise, Mengen und Gesamtpreise der Positionen stimmen mit dem Originaldokument überein."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Nettobetrag (498,05 €) stimmt mit dem Originaldokument überein."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Mehrwertsteuerbetrag (94,63 €) stimmt mit dem Originaldokument überein."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Gesamtbetrag (592,68 €) stimmt mit dem Originaldokument überein."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert. Es gibt jedoch eine Unsicherheit bei der Beschreibung in Position 2, die auf einen möglichen Fehler hinweist. Insgesamt ist die Extraktion weitgehend korrekt, aber eine Überprüfung der Beschreibung in Position 2 wird empfohlen."
+        }
+      },
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "empfaenger",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Postleitzahl und Ort sind '37490 Rastatt' im JSON, aber '37490 Rastatt' im Dokument."
+          },
+          {
+            "field": "items",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Beschreibung des zweiten Artikels ist im JSON unvollständig: 'Disintermediate plug-and-play web-readin' statt 'Disintermediate plug-and-play web-readiness'."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt, aber es gibt Abweichungen bei der Empfängeradresse und der Artikelbeschreibung.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Postleitzahl und Ort sind '37490 Rastatt' im JSON, aber '37490 Rastatt' im Dokument.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Beschreibung des zweiten Artikels ist im JSON unvollständig: 'Disintermediate plug-and-play web-readin' statt 'Disintermediate plug-and-play web-readiness'.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt, aber es gibt Abweichungen bei der Empfängeradresse und der Artikelbeschreibung.\"\n}",
+        "duration_seconds": 16.337,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "empfaenger",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Postleitzahl und Ort sind '37490 Rastatt' im JSON, aber '37490 Rastatt' im Dokument."
+            },
+            {
+              "field": "items",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Beschreibung des zweiten Artikels ist im JSON unvollständig: 'Disintermediate plug-and-play web-readin' statt 'Disintermediate plug-and-play web-readiness'."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt, aber es gibt Abweichungen bei der Empfängeradresse und der Artikelbeschreibung."
+        }
+      }
+    ],
+    "duration_seconds_total": 25.178,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 2,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:18:07"
+}

@@ -1,0 +1,462 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_012.png",
+    "name": "REQ_012.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_012.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=18 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "14074",
+          "name": "Prof. Bianca Röhrdanz",
+          "abteilung": "Vertrieb",
+          "art": "Sonderurlaub",
+          "von": "17.10.2025",
+          "bis": "02.11.2025",
+          "tage": "16",
+          "datum": "08.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"14074\",\n  \"name\": \"Prof. Bianca Röhrdanz\",\n  \"abteilung\": \"Vertrieb\",\n  \"art\": \"Sonderurlaub\",\n  \"von\": \"17.10.2025\",\n  \"bis\": \"02.11.2025\",\n  \"tage\": \"16\",\n  \"datum\": \"08.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 5.217,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "14074",
+      "name": "Prof. Bianca Röhrdanz",
+      "abteilung": "Vertrieb",
+      "art": "Sonderurlaub",
+      "von": "17.10.2025",
+      "bis": "02.11.2025",
+      "tage": "16",
+      "datum": "08.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Prof. Bianca Röhrdanz' wurde korrekt extrahiert, einschließlich des Titels 'Prof.'."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Abteilung 'Vertrieb' wurde korrekt extrahiert."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Urlaubsart 'Sonderurlaub' wurde korrekt extrahiert."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '17.10.2025' wurde korrekt extrahiert."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '02.11.2025' wurde korrekt extrahiert."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Anzahl der Tage '16' wurde korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '08.01.2026' wurde korrekt extrahiert."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' wurde korrekt extrahiert."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'urlaubsantrag' ist korrekt angenommen."
+      },
+      {
+        "field": "personalnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Personalnummer '14074' ist korrekt extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Abteilung 'Vertrieb' ist korrekt extrahiert."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Urlaubsart 'Sonderurlaub' ist korrekt extrahiert."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Startdatum '17.10.2025' ist korrekt extrahiert."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Enddatum '02.11.2025' ist korrekt extrahiert."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Anzahl der Tage '16' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Werte stimmen mit den Angaben im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Prof. Bianca Röhrdanz' wurde korrekt extrahiert, einschließlich des Titels 'Prof.'."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Abteilung 'Vertrieb' wurde korrekt extrahiert."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Urlaubsart 'Sonderurlaub' wurde korrekt extrahiert."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '17.10.2025' wurde korrekt extrahiert."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '02.11.2025' wurde korrekt extrahiert."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Anzahl der Tage '16' wurde korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '08.01.2026' wurde korrekt extrahiert."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' wurde korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit den Angaben im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Prof. Bianca Röhrdanz' wurde korrekt extrahiert, einschließlich des Titels 'Prof.'.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Abteilung 'Vertrieb' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Urlaubsart 'Sonderurlaub' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '17.10.2025' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '02.11.2025' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Anzahl der Tage '16' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '08.01.2026' wurde korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' wurde korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit den Angaben im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 10.788,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Prof. Bianca Röhrdanz' wurde korrekt extrahiert, einschließlich des Titels 'Prof.'."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Abteilung 'Vertrieb' wurde korrekt extrahiert."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Urlaubsart 'Sonderurlaub' wurde korrekt extrahiert."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '17.10.2025' wurde korrekt extrahiert."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '02.11.2025' wurde korrekt extrahiert."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Anzahl der Tage '16' wurde korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '08.01.2026' wurde korrekt extrahiert."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' wurde korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit den Angaben im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'urlaubsantrag' ist korrekt angenommen."
+          },
+          {
+            "field": "personalnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Personalnummer '14074' ist korrekt extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Abteilung 'Vertrieb' ist korrekt extrahiert."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Urlaubsart 'Sonderurlaub' ist korrekt extrahiert."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Startdatum '17.10.2025' ist korrekt extrahiert."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Enddatum '02.11.2025' ist korrekt extrahiert."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Anzahl der Tage '16' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'urlaubsantrag' ist korrekt angenommen.\"\n    },\n    {\n      \"field\": \"personalnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Personalnummer '14074' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Abteilung 'Vertrieb' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Urlaubsart 'Sonderurlaub' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Startdatum '17.10.2025' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Enddatum '02.11.2025' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Anzahl der Tage '16' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '08.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 18.396,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'urlaubsantrag' ist korrekt angenommen."
+            },
+            {
+              "field": "personalnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Personalnummer '14074' ist korrekt extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Prof. Bianca Röhrdanz' ist korrekt extrahiert."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Abteilung 'Vertrieb' ist korrekt extrahiert."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Urlaubsart 'Sonderurlaub' ist korrekt extrahiert."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Startdatum '17.10.2025' ist korrekt extrahiert."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Enddatum '02.11.2025' ist korrekt extrahiert."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Anzahl der Tage '16' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '08.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 29.184,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 18
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:41:03"
+}

@@ -1,0 +1,151 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_001.png",
+    "name": "EXP_001.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: EXP_001.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=2 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Aleksandr Sölzer",
+          "zielort": "Ansbach",
+          "start": "10.01.2026",
+          "ende": "12.01.2026",
+          "kosten_details": "Fahrtkosten: 57.98, Übernachtungskosten: 117.66, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "259.64"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Aleksandr Sölzer\",\n  \"zielort\": \"Ansbach\",\n  \"start\": \"10.01.2026\",\n  \"ende\": \"12.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 57.98, Übernachtungskosten: 117.66, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"259.64\"\n}",
+        "duration_seconds": 15.785,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Aleksandr Sölzer",
+      "zielort": "Ansbach",
+      "start": "10.01.2026",
+      "ende": "12.01.2026",
+      "kosten_details": "Fahrtkosten: 57.98, Übernachtungskosten: 117.66, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "259.64"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+      }
+    ],
+    "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine Abweichungen oder Fehler. Die Zusammenfassung der Kosten in einem Feld ist korrekt, könnte aber für eine bessere Verarbeitung in separate Felder aufgeteilt werden.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine Abweichungen oder Fehler. Die Zusammenfassung der Kosten in einem Feld ist korrekt, könnte aber für eine bessere Verarbeitung in separate Felder aufgeteilt werden.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine Abweichungen oder Fehler. Die Zusammenfassung der Kosten in einem Feld ist korrekt, könnte aber für eine bessere Verarbeitung in separate Felder aufgeteilt werden.\"\n}",
+        "duration_seconds": 5.244,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine Abweichungen oder Fehler. Die Zusammenfassung der Kosten in einem Feld ist korrekt, könnte aber für eine bessere Verarbeitung in separate Felder aufgeteilt werden."
+        }
+      }
+    ],
+    "duration_seconds_total": 5.244,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:44:56"
+}

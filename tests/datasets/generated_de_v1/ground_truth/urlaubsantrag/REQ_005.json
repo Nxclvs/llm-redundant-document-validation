@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "58520",
+  "name": "Linus Walter",
+  "abteilung": "Logistik",
+  "art": "Erholungsurlaub",
+  "von": "23.02.2026",
+  "bis": "07.03.2026",
+  "tage": 12
+}

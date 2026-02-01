@@ -1,0 +1,110 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_002.png",
+    "name": "INV_002.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_002.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Möchlichen\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Univ.Prof. Sabrina Steuer\nOrtmannring 7/9\n05961 Grafenau",
+          "rechnungsnummer": "RE-2026-2215",
+          "datum": "24.01.2026",
+          "items": "1 Redefine b2b initiatives 8 79.39 635.12\n2 Morph back-end infrastructures 4 31.76 127.04\n3 Monetize global paradigms 3 21.15 63.45\n4 Incubate impactful niches 7 123.67 865.69",
+          "total_net": "1691.30",
+          "total_vat": "321.35",
+          "total_gross": "2012.65"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Möchlichen\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Univ.Prof. Sabrina Steuer\\nOrtmannring 7/9\\n05961 Grafenau\",\n  \"rechnungsnummer\": \"RE-2026-2215\",\n  \"datum\": \"24.01.2026\",\n  \"items\": \"1 Redefine b2b initiatives 8 79.39 635.12\\n2 Morph back-end infrastructures 4 31.76 127.04\\n3 Monetize global paradigms 3 21.15 63.45\\n4 Incubate impactful niches 7 123.67 865.69\",\n  \"total_net\": \"1691.30\",\n  \"total_vat\": \"321.35\",\n  \"total_gross\": \"2012.65\"\n}",
+        "duration_seconds": 12.136,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Möchlichen\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Univ.Prof. Sabrina Steuer\nOrtmannring 7/9\n05961 Grafenau",
+      "rechnungsnummer": "RE-2026-2215",
+      "datum": "24.01.2026",
+      "items": "1 Redefine b2b initiatives 8 79.39 635.12\n2 Morph back-end infrastructures 4 31.76 127.04\n3 Monetize global paradigms 3 21.15 63.45\n4 Incubate impactful niches 7 123.67 865.69",
+      "total_net": "1691.30",
+      "total_vat": "321.35",
+      "total_gross": "2012.65"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:08:50"
+}

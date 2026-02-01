@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Bad Freienwalde",
+  "person": {
+    "name": "Rita Anders B.A.",
+    "geburtsdatum": "02.09.1984"
+  },
+  "wohnungen": {
+    "aktuell": "Gierschnerring 161, 70056 Bad Freienwalde",
+    "einzugsdatum": "02.04.2023",
+    "vorherig": "Plathstr. 72-26, 85688 Calw"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

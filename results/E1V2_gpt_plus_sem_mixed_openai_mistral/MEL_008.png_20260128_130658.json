@@ -1,0 +1,460 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_008.png",
+    "name": "MEL_008.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_008.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=1, Infos=17 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Dipl.-Ing. Ivan Süßebier B.Eng.",
+          "geburtsdatum": "07.04.1963",
+          "anschrift_aktuell": "Marie-Mälzer-Weg 1, 97044 Altentreptow",
+          "einzugsdatum": "03.10.2023",
+          "anschrift_vorher": "Christopher-Zorbach-Ring 75-60, 43720 Gera",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Dipl.-Ing. Ivan Süßebier B.Eng.\",\n  \"geburtsdatum\": \"07.04.1963\",\n  \"anschrift_aktuell\": \"Marie-Mälzer-Weg 1, 97044 Altentreptow\",\n  \"einzugsdatum\": \"03.10.2023\",\n  \"anschrift_vorher\": \"Christopher-Zorbach-Ring 75-60, 43720 Gera\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 19.541,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Dipl.-Ing. Ivan Süßebier B.Eng.",
+      "geburtsdatum": "07.04.1963",
+      "anschrift_aktuell": "Marie-Mälzer-Weg 1, 97044 Altentreptow",
+      "einzugsdatum": "03.10.2023",
+      "anschrift_vorher": "Christopher-Zorbach-Ring 75-60, 43720 Gera",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Dipl.-Ing. Ivan Süßebier B.Eng.' ist korrekt extrahiert."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Geburtsdatum '07.04.1963' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift 'Marie-Mälzer-Weg 1, 97044 Altentreptow' ist korrekt extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Einzugsdatum '03.10.2023' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift 'Christopher-Zorbach-Ring 75-60, 43720 Gera' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Das Siegel ist als 'SIEGEL' extrahiert, jedoch ist es im Dokument nur als Platzhalter (blauer Kreis) sichtbar. Es ist unklar, ob es sich um ein tatsächliches Siegel handelt."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' erkannt."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'Dipl.-Ing. Ivan Süßebier B.Eng.' erkannt."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '07.04.1963' erkannt."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'Marie-Mälzer-Weg 1, 97044 Altentreptow' erkannt."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '03.10.2023' erkannt."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'Christopher-Zorbach-Ring 75-60, 43720 Gera' erkannt."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' erkannt."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt erkannt."
+      }
+    ],
+    "comments": "Die Extraktion ist weitgehend korrekt, jedoch besteht Unsicherheit bezüglich des Siegels, da es im Dokument nur als Platzhalter erscheint. | Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Dipl.-Ing. Ivan Süßebier B.Eng.' ist korrekt extrahiert."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Geburtsdatum '07.04.1963' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift 'Marie-Mälzer-Weg 1, 97044 Altentreptow' ist korrekt extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Einzugsdatum '03.10.2023' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift 'Christopher-Zorbach-Ring 75-60, 43720 Gera' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Das Siegel ist als 'SIEGEL' extrahiert, jedoch ist es im Dokument nur als Platzhalter (blauer Kreis) sichtbar. Es ist unklar, ob es sich um ein tatsächliches Siegel handelt."
+          }
+        ],
+        "comments": "Die Extraktion ist weitgehend korrekt, jedoch besteht Unsicherheit bezüglich des Siegels, da es im Dokument nur als Platzhalter erscheint.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Dipl.-Ing. Ivan Süßebier B.Eng.' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Geburtsdatum '07.04.1963' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift 'Marie-Mälzer-Weg 1, 97044 Altentreptow' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Einzugsdatum '03.10.2023' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift 'Christopher-Zorbach-Ring 75-60, 43720 Gera' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Das Siegel ist als 'SIEGEL' extrahiert, jedoch ist es im Dokument nur als Platzhalter (blauer Kreis) sichtbar. Es ist unklar, ob es sich um ein tatsächliches Siegel handelt.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion ist weitgehend korrekt, jedoch besteht Unsicherheit bezüglich des Siegels, da es im Dokument nur als Platzhalter erscheint.\"\n}",
+        "duration_seconds": 15.623,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Dipl.-Ing. Ivan Süßebier B.Eng.' ist korrekt extrahiert."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Geburtsdatum '07.04.1963' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift 'Marie-Mälzer-Weg 1, 97044 Altentreptow' ist korrekt extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Einzugsdatum '03.10.2023' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift 'Christopher-Zorbach-Ring 75-60, 43720 Gera' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Das Siegel ist als 'SIEGEL' extrahiert, jedoch ist es im Dokument nur als Platzhalter (blauer Kreis) sichtbar. Es ist unklar, ob es sich um ein tatsächliches Siegel handelt."
+            }
+          ],
+          "comments": "Die Extraktion ist weitgehend korrekt, jedoch besteht Unsicherheit bezüglich des Siegels, da es im Dokument nur als Platzhalter erscheint."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' erkannt."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'Dipl.-Ing. Ivan Süßebier B.Eng.' erkannt."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '07.04.1963' erkannt."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'Marie-Mälzer-Weg 1, 97044 Altentreptow' erkannt."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '03.10.2023' erkannt."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'Christopher-Zorbach-Ring 75-60, 43720 Gera' erkannt."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' erkannt."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt erkannt."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' erkannt.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'Dipl.-Ing. Ivan Süßebier B.Eng.' erkannt.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '07.04.1963' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'Marie-Mälzer-Weg 1, 97044 Altentreptow' erkannt.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '03.10.2023' erkannt.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'Christopher-Zorbach-Ring 75-60, 43720 Gera' erkannt.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' erkannt.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt erkannt.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.\"\n}",
+        "duration_seconds": 31.659,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'amtliche meldebescheinigung' erkannt."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'Stadt Altentreptow, Einwohnermeldeamt / Bürgerbüro' erkannt."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'Dipl.-Ing. Ivan Süßebier B.Eng.' erkannt."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '07.04.1963' erkannt."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'Marie-Mälzer-Weg 1, 97044 Altentreptow' erkannt."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '03.10.2023' erkannt."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'Christopher-Zorbach-Ring 75-60, 43720 Gera' erkannt."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' erkannt."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt erkannt."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt."
+        }
+      }
+    ],
+    "duration_seconds_total": 47.282,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 1,
+      "infos": 17
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:06:58"
+}

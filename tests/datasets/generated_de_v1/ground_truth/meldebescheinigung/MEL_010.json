@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Nauen",
+  "person": {
+    "name": "Ing. Ignatz Warmer",
+    "geburtsdatum": "25.04.1945"
+  },
+  "wohnungen": {
+    "aktuell": "Kreinring 497, 95523 Nauen",
+    "einzugsdatum": "07.02.2022",
+    "vorherig": "Stefan-Köster-Allee 6027, 42986 Freising"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

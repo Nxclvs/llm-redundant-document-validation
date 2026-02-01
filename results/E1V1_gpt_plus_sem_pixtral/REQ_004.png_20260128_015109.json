@@ -1,0 +1,169 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_004.png",
+    "name": "REQ_004.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_004.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=1, Infos=2 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "38291",
+          "name": "Saban Mülichen-Stahr",
+          "abteilung": "IT",
+          "art": "Bildungsurlaub",
+          "von": "12.06.2026",
+          "bis": "18.06.2026",
+          "tage": "6",
+          "datum": "05.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"38291\",\n  \"name\": \"Saban Mülichen-Stahr\",\n  \"abteilung\": \"IT\",\n  \"art\": \"Bildungsurlaub\",\n  \"von\": \"12.06.2026\",\n  \"bis\": \"18.06.2026\",\n  \"tage\": \"6\",\n  \"datum\": \"05.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 5.732,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "38291",
+      "name": "Saban Mülichen-Stahr",
+      "abteilung": "IT",
+      "art": "Bildungsurlaub",
+      "von": "12.06.2026",
+      "bis": "18.06.2026",
+      "tage": "6",
+      "datum": "05.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Name im Dokument lautet 'Saban Müllchen-Stahr', extrahierter Wert lautet 'Saban Mülichen-Stahr'. Möglicher Tippfehler oder OCR-Fehler."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Dokument."
+      }
+    ],
+    "comments": "Die meisten Felder stimmen mit dem Dokument überein. Es gibt jedoch eine Unsicherheit beim Namen, die auf einen möglichen Tippfehler oder OCR-Fehler hinweist. Alle anderen Felder sind korrekt extrahiert.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Name im Dokument lautet 'Saban Müllchen-Stahr', extrahierter Wert lautet 'Saban Mülichen-Stahr'. Möglicher Tippfehler oder OCR-Fehler."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Dokument."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen mit dem Dokument überein. Es gibt jedoch eine Unsicherheit beim Namen, die auf einen möglichen Tippfehler oder OCR-Fehler hinweist. Alle anderen Felder sind korrekt extrahiert.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Name im Dokument lautet 'Saban Müllchen-Stahr', extrahierter Wert lautet 'Saban Mülichen-Stahr'. Möglicher Tippfehler oder OCR-Fehler.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Dokument.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen mit dem Dokument überein. Es gibt jedoch eine Unsicherheit beim Namen, die auf einen möglichen Tippfehler oder OCR-Fehler hinweist. Alle anderen Felder sind korrekt extrahiert.\"\n}",
+        "duration_seconds": 7.595,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Name im Dokument lautet 'Saban Müllchen-Stahr', extrahierter Wert lautet 'Saban Mülichen-Stahr'. Möglicher Tippfehler oder OCR-Fehler."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Feld 'art' ist korrekt als 'Bildungsurlaub' extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, entspricht dem Dokument."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen mit dem Dokument überein. Es gibt jedoch eine Unsicherheit beim Namen, die auf einen möglichen Tippfehler oder OCR-Fehler hinweist. Alle anderen Felder sind korrekt extrahiert."
+        }
+      }
+    ],
+    "duration_seconds_total": 7.595,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 1,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:51:09"
+}

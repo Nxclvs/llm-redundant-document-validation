@@ -1,126 +1,98 @@
-# LLM Redundant Document Validation
 
-Framework for redundancy-based validation of LLM-driven document extraction in audit-compliant administrative workflows.
+# LLM Redundant Document Validation Framework
+### Governance and Auditability in AI-Supported Administrative Processes
+
+This repository contains the prototype framework and experimental setup for the Master's thesis on **"Governance and Revisionssicherheit in KI-gestützten Verwaltungsprozessen"**. 
+
+The framework implements an architecture that combines probabilistic extraction models (LLMs like GPT-4o) with deterministic rule sets and redundant semantic validators (e.g., Pixtral/Mistral). The primary goal is not merely to maximize extraction accuracy, but to ensure **Audit Readiness** and prevent *Silent Failures* in sensitive administrative workflows.
 
 ---
 
-## Overview
+## 🔬 Research Motivation
 
-This repository contains a prototype framework for **schema-driven extraction** and **multi-stage, redundancy-based validation** of information from administrative documents (e.g., forms used in administrative processes).
+LLM-based document extraction is increasingly applied in administrative and audit-relevant contexts. However, many existing approaches rely on single-pass extraction without systematic validation, which limits transparency and trustworthiness.
 
-The framework addresses a central challenge of LLM-based document processing:
-
-**How can extracted information be validated in a transparent, robust, and audit-compliant way?**
+**Core Research Question:**
+> *How can extracted information be validated in a transparent, robust, and audit-compliant way?*
 
 To answer this, the framework combines:
-
-- schema-driven extraction using Large Language Models (LLMs),
-- deterministic validation layers (schema compliance and rule-based checks),
-- semantic validation using an independent LLM,
-- aggregation logic for explainable final decisions,
-- and a structured JSON output suitable for audit and evaluation.
+- **Schema-driven extraction** using Large Language Models (LLMs).
+- **Deterministic validation layers** (Hard Gates: schema compliance & rules).
+- **Semantic validation** using independent Vision-Language-Models (Soft Gates).
+- **Aggregation logic** for explainable final decisions (`valid` vs. `review_needed`).
 
 The framework explicitly focuses on validating the **quality of extraction**, not the business correctness of the underlying document.
 
 ---
 
-## Key Concepts
+## 🏛 Architecture & Concepts
 
-### Extraction validation vs. business validation
+### The Pipeline
 
-The framework strictly distinguishes between two validation perspectives:
+1. **Extraction (GPT-4o)**
+   Generates structured JSON from document images based on a strict schema definition.
 
-- **Extraction validation (in scope):**  
-  *Did the model correctly extract what is visible in the document?*
-
-- **Business validation (out of scope):**  
-  *Is the document/request complete, correct, or legally valid according to administrative rules?*
-
-Business-related issues (e.g., missing signatures) are documented as **informational findings**, but do not automatically invalidate extraction quality.
-
----
-
-## Architecture
-
-### High-level pipeline
-
-1. **Extraction**
-   - LLM Extractor A (currently GPT-based)
-   - Output: structured JSON according to a predefined schema
-
-2. **Validation Layer**
-   - **Schema validation**
-     - required keys present
-     - missing or unexpected fields
-     - basic type consistency
-   - **Rule validation**
-     - deterministic plausibility checks (e.g., date ranges)
-     - extraction-oriented rules only
-   - **Semantic validation**
-     - independent LLM verifies extracted JSON against the original document
-     - anti-sycophancy prompt design to reduce model bias
+2. **Validation Layers**
+   * **Schema Validation:** Checks for required keys, missing fields, and data types.
+   * **Rule Validation:** Deterministic checks (e.g., regex patterns, logical consistency).
+   * **Semantic Validation:** An independent model (Pixtral-Large) verifies the extracted JSON against the original image to detect hallucinations.
 
 3. **Aggregation**
-   - combines all validation signals
-   - determines final status:
-     - `valid`
-     - `review_needed`
-     - `invalid`
-   - produces an audit-friendly result JSON
+   Combines all signals into a final status and generates an audit-proof JSON report.
+
+### Key Concept: Extraction vs. Business Validation
+
+* **Extraction Validation (In Scope):** Did the model correctly extract what is visible?
+* **Business Validation (Out of Scope):** Is the request legally valid? (e.g., missing signature). These are logged as `info` but do not invalidate the extraction quality.
 
 ---
 
-## Project Structure
+## 📂 Project Structure
+
+The project structure strictly separates core logic (`src`), data (`data`), and execution scripts (`scripts`).
 
 ```text
-framework/
-  extraction/
-    extractor_gpt.py
-  models/
-    openai_client.py
-    mistral_client.py
-  validation/
-    schema_validation.py
-    rule_validation.py
-    semantic_validation.py
-  pipeline/
-    aggregator.py
+.
+├── tests/                   
+│   └── datasets/            # test data
+├── results/ 
+│              
+├── framework/                    # Framework source code
+│   ├── extraction/               # Core logic (Pipeline, Validator, Extractor)
+│   ├── metrics/             # Adapters for LLMs (OpenAI, Mistral/Pixtral)
+│   ├── models/            # Pydantic models for internal data structures
+│   ├── pipeline/
+│   ├── schemes/              # Helper functions (Image Processing, Logging)
+    └── validation/   
+├── scripts/                # Executable scripts
+│   ├── generate_test_data.py    # Synthetic corpus generation
+│   ├── batch_run.py   # Execution of validation pipelines
+│   └── plot_*.py           # Visualization scripts (Analysis)
+├── config                  # Experiment configuration
+├── requirements.txt        # Python dependencies
+└── README.md               # Documentation
+```
 
-tests/
-  test_documents/
-    (example images)
+---
 
-results/
-  (generated output files)
+## 🛠 Installation & Setup
 
-main.py
+**Prerequisites:** Python 3.9+
 
-
-# Setup
-
-## Requirements
-
-- Python 3.10 or newer recommended
-- OpenAI Python SDK
-- Mistral AI Python SDK
+Clone the repository:
+```bash
+git clone https://github.com/Nxclvs/llm-redundant-document-validation.git
+cd llm-redundant-document-validation
+```
 
 Install dependencies:
-
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configuration
-
-API keys must be stored locally and must not be committed to the repository.
-
-Expected directory structure:
-
-```
-config/
-  localconfig.py   # ignored by git
-```
-
+**Configuration:**
+The project uses a local configuration file for API keys.
+Create a file named `localconfig.py` in the root directory:
 Example `localconfig.py`:
 
 ```python
@@ -130,146 +102,57 @@ config = {
 }
 ```
 
-## Usage
+---
 
-Run the pipeline on a single document:
+## ▶️ Usage
 
-```bash
-python main.py
-```
+1. **Generate Synthetic Data**
+   Generates test documents (invoices, applications, notifications) based on the schemas in `data/schemas/`:
+   ```bash
+   python scripts/generate_data.py --count 75 --output_dir data/input/generated_v1
+   ```
 
-The pipeline performs the following steps:
+2. **Run Validation Pipeline**
+   Executes the extraction and validation process. You can select specific experiment configurations via YAML files.
+   ```bash
+   # Run Baseline (E1V0: Extraction + Rules only)
+   python scripts/run_experiment.py --config configs/e1v0_baseline.yaml
 
-1. Extracts structured data from the document using an LLM.
-2. Validates schema compliance of the extracted JSON.
-3. Applies deterministic rule-based consistency checks.
-4. Performs semantic validation using an independent LLM.
-5. Aggregates all validation signals.
-6. Stores a structured JSON result in the `results/` directory.
-
-## Output Format
-
-Each pipeline run produces a structured JSON file containing:
-
-- document metadata
-- extraction output and duration
-- schema validation results
-- rule validation results
-- semantic validation results and duration
-- aggregated final status and summary
-
-**Example (shortened):**
-
-```json
-{
-  "final_status": "valid",
-  "summary": "Dokument: ... | Schema-Validation: ... | Rule-Validation: ... | Semantische Validation: ...",
-  "extraction": {...},
-  "schema_validation": {...},
-  "rule_validation": {...},
-  "semantic_validation": {...}
-}
-```
-
-The output is designed to be audit-friendly and suitable for further evaluation.
+   # Run Mixed Validation (E1V2b: Extraction + Rules + Semantic Check)
+   python scripts/run_experiment.py --config configs/e1v2b_mixed.yaml
+   ```
+   Results are saved to `results/experiments/` as structured JSON files.
 
 ---
 
-# Scientific Notes
+## 🔬 Evaluation & Metrics
 
-## Research Motivation
+The framework evaluates performance based on Governance Capabilities:
 
-LLM-based document extraction is increasingly applied in administrative and audit-relevant contexts.
-However, many existing approaches rely on single-pass extraction without systematic validation, which limits transparency and trustworthiness.
+| Metric                     | Description                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| Field Accuracy             | Exact match of extracted fields against Ground Truth.                       |
+| Audit Readiness Rate (ARR) | Percentage of documents processed without human intervention (`valid`).     |
+| Semantic Stability         | Measure of agreement between multiple validation instances (Inter-Annotator Agreement). |
 
-Typical shortcomings include:
+### Experiment Configurations
 
-- lack of redundancy,
-- absence of explicit validation layers,
-- insufficient explainability in audit scenarios.
-
-## Research Objective
-
-The objective of this work is the design and evaluation of a redundancy-based validation framework for LLM-driven document extraction that:
-
-- improves robustness through multiple validation stages,
-- separates extraction validation from business validation,
-- supports auditability and explainability,
-- enables systematic analysis of redundancy effects.
-
-## Methodological Scope
-
-The framework investigates:
-
-- schema-driven extraction consistency,
-- deterministic rule-based validation,
-- semantic validation using independent LLMs,
-- aggregation of heterogeneous validation signals,
-- (planned) cross-model redundancy between multiple extractors.
-
-It explicitly does not aim to replace domain-specific business logic or administrative decision-making.
-
-## Anti-Sycophancy Design
-
-To mitigate model bias (sycophancy), the semantic validation stage:
-
-- receives both the original document and the extracted JSON,
-- performs an independent verification step,
-- is instructed to extract and compare rather than confirm prior outputs.
-
-This design reduces the risk of uncritical agreement with earlier model outputs.
-
-## Evaluation Perspective
-
-The framework enables systematic evaluation of redundancy-based validation strategies along several dimensions:
-
-- **Extraction correctness:** Agreement between extracted JSON and document content.
-- **Redundancy effects:** Agreement or disagreement between multiple extractors or validators.
-- **Validation signal quality:** Number and severity of errors, warnings, and informational findings.
-- **Robustness:** Stability of results across different documents and model configurations.
-- **Runtime overhead:** Latency introduced by additional validation stages.
-
-The evaluation focuses on extraction trustworthiness rather than business correctness.
-
-## Validation Checklist
-
-For each processed document, the following validation steps are executed:
-
-| Step                     | Content                                                                 |
-|--------------------------|-------------------------------------------------------------------------|
-| Schema compliance check  | All expected keys present, required fields not empty, basic type consistency |
-| Rule-based validation    | Deterministic plausibility checks, extraction-oriented rules only       |
-| Semantic validation      | Independent LLM verification against the original document, anti-sycophancy prompt design applied, findings classified by severity (error, warning, info) |
-| Aggregation              | Combination of all validation signals, final status: valid, review_needed, or invalid |
-
-## Out of Scope
-
-The framework explicitly does not cover:
-
-- business or legal correctness of documents,
-- approval or rejection of administrative requests,
-- domain-specific decision logic,
-- replacement of human decision-makers.
-
-Such aspects may be logged as informational findings but are not used to invalidate extraction quality.
+| ID    | Name         | Description                                                                 |
+|-------|--------------|-----------------------------------------------------------------------------|
+| E1V0  | Baseline     | Extraction + Hard Gate (Rules) only.                                        |
+| E1V1  | Semantic     | E1V0 + Single Semantic Validator (Pixtral).                                  |
+| E1V2a | Twostage     | Homogeneous Redundancy (Model checks itself/clone).                         |
+| E1V2b | Mixed        | Heterogeneous Redundancy (GPT-4o checks Pixtral).                           |
 
 ---
 
-# Status and Roadmap
+## 🛡 License & Scientific Context
 
-## Implemented
+This project is part of an academic Bachelor's thesis.
+Code and data are available under the **MIT License** unless otherwise noted.
 
-- Schema-driven LLM extraction
-- Central schema definition
-- Schema compliance validation
-- Rule-based extraction validation
-- Semantic validation with independent LLM
-- Aggregated decision logic
-- Structured JSON result output
+**Anti-Sycophancy Design:**
+To mitigate model bias, the semantic validation stage receives the original document and the extracted JSON but is explicitly instructed to verify independently rather than confirm prior outputs.
 
-## Planned
-
-- Cross-model redundancy (Extractor B + JSON comparison)
-- Batch evaluation over multiple documents
-- Extended evaluation metrics
-- Additional administrative document templates
+**Out of Scope:**
+The framework does not make legal decisions or replace human case workers. It acts as a technical pre-filter to sort documents into automated or manual processing queues.

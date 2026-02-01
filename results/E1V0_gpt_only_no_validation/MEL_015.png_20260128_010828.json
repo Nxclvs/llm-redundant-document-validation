@@ -1,0 +1,85 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_015.png",
+    "name": "MEL_015.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_015.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Slawomir Heydrich MBA.",
+          "geburtsdatum": "06.06.1964",
+          "anschrift_aktuell": "Naserallee 9/2, 05925 Neustadt am Rübenberge",
+          "einzugsdatum": "22.06.2025",
+          "anschrift_vorher": "Bienstr. 6943, 83682 Germersheim",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Slawomir Heydrich MBA.\",\n  \"geburtsdatum\": \"06.06.1964\",\n  \"anschrift_aktuell\": \"Naserallee 9/2, 05925 Neustadt am Rübenberge\",\n  \"einzugsdatum\": \"22.06.2025\",\n  \"anschrift_vorher\": \"Bienstr. 6943, 83682 Germersheim\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 9.657,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Neustadt am Rübenberge, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Slawomir Heydrich MBA.",
+      "geburtsdatum": "06.06.1964",
+      "anschrift_aktuell": "Naserallee 9/2, 05925 Neustadt am Rübenberge",
+      "einzugsdatum": "22.06.2025",
+      "anschrift_vorher": "Bienstr. 6943, 83682 Germersheim",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:08:28"
+}

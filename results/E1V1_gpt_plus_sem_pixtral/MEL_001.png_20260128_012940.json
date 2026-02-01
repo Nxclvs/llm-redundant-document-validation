@@ -1,0 +1,275 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_001.png",
+    "name": "MEL_001.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_001.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=9 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Herr Gundolf Atzler",
+          "geburtsdatum": "05.03.1998",
+          "anschrift_aktuell": "Seidelstraße 782, 96252 Eisenberg",
+          "einzugsdatum": "04.04.2024",
+          "anschrift_vorher": "Janet-Fechner-Gasse 4-1, 28409 Hersbruck",
+          "datum": "28.01.2026",
+          "siegel": "SIEGEL"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Herr Gundolf Atzler\",\n  \"geburtsdatum\": \"05.03.1998\",\n  \"anschrift_aktuell\": \"Seidelstraße 782, 96252 Eisenberg\",\n  \"einzugsdatum\": \"04.04.2024\",\n  \"anschrift_vorher\": \"Janet-Fechner-Gasse 4-1, 28409 Hersbruck\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"SIEGEL\"\n}",
+        "duration_seconds": 15.334,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Herr Gundolf Atzler",
+      "geburtsdatum": "05.03.1998",
+      "anschrift_aktuell": "Seidelstraße 782, 96252 Eisenberg",
+      "einzugsdatum": "04.04.2024",
+      "anschrift_vorher": "Janet-Fechner-Gasse 4-1, 28409 Hersbruck",
+      "datum": "28.01.2026",
+      "siegel": "SIEGEL"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt als 'Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt als 'Herr Gundolf Atzler' extrahiert."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Geburtsdatum korrekt als '05.03.1998' extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktuelle Anschrift korrekt als 'Seidelstraße 782, 96252 Eisenberg' extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Einzugsdatum korrekt als '04.04.2024' extrahiert."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Vorherige Anschrift korrekt als 'Janet-Fechner-Gasse 4-1, 28409 Hersbruck' extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt als '28.01.2026' extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Siegel korrekt als 'SIEGEL' extrahiert, obwohl es sich um einen Platzhalter handelt."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt als 'Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt als 'Herr Gundolf Atzler' extrahiert."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Geburtsdatum korrekt als '05.03.1998' extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktuelle Anschrift korrekt als 'Seidelstraße 782, 96252 Eisenberg' extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Einzugsdatum korrekt als '04.04.2024' extrahiert."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Vorherige Anschrift korrekt als 'Janet-Fechner-Gasse 4-1, 28409 Hersbruck' extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt als '28.01.2026' extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Siegel korrekt als 'SIEGEL' extrahiert, obwohl es sich um einen Platzhalter handelt."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Typ korrekt als 'amtliche meldebescheinigung' extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt als 'Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro' extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt als 'Herr Gundolf Atzler' extrahiert.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Geburtsdatum korrekt als '05.03.1998' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktuelle Anschrift korrekt als 'Seidelstraße 782, 96252 Eisenberg' extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Einzugsdatum korrekt als '04.04.2024' extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Vorherige Anschrift korrekt als 'Janet-Fechner-Gasse 4-1, 28409 Hersbruck' extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt als '28.01.2026' extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Siegel korrekt als 'SIEGEL' extrahiert, obwohl es sich um einen Platzhalter handelt.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 13.493,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Typ korrekt als 'amtliche meldebescheinigung' extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt als 'Stadt Eisenberg, Einwohnermeldeamt / Bürgerbüro' extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt als 'Herr Gundolf Atzler' extrahiert."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Geburtsdatum korrekt als '05.03.1998' extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktuelle Anschrift korrekt als 'Seidelstraße 782, 96252 Eisenberg' extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Einzugsdatum korrekt als '04.04.2024' extrahiert."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Vorherige Anschrift korrekt als 'Janet-Fechner-Gasse 4-1, 28409 Hersbruck' extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt als '28.01.2026' extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Siegel korrekt als 'SIEGEL' extrahiert, obwohl es sich um einen Platzhalter handelt."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 13.493,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 9
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:29:40"
+}

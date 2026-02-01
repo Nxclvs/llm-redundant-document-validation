@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "84694",
+  "name": "Maxim Schüler",
+  "abteilung": "IT",
+  "art": "Sonderurlaub",
+  "von": "04.01.2026",
+  "bis": "05.01.2026",
+  "tage": 1
+}

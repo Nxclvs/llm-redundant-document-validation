@@ -1,0 +1,295 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_003.png",
+    "name": "REQ_003.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_003.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=10 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "92530",
+          "name": "Marvin Ortmann",
+          "abteilung": "HR",
+          "art": "Sonderurlaub",
+          "von": "29.09.2026",
+          "bis": "02.10.2026",
+          "tage": "3",
+          "datum": "05.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"92530\",\n  \"name\": \"Marvin Ortmann\",\n  \"abteilung\": \"HR\",\n  \"art\": \"Sonderurlaub\",\n  \"von\": \"29.09.2026\",\n  \"bis\": \"02.10.2026\",\n  \"tage\": \"3\",\n  \"datum\": \"05.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 6.637,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "92530",
+      "name": "Marvin Ortmann",
+      "abteilung": "HR",
+      "art": "Sonderurlaub",
+      "von": "29.09.2026",
+      "bis": "02.10.2026",
+      "tage": "3",
+      "datum": "05.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumententyp 'urlaubsantrag' ist korrekt identifiziert."
+      },
+      {
+        "field": "personalnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Personalnummer '92530' korrekt extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Name 'Marvin Ortmann' korrekt extrahiert."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Abteilung 'HR' korrekt extrahiert."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Urlaubsart 'Sonderurlaub' korrekt extrahiert."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum 'von' (29.09.2026) korrekt extrahiert."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum 'bis' (02.10.2026) korrekt extrahiert."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Anzahl Tage '3' korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum des Antrags '05.01.2026' korrekt extrahiert."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Unterschrift 'gez. Arbeitnehmer' korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumententyp 'urlaubsantrag' ist korrekt identifiziert."
+          },
+          {
+            "field": "personalnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Personalnummer '92530' korrekt extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Name 'Marvin Ortmann' korrekt extrahiert."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Abteilung 'HR' korrekt extrahiert."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Urlaubsart 'Sonderurlaub' korrekt extrahiert."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum 'von' (29.09.2026) korrekt extrahiert."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum 'bis' (02.10.2026) korrekt extrahiert."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Anzahl Tage '3' korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum des Antrags '05.01.2026' korrekt extrahiert."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Unterschrift 'gez. Arbeitnehmer' korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumententyp 'urlaubsantrag' ist korrekt identifiziert.\"\n    },\n    {\n      \"field\": \"personalnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Personalnummer '92530' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name 'Marvin Ortmann' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Abteilung 'HR' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Urlaubsart 'Sonderurlaub' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum 'von' (29.09.2026) korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum 'bis' (02.10.2026) korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Anzahl Tage '3' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum des Antrags '05.01.2026' korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Unterschrift 'gez. Arbeitnehmer' korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 11.808,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumententyp 'urlaubsantrag' ist korrekt identifiziert."
+            },
+            {
+              "field": "personalnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Personalnummer '92530' korrekt extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Name 'Marvin Ortmann' korrekt extrahiert."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Abteilung 'HR' korrekt extrahiert."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Urlaubsart 'Sonderurlaub' korrekt extrahiert."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum 'von' (29.09.2026) korrekt extrahiert."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum 'bis' (02.10.2026) korrekt extrahiert."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Anzahl Tage '3' korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum des Antrags '05.01.2026' korrekt extrahiert."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Unterschrift 'gez. Arbeitnehmer' korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 11.808,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 10
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:50:55"
+}

@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Biedenkopf",
+  "person": {
+    "name": "Sophia Holsten B.Eng.",
+    "geburtsdatum": "25.08.1992"
+  },
+  "wohnungen": {
+    "aktuell": "Elisabet-Gerlach-Allee 77, 07130 Biedenkopf",
+    "einzugsdatum": "21.09.2022",
+    "vorherig": "Hörleweg 2-5, 83421 Luckau"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

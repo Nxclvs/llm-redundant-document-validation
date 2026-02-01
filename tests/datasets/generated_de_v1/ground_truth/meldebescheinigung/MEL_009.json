@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Naila",
+  "person": {
+    "name": "Hans-Walter Fliegner",
+    "geburtsdatum": "11.08.1953"
+  },
+  "wohnungen": {
+    "aktuell": "Anne-Kathrin-Klemt-Gasse 8-2, 61279 Naila",
+    "einzugsdatum": "26.10.2022",
+    "vorherig": "Jovan-Boucsein-Platz 89, 41967 Hohenmölsen"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

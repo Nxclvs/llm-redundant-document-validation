@@ -1,0 +1,33 @@
+{
+  "typ": "rechnung",
+  "sender": "Täsche KGaA\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Sigfried Etzler\nEckhart-Eckbauer-Gasse 13-66\n40451 Tecklenburg",
+  "rechnungsnummer": "RE-2026-3434",
+  "datum": "13.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Seize out-of-the-box paradigms",
+      "menge": 2,
+      "einzelpreis": 83.48,
+      "gesamtpreis": 166.96
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Incentivize plug-and-play roi",
+      "menge": 9,
+      "einzelpreis": 54.56,
+      "gesamtpreis": 491.04
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Synthesize real-time infrastructures",
+      "menge": 6,
+      "einzelpreis": 82.74,
+      "gesamtpreis": 496.44
+    }
+  ],
+  "total_net": 1154.44,
+  "total_vat": 219.34,
+  "total_gross": 1373.78
+}

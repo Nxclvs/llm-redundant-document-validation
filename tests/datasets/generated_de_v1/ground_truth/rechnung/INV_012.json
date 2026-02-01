@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Steinberg\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Ing. Nikolai Heß B.A.\nWinklerring 3-8\n63509 Uelzen",
+  "rechnungsnummer": "RE-2026-8239",
+  "datum": "16.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Target scalable eyeballs",
+      "menge": 4,
+      "einzelpreis": 32.33,
+      "gesamtpreis": 129.32
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Optimize user-centric schemas",
+      "menge": 10,
+      "einzelpreis": 49.18,
+      "gesamtpreis": 491.8
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Brand proactive synergies",
+      "menge": 7,
+      "einzelpreis": 139.2,
+      "gesamtpreis": 974.4
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Synthesize intuitive interfaces",
+      "menge": 9,
+      "einzelpreis": 35.37,
+      "gesamtpreis": 318.33
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Facilitate virtual paradigms",
+      "menge": 1,
+      "einzelpreis": 112.48,
+      "gesamtpreis": 112.48
+    }
+  ],
+  "total_net": 2026.33,
+  "total_vat": 385.0,
+  "total_gross": 2411.33
+}

@@ -1,0 +1,33 @@
+{
+  "typ": "rechnung",
+  "sender": "Kaul Ziegert AG & Co. OHG\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Univ.Prof. Claus-Peter Römer\nWojciech-Etzold-Straße 31-20\n21816 Stendal",
+  "rechnungsnummer": "RE-2026-5919",
+  "datum": "25.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Harness distributed action-items",
+      "menge": 9,
+      "einzelpreis": 144.24,
+      "gesamtpreis": 1298.16
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Incubate end-to-end bandwidth",
+      "menge": 8,
+      "einzelpreis": 88.16,
+      "gesamtpreis": 705.28
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Syndicate world-class metrics",
+      "menge": 5,
+      "einzelpreis": 44.92,
+      "gesamtpreis": 224.6
+    }
+  ],
+  "total_net": 2228.04,
+  "total_vat": 423.33,
+  "total_gross": 2651.37
+}

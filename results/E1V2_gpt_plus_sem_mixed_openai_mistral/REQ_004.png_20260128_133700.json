@@ -1,0 +1,192 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_004.png",
+    "name": "REQ_004.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_004.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=1, Infos=2 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "38291",
+          "name": "Saban Mülichen-Stahr",
+          "abteilung": "IT",
+          "art": "Bildungsurlaub",
+          "von": "12.06.2026",
+          "bis": "18.06.2026",
+          "tage": "6",
+          "datum": "05.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"38291\",\n  \"name\": \"Saban Mülichen-Stahr\",\n  \"abteilung\": \"IT\",\n  \"art\": \"Bildungsurlaub\",\n  \"von\": \"12.06.2026\",\n  \"bis\": \"18.06.2026\",\n  \"tage\": \"6\",\n  \"datum\": \"05.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 14.931,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "38291",
+      "name": "Saban Mülichen-Stahr",
+      "abteilung": "IT",
+      "art": "Bildungsurlaub",
+      "von": "12.06.2026",
+      "bis": "18.06.2026",
+      "tage": "6",
+      "datum": "05.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "name",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während die JSON-Daten 'Saban Mülichen-Stahr' enthalten. Möglicherweise ein Tippfehler oder Schreibfehler."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, obwohl sie handschriftlich ergänzt werden müsste."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'urlaubsantrag' ist korrekt, obwohl er nicht explizit im Dokument steht."
+      }
+    ],
+    "comments": "Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die geklärt werden sollte. | Alle extrahierten Werte stimmen mit dem Dokument überein. Der Typ 'urlaubsantrag' ist korrekt angenommen.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "name",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während die JSON-Daten 'Saban Mülichen-Stahr' enthalten. Möglicherweise ein Tippfehler oder Schreibfehler."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, obwohl sie handschriftlich ergänzt werden müsste."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die geklärt werden sollte.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"name\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Der Name im Dokument lautet 'Saban Müllchen-Stahr', während die JSON-Daten 'Saban Mülichen-Stahr' enthalten. Möglicherweise ein Tippfehler oder Schreibfehler.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, obwohl sie handschriftlich ergänzt werden müsste.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die geklärt werden sollte.\"\n}",
+        "duration_seconds": 5.963,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "name",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Der Name im Dokument lautet 'Saban Müllchen-Stahr', während die JSON-Daten 'Saban Mülichen-Stahr' enthalten. Möglicherweise ein Tippfehler oder Schreibfehler."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift ist korrekt als 'gez. Arbeitnehmer' extrahiert, obwohl sie handschriftlich ergänzt werden müsste."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen überein, jedoch gibt es eine Unsicherheit beim Namen, die geklärt werden sollte."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'urlaubsantrag' ist korrekt, obwohl er nicht explizit im Dokument steht."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Der Typ 'urlaubsantrag' ist korrekt angenommen.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'urlaubsantrag' ist korrekt, obwohl er nicht explizit im Dokument steht.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Dokument überein. Der Typ 'urlaubsantrag' ist korrekt angenommen.\"\n}",
+        "duration_seconds": 18.937,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'urlaubsantrag' ist korrekt, obwohl er nicht explizit im Dokument steht."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Der Typ 'urlaubsantrag' ist korrekt angenommen."
+        }
+      }
+    ],
+    "duration_seconds_total": 24.9,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 1,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:37:00"
+}

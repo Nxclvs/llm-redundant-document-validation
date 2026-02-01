@@ -1,0 +1,275 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\meldebescheinigung\\MEL_002.png",
+    "name": "MEL_002.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: MEL_002.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=0, Warnings=1, Infos=8 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "meldebescheinigung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "amtliche meldebescheinigung",
+          "behoerde": "Stadt Teterow, Einwohnermeldeamt / Bürgerbüro",
+          "name": "Giuseppina Hertrampf",
+          "geburtsdatum": "27.03.2001",
+          "anschrift_aktuell": "Meike-Heser-Allee 8231, 70444 Teterow",
+          "einzugsdatum": "13.11.2024",
+          "anschrift_vorher": "Arndt-Schulz-Ring 8/9, 84982 Dresden",
+          "datum": "28.01.2026",
+          "siegel": "true"
+        },
+        "raw_response": "{\n  \"typ\": \"amtliche meldebescheinigung\",\n  \"behoerde\": \"Stadt Teterow, Einwohnermeldeamt / Bürgerbüro\",\n  \"name\": \"Giuseppina Hertrampf\",\n  \"geburtsdatum\": \"27.03.2001\",\n  \"anschrift_aktuell\": \"Meike-Heser-Allee 8231, 70444 Teterow\",\n  \"einzugsdatum\": \"13.11.2024\",\n  \"anschrift_vorher\": \"Arndt-Schulz-Ring 8/9, 84982 Dresden\",\n  \"datum\": \"28.01.2026\",\n  \"siegel\": \"true\"\n}",
+        "duration_seconds": 15.315,
+        "model": "gpt-4o",
+        "doc_type": "meldebescheinigung"
+      }
+    },
+    "data": {
+      "typ": "amtliche meldebescheinigung",
+      "behoerde": "Stadt Teterow, Einwohnermeldeamt / Bürgerbüro",
+      "name": "Giuseppina Hertrampf",
+      "geburtsdatum": "27.03.2001",
+      "anschrift_aktuell": "Meike-Heser-Allee 8231, 70444 Teterow",
+      "einzugsdatum": "13.11.2024",
+      "anschrift_vorher": "Arndt-Schulz-Ring 8/9, 84982 Dresden",
+      "datum": "28.01.2026",
+      "siegel": "true"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "siegel",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'siegel' hat falschen Datentyp. Erwartet: bool, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'Stadt Teterow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Giuseppina Hertrampf' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "geburtsdatum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Geburtsdatum '27.03.2001' ist korrekt extrahiert."
+      },
+      {
+        "field": "anschrift_aktuell",
+        "type": "info",
+        "severity": "info",
+        "message": "Die aktuelle Anschrift 'Meike-Heser-Allee 8231, 70444 Teterow' ist korrekt extrahiert."
+      },
+      {
+        "field": "einzugsdatum",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Das Einzugsdatum '13.11.2024' liegt in der Zukunft, was ungewöhnlich ist. Möglicherweise ein Fehler oder ein zukünftiger Umzug."
+      },
+      {
+        "field": "anschrift_vorher",
+        "type": "info",
+        "severity": "info",
+        "message": "Die vorherige Anschrift 'Arndt-Schulz-Ring 8/9, 84982 Dresden' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "siegel",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Siegel ist vorhanden und korrekt als 'true' extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert. Das Einzugsdatum '13.11.2024' ist jedoch auffällig, da es in der Zukunft liegt. Dies könnte ein Fehler sein oder auf einen geplanten Umzug hinweisen. Insgesamt ist die Extraktion weitgehend korrekt, aber das Einzugsdatum sollte überprüft werden.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'Stadt Teterow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Giuseppina Hertrampf' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "geburtsdatum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Geburtsdatum '27.03.2001' ist korrekt extrahiert."
+          },
+          {
+            "field": "anschrift_aktuell",
+            "type": "info",
+            "severity": "info",
+            "message": "Die aktuelle Anschrift 'Meike-Heser-Allee 8231, 70444 Teterow' ist korrekt extrahiert."
+          },
+          {
+            "field": "einzugsdatum",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Das Einzugsdatum '13.11.2024' liegt in der Zukunft, was ungewöhnlich ist. Möglicherweise ein Fehler oder ein zukünftiger Umzug."
+          },
+          {
+            "field": "anschrift_vorher",
+            "type": "info",
+            "severity": "info",
+            "message": "Die vorherige Anschrift 'Arndt-Schulz-Ring 8/9, 84982 Dresden' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "siegel",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Siegel ist vorhanden und korrekt als 'true' extrahiert."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert. Das Einzugsdatum '13.11.2024' ist jedoch auffällig, da es in der Zukunft liegt. Dies könnte ein Fehler sein oder auf einen geplanten Umzug hinweisen. Insgesamt ist die Extraktion weitgehend korrekt, aber das Einzugsdatum sollte überprüft werden.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'Stadt Teterow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Giuseppina Hertrampf' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"geburtsdatum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Geburtsdatum '27.03.2001' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"anschrift_aktuell\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die aktuelle Anschrift 'Meike-Heser-Allee 8231, 70444 Teterow' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"einzugsdatum\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Das Einzugsdatum '13.11.2024' liegt in der Zukunft, was ungewöhnlich ist. Möglicherweise ein Fehler oder ein zukünftiger Umzug.\"\n    },\n    {\n      \"field\": \"anschrift_vorher\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die vorherige Anschrift 'Arndt-Schulz-Ring 8/9, 84982 Dresden' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '28.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"siegel\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Siegel ist vorhanden und korrekt als 'true' extrahiert.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert. Das Einzugsdatum '13.11.2024' ist jedoch auffällig, da es in der Zukunft liegt. Dies könnte ein Fehler sein oder auf einen geplanten Umzug hinweisen. Insgesamt ist die Extraktion weitgehend korrekt, aber das Einzugsdatum sollte überprüft werden.\"\n}",
+        "duration_seconds": 15.004,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'amtliche meldebescheinigung' ist korrekt extrahiert, entspricht dem Dokument."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'Stadt Teterow, Einwohnermeldeamt / Bürgerbüro' ist korrekt extrahiert."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Giuseppina Hertrampf' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "geburtsdatum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Geburtsdatum '27.03.2001' ist korrekt extrahiert."
+            },
+            {
+              "field": "anschrift_aktuell",
+              "type": "info",
+              "severity": "info",
+              "message": "Die aktuelle Anschrift 'Meike-Heser-Allee 8231, 70444 Teterow' ist korrekt extrahiert."
+            },
+            {
+              "field": "einzugsdatum",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Das Einzugsdatum '13.11.2024' liegt in der Zukunft, was ungewöhnlich ist. Möglicherweise ein Fehler oder ein zukünftiger Umzug."
+            },
+            {
+              "field": "anschrift_vorher",
+              "type": "info",
+              "severity": "info",
+              "message": "Die vorherige Anschrift 'Arndt-Schulz-Ring 8/9, 84982 Dresden' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '28.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "siegel",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Siegel ist vorhanden und korrekt als 'true' extrahiert."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert. Das Einzugsdatum '13.11.2024' ist jedoch auffällig, da es in der Zukunft liegt. Dies könnte ein Fehler sein oder auf einen geplanten Umzug hinweisen. Insgesamt ist die Extraktion weitgehend korrekt, aber das Einzugsdatum sollte überprüft werden."
+        }
+      }
+    ],
+    "duration_seconds_total": 15.004,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 1,
+      "infos": 8
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:30:11"
+}

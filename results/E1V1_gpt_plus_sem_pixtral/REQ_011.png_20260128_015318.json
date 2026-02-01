@@ -1,0 +1,295 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\urlaubsantrag\\REQ_011.png",
+    "name": "REQ_011.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: REQ_011.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=10 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "urlaubsantrag",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "urlaubsantrag",
+          "personalnummer": "48692",
+          "name": "Hans Peter Römer-Schottlin",
+          "abteilung": "HR",
+          "art": "Sonderurlaub",
+          "von": "11.11.2026",
+          "bis": "30.11.2026",
+          "tage": "19",
+          "datum": "27.01.2026",
+          "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+        },
+        "raw_response": "{\n  \"typ\": \"urlaubsantrag\",\n  \"personalnummer\": \"48692\",\n  \"name\": \"Hans Peter Römer-Schottlin\",\n  \"abteilung\": \"HR\",\n  \"art\": \"Sonderurlaub\",\n  \"von\": \"11.11.2026\",\n  \"bis\": \"30.11.2026\",\n  \"tage\": \"19\",\n  \"datum\": \"27.01.2026\",\n  \"unterschrift_arbeitnehmer\": \"gez. Arbeitnehmer\"\n}",
+        "duration_seconds": 6.666,
+        "model": "gpt-4o",
+        "doc_type": "urlaubsantrag"
+      }
+    },
+    "data": {
+      "typ": "urlaubsantrag",
+      "personalnummer": "48692",
+      "name": "Hans Peter Römer-Schottlin",
+      "abteilung": "HR",
+      "art": "Sonderurlaub",
+      "von": "11.11.2026",
+      "bis": "30.11.2026",
+      "tage": "19",
+      "datum": "27.01.2026",
+      "unterschrift_arbeitnehmer": "gez. Arbeitnehmer"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "tage",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'tage' hat falschen Datentyp. Erwartet: int, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+      },
+      {
+        "field": "personalnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Personalnummer '48692' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "name",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Hans Peter Römer-Schottlin' ist korrekt extrahiert."
+      },
+      {
+        "field": "abteilung",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+      },
+      {
+        "field": "art",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Urlaubsart 'Sonderurlaub' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "von",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '11.11.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "bis",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '30.11.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "tage",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Anzahl der Tage '19' stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '27.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "unterschrift_arbeitnehmer",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+          },
+          {
+            "field": "personalnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Personalnummer '48692' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "name",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Hans Peter Römer-Schottlin' ist korrekt extrahiert."
+          },
+          {
+            "field": "abteilung",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+          },
+          {
+            "field": "art",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Urlaubsart 'Sonderurlaub' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "von",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '11.11.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "bis",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '30.11.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "tage",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Anzahl der Tage '19' stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '27.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "unterschrift_arbeitnehmer",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt.\"\n    },\n    {\n      \"field\": \"personalnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Personalnummer '48692' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"name\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Hans Peter Römer-Schottlin' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"abteilung\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Abteilung 'HR' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"art\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Urlaubsart 'Sonderurlaub' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"von\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '11.11.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"bis\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '30.11.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"tage\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Anzahl der Tage '19' stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '27.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"unterschrift_arbeitnehmer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 13.115,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert, da es sich um einen Urlaubsantrag handelt."
+            },
+            {
+              "field": "personalnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Personalnummer '48692' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "name",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Hans Peter Römer-Schottlin' ist korrekt extrahiert."
+            },
+            {
+              "field": "abteilung",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Abteilung 'HR' ist korrekt extrahiert."
+            },
+            {
+              "field": "art",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Urlaubsart 'Sonderurlaub' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "von",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '11.11.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "bis",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '30.11.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "tage",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Anzahl der Tage '19' stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '27.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "unterschrift_arbeitnehmer",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Unterschrift 'gez. Arbeitnehmer' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Felder sind korrekt extrahiert. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 13.115,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 10
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:53:18"
+}

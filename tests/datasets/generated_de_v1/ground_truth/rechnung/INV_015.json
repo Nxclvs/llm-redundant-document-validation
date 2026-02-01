@@ -1,0 +1,54 @@
+{
+  "typ": "rechnung",
+  "sender": "Geisler\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Eileen Pölitz\nGunpfplatz 975\n74043 Crailsheim",
+  "rechnungsnummer": "RE-2026-5941",
+  "datum": "04.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "E-enable impactful web-readiness",
+      "menge": 10,
+      "einzelpreis": 31.02,
+      "gesamtpreis": 310.2
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Grow real-time experiences",
+      "menge": 7,
+      "einzelpreis": 109.84,
+      "gesamtpreis": 768.88
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Exploit impactful systems",
+      "menge": 9,
+      "einzelpreis": 55.11,
+      "gesamtpreis": 495.99
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Monetize bricks-and-clicks convergence",
+      "menge": 8,
+      "einzelpreis": 12.99,
+      "gesamtpreis": 103.92
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Generate seamless partnerships",
+      "menge": 9,
+      "einzelpreis": 89.41,
+      "gesamtpreis": 804.69
+    },
+    {
+      "pos": 6,
+      "beschreibung": "Incentivize compelling solutions",
+      "menge": 8,
+      "einzelpreis": 122.31,
+      "gesamtpreis": 978.48
+    }
+  ],
+  "total_net": 3462.16,
+  "total_vat": 657.81,
+  "total_gross": 4119.97
+}

@@ -1,0 +1,372 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_007.png",
+    "name": "EXP_007.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: EXP_007.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=13 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Dr. Lara Häring B.A.",
+          "zielort": "Viechtach",
+          "start": "14.01.2026",
+          "ende": "16.01.2026",
+          "kosten_details": "Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "293.71"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Dr. Lara Häring B.A.\",\n  \"zielort\": \"Viechtach\",\n  \"start\": \"14.01.2026\",\n  \"ende\": \"16.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"293.71\"\n}",
+        "duration_seconds": 5.726,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Dr. Lara Häring B.A.",
+      "zielort": "Viechtach",
+      "start": "14.01.2026",
+      "ende": "16.01.2026",
+      "kosten_details": "Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "293.71"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Name korrekt extrahiert, Umlaut 'ä' korrekt dargestellt."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Zielort korrekt extrahiert."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Datumsformat korrekt extrahiert."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Datumsformat korrekt extrahiert."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Alle Kosten korrekt extrahiert und korrekt formatiert."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Erstattungsbetrag korrekt extrahiert."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'reisekosten' ist korrekt angegeben."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Mitarbeitername 'Dr. Lara Häring B.A.' ist korrekt angegeben."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Zielort 'Viechtach' ist korrekt angegeben."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Startdatum '14.01.2026' ist korrekt angegeben."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Enddatum '16.01.2026' ist korrekt angegeben."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kostenaufstellung ist korrekt angegeben: Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag '293.71' ist korrekt angegeben."
+      }
+    ],
+    "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Name korrekt extrahiert, Umlaut 'ä' korrekt dargestellt."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Zielort korrekt extrahiert."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Datumsformat korrekt extrahiert."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Datumsformat korrekt extrahiert."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Alle Kosten korrekt extrahiert und korrekt formatiert."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Erstattungsbetrag korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Name korrekt extrahiert, Umlaut 'ä' korrekt dargestellt.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zielort korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datumsformat korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datumsformat korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Alle Kosten korrekt extrahiert und korrekt formatiert.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Erstattungsbetrag korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 8.807,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Name korrekt extrahiert, Umlaut 'ä' korrekt dargestellt."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Zielort korrekt extrahiert."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Datumsformat korrekt extrahiert."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Datumsformat korrekt extrahiert."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Alle Kosten korrekt extrahiert und korrekt formatiert."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Erstattungsbetrag korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'reisekosten' ist korrekt angegeben."
+          },
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Mitarbeitername 'Dr. Lara Häring B.A.' ist korrekt angegeben."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Zielort 'Viechtach' ist korrekt angegeben."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Startdatum '14.01.2026' ist korrekt angegeben."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Enddatum '16.01.2026' ist korrekt angegeben."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kostenaufstellung ist korrekt angegeben: Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag '293.71' ist korrekt angegeben."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'reisekosten' ist korrekt angegeben.\"\n    },\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Mitarbeitername 'Dr. Lara Häring B.A.' ist korrekt angegeben.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Zielort 'Viechtach' ist korrekt angegeben.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Startdatum '14.01.2026' ist korrekt angegeben.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Enddatum '16.01.2026' ist korrekt angegeben.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kostenaufstellung ist korrekt angegeben: Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag '293.71' ist korrekt angegeben.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt.\"\n}",
+        "duration_seconds": 12.607,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'reisekosten' ist korrekt angegeben."
+            },
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Mitarbeitername 'Dr. Lara Häring B.A.' ist korrekt angegeben."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Zielort 'Viechtach' ist korrekt angegeben."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Startdatum '14.01.2026' ist korrekt angegeben."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Enddatum '16.01.2026' ist korrekt angegeben."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kostenaufstellung ist korrekt angegeben: Fahrtkosten: 115.40, Übernachtungskosten: 94.31, Verpflegungsmehraufwand: 84.00."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag '293.71' ist korrekt angegeben."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein. Keine Abweichungen festgestellt."
+        }
+      }
+    ],
+    "duration_seconds_total": 21.414,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 13
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:29:41"
+}

@@ -1,0 +1,90 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_003.png",
+    "name": "NOT_003.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: NOT_003.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "gebührenbescheid",
+          "behoerde": "Stadtverwaltung Geithain, Amt für öffentliche Ordnung",
+          "adressat": "Sören Hofmann, Carl-Henck-Weg 28, 62983 Uffenheim",
+          "aktenzeichen": "AZ-684899",
+          "datum": "25.01.2026",
+          "grund": "Meldebescheinigung",
+          "betrag": "19.56 Euro",
+          "zahlungsfrist": "24.01.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"gebührenbescheid\",\n  \"behoerde\": \"Stadtverwaltung Geithain, Amt für öffentliche Ordnung\",\n  \"adressat\": \"Sören Hofmann, Carl-Henck-Weg 28, 62983 Uffenheim\",\n  \"aktenzeichen\": \"AZ-684899\",\n  \"datum\": \"25.01.2026\",\n  \"grund\": \"Meldebescheinigung\",\n  \"betrag\": \"19.56 Euro\",\n  \"zahlungsfrist\": \"24.01.2026\"\n}",
+        "duration_seconds": 6.831,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "gebührenbescheid",
+      "behoerde": "Stadtverwaltung Geithain, Amt für öffentliche Ordnung",
+      "adressat": "Sören Hofmann, Carl-Henck-Weg 28, 62983 Uffenheim",
+      "aktenzeichen": "AZ-684899",
+      "datum": "25.01.2026",
+      "grund": "Meldebescheinigung",
+      "betrag": "19.56 Euro",
+      "zahlungsfrist": "24.01.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "zahlungsfrist",
+        "rule": "deadline_before_date",
+        "severity": "error",
+        "message": "Zahlungsfrist liegt vor dem Bescheiddatum."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:05:02"
+}

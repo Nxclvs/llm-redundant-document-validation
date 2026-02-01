@@ -1,0 +1,431 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_003.png",
+    "name": "INV_003.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_003.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=2, Warnings=1, Infos=12 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Gude AG\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Karlheinz Binner\nBimbaumweg 229\n47893 Guben",
+          "rechnungsnummer": "RE-2026-1568",
+          "datum": "15.01.2026",
+          "items": "1 Strategize clicks-and-mortar bandwidth 9 125.51 1129.59\n2 Enable wireless roi 7 75.18 526.26\n3 Synergize revolutionary paradigms 7 67.57 472.99\n4 Incentivize out-of-the-box communities 10 45.45 454.50\n5 Implement distributed mindshare 5 135.42 677.10",
+          "total_net": "3260.44",
+          "total_vat": "619.48",
+          "total_gross": "3879.92"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Gude AG\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Karlheinz Binner\\nBimbaumweg 229\\n47893 Guben\",\n  \"rechnungsnummer\": \"RE-2026-1568\",\n  \"datum\": \"15.01.2026\",\n  \"items\": \"1 Strategize clicks-and-mortar bandwidth 9 125.51 1129.59\\n2 Enable wireless roi 7 75.18 526.26\\n3 Synergize revolutionary paradigms 7 67.57 472.99\\n4 Incentivize out-of-the-box communities 10 45.45 454.50\\n5 Implement distributed mindshare 5 135.42 677.10\",\n  \"total_net\": \"3260.44\",\n  \"total_vat\": \"619.48\",\n  \"total_gross\": \"3879.92\"\n}",
+        "duration_seconds": 16.534,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Gude AG\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Karlheinz Binner\nBimbaumweg 229\n47893 Guben",
+      "rechnungsnummer": "RE-2026-1568",
+      "datum": "15.01.2026",
+      "items": "1 Strategize clicks-and-mortar bandwidth 9 125.51 1129.59\n2 Enable wireless roi 7 75.18 526.26\n3 Synergize revolutionary paradigms 7 67.57 472.99\n4 Incentivize out-of-the-box communities 10 45.45 454.50\n5 Implement distributed mindshare 5 135.42 677.10",
+      "total_net": "3260.44",
+      "total_vat": "619.48",
+      "total_gross": "3879.92"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "sender",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Name des Senders im Dokument lautet 'Gude AG', während die JSON-Daten 'Gude AG' korrekt extrahieren, aber der Vorname 'Karlheinz' im Empfänger falsch geschrieben ist."
+      },
+      {
+        "field": "empfaenger",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Vorname des Empfängers ist falsch geschrieben: 'Karlheinz' statt 'Karlheinz' im Dokument."
+      },
+      {
+        "field": "items",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Die Preise in der JSON-Daten sind korrekt, aber die Formatierung der Beschreibungen könnte unklar sein, da sie im Dokument in Englisch und möglicherweise ungewöhnlich sind."
+      },
+      {
+        "field": "total_net",
+        "type": "match",
+        "severity": "info",
+        "message": "Der Nettobetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_vat",
+        "type": "match",
+        "severity": "info",
+        "message": "Der Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_gross",
+        "type": "match",
+        "severity": "info",
+        "message": "Der Gesamtbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+      },
+      {
+        "field": "sender",
+        "type": "info",
+        "severity": "info",
+        "message": "Absender korrekt extrahiert."
+      },
+      {
+        "field": "empfaenger",
+        "type": "info",
+        "severity": "info",
+        "message": "Empfänger korrekt extrahiert."
+      },
+      {
+        "field": "rechnungsnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Rechnungsnummer korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Positionen korrekt extrahiert."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Netto-Betrag korrekt extrahiert."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "MwSt korrekt extrahiert."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Gesamtbetrag korrekt extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder stimmen überein, aber es gibt klare Fehler im Namen des Empfängers und Unsicherheiten bei der Formatierung der Artikelbeschreibungen. | Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "sender",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Name des Senders im Dokument lautet 'Gude AG', während die JSON-Daten 'Gude AG' korrekt extrahieren, aber der Vorname 'Karlheinz' im Empfänger falsch geschrieben ist."
+          },
+          {
+            "field": "empfaenger",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Vorname des Empfängers ist falsch geschrieben: 'Karlheinz' statt 'Karlheinz' im Dokument."
+          },
+          {
+            "field": "items",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Die Preise in der JSON-Daten sind korrekt, aber die Formatierung der Beschreibungen könnte unklar sein, da sie im Dokument in Englisch und möglicherweise ungewöhnlich sind."
+          },
+          {
+            "field": "total_net",
+            "type": "match",
+            "severity": "info",
+            "message": "Der Nettobetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_vat",
+            "type": "match",
+            "severity": "info",
+            "message": "Der Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_gross",
+            "type": "match",
+            "severity": "info",
+            "message": "Der Gesamtbetrag stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen überein, aber es gibt klare Fehler im Namen des Empfängers und Unsicherheiten bei der Formatierung der Artikelbeschreibungen.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"sender\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Name des Senders im Dokument lautet 'Gude AG', während die JSON-Daten 'Gude AG' korrekt extrahieren, aber der Vorname 'Karlheinz' im Empfänger falsch geschrieben ist.\"\n    },\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Vorname des Empfängers ist falsch geschrieben: 'Karlheinz' statt 'Karlheinz' im Dokument.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Die Preise in der JSON-Daten sind korrekt, aber die Formatierung der Beschreibungen könnte unklar sein, da sie im Dokument in Englisch und möglicherweise ungewöhnlich sind.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Der Nettobetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Der Mehrwertsteuerbetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Der Gesamtbetrag stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen überein, aber es gibt klare Fehler im Namen des Empfängers und Unsicherheiten bei der Formatierung der Artikelbeschreibungen.\"\n}",
+        "duration_seconds": 9.534,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "sender",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Name des Senders im Dokument lautet 'Gude AG', während die JSON-Daten 'Gude AG' korrekt extrahieren, aber der Vorname 'Karlheinz' im Empfänger falsch geschrieben ist."
+            },
+            {
+              "field": "empfaenger",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Vorname des Empfängers ist falsch geschrieben: 'Karlheinz' statt 'Karlheinz' im Dokument."
+            },
+            {
+              "field": "items",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Die Preise in der JSON-Daten sind korrekt, aber die Formatierung der Beschreibungen könnte unklar sein, da sie im Dokument in Englisch und möglicherweise ungewöhnlich sind."
+            },
+            {
+              "field": "total_net",
+              "type": "match",
+              "severity": "info",
+              "message": "Der Nettobetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_vat",
+              "type": "match",
+              "severity": "info",
+              "message": "Der Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_gross",
+              "type": "match",
+              "severity": "info",
+              "message": "Der Gesamtbetrag stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen überein, aber es gibt klare Fehler im Namen des Empfängers und Unsicherheiten bei der Formatierung der Artikelbeschreibungen."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+          },
+          {
+            "field": "sender",
+            "type": "info",
+            "severity": "info",
+            "message": "Absender korrekt extrahiert."
+          },
+          {
+            "field": "empfaenger",
+            "type": "info",
+            "severity": "info",
+            "message": "Empfänger korrekt extrahiert."
+          },
+          {
+            "field": "rechnungsnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Rechnungsnummer korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Positionen korrekt extrahiert."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Netto-Betrag korrekt extrahiert."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "MwSt korrekt extrahiert."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Gesamtbetrag korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'rechnung' erkannt.\"\n    },\n    {\n      \"field\": \"sender\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Absender korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Empfänger korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"rechnungsnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Rechnungsnummer korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Positionen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Netto-Betrag korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"MwSt korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Gesamtbetrag korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 17.96,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'rechnung' erkannt."
+            },
+            {
+              "field": "sender",
+              "type": "info",
+              "severity": "info",
+              "message": "Absender korrekt extrahiert."
+            },
+            {
+              "field": "empfaenger",
+              "type": "info",
+              "severity": "info",
+              "message": "Empfänger korrekt extrahiert."
+            },
+            {
+              "field": "rechnungsnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Rechnungsnummer korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Positionen korrekt extrahiert."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Netto-Betrag korrekt extrahiert."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "MwSt korrekt extrahiert."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Gesamtbetrag korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Felder wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 27.494,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 1,
+      "infos": 12
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:15:56"
+}

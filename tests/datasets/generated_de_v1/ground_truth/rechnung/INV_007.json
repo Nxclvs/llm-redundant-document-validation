@@ -1,0 +1,54 @@
+{
+  "typ": "rechnung",
+  "sender": "Metz\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Frau Irma Peukert\nScholtzstraße 10-43\n49381 Cuxhaven",
+  "rechnungsnummer": "RE-2026-8388",
+  "datum": "27.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Engineer bricks-and-clicks functionalities",
+      "menge": 10,
+      "einzelpreis": 13.76,
+      "gesamtpreis": 137.6
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Target open-source bandwidth",
+      "menge": 3,
+      "einzelpreis": 21.62,
+      "gesamtpreis": 64.86
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Implement rich bandwidth",
+      "menge": 7,
+      "einzelpreis": 109.96,
+      "gesamtpreis": 769.72
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Disintermediate magnetic functionalities",
+      "menge": 2,
+      "einzelpreis": 41.73,
+      "gesamtpreis": 83.46
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Deploy real-time solutions",
+      "menge": 10,
+      "einzelpreis": 63.89,
+      "gesamtpreis": 638.9
+    },
+    {
+      "pos": 6,
+      "beschreibung": "Monetize impactful supply-chains",
+      "menge": 9,
+      "einzelpreis": 80.28,
+      "gesamtpreis": 722.52
+    }
+  ],
+  "total_net": 2417.06,
+  "total_vat": 459.24,
+  "total_gross": 2876.3
+}

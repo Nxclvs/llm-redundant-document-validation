@@ -1,0 +1,370 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_004.png",
+    "name": "EXP_004.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_004.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=11 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Univ.Prof. Hilda Wirth B.Sc.",
+          "zielort": "Hettstedt",
+          "start": "19.01.2026",
+          "ende": "21.01.2026",
+          "kosten_details": "Fahrtkosten: 105.89 EUR, Übernachtungskosten: 154.56 EUR, Verpflegungsmehraufwand: 84.00 EUR",
+          "erstattungsbetrag": "344.45"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Univ.Prof. Hilda Wirth B.Sc.\",\n  \"zielort\": \"Hettstedt\",\n  \"start\": \"19.01.2026\",\n  \"ende\": \"21.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 105.89 EUR, Übernachtungskosten: 154.56 EUR, Verpflegungsmehraufwand: 84.00 EUR\",\n  \"erstattungsbetrag\": \"344.45\"\n}",
+        "duration_seconds": 4.982,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Univ.Prof. Hilda Wirth B.Sc.",
+      "zielort": "Hettstedt",
+      "start": "19.01.2026",
+      "ende": "21.01.2026",
+      "kosten_details": "Fahrtkosten: 105.89 EUR, Übernachtungskosten: 154.56 EUR, Verpflegungsmehraufwand: 84.00 EUR",
+      "erstattungsbetrag": "344.45"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung 'EUR' im Dokument explizit angegeben, während sie in der JSON nur implizit ist."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist. Zudem ist der Wert im Dokument falsch extrahiert: Korrekt wäre '344.45' statt '944.45'."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung in der JSON als durchgehender Text weniger strukturiert als im Dokument."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung 'EUR' nicht enthält. Dies führt zu einer Bewertung als 'invalid'. | Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der sowohl falsch extrahiert als auch unvollständig (ohne Währung) angegeben ist.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung 'EUR' im Dokument explizit angegeben, während sie in der JSON nur implizit ist."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+          },
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung 'EUR' nicht enthält. Dies führt zu einer Bewertung als 'invalid'.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Währung 'EUR' im Dokument explizit angegeben, während sie in der JSON nur implizit ist.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'.\"\n    },\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Zielort 'Hettstedt' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Startdatum '19.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Enddatum '21.01.2026' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung 'EUR' nicht enthält. Dies führt zu einer Bewertung als 'invalid'.\"\n}",
+        "duration_seconds": 12.663,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung 'EUR' im Dokument explizit angegeben, während sie in der JSON nur implizit ist."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+            },
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung 'EUR' nicht enthält. Dies führt zu einer Bewertung als 'invalid'."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist. Zudem ist der Wert im Dokument falsch extrahiert: Korrekt wäre '344.45' statt '944.45'."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung in der JSON als durchgehender Text weniger strukturiert als im Dokument."
+          },
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der sowohl falsch extrahiert als auch unvollständig (ohne Währung) angegeben ist.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist. Zudem ist der Wert im Dokument falsch extrahiert: Korrekt wäre '344.45' statt '944.45'.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung in der JSON als durchgehender Text weniger strukturiert als im Dokument.\"\n    },\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Zielort 'Hettstedt' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Startdatum '19.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Enddatum '21.01.2026' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der sowohl falsch extrahiert als auch unvollständig (ohne Währung) angegeben ist.\"\n}",
+        "duration_seconds": 11.019,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '344.45 EUR', während in der JSON '344.45' ohne Währung angegeben ist. Zudem ist der Wert im Dokument falsch extrahiert: Korrekt wäre '344.45' statt '944.45'."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung in der JSON als durchgehender Text weniger strukturiert als im Dokument."
+            },
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Name 'Univ.Prof. Hilda Wirth B.Sc.' ist korrekt extrahiert."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Zielort 'Hettstedt' ist korrekt extrahiert."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Startdatum '19.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Enddatum '21.01.2026' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag, der sowohl falsch extrahiert als auch unvollständig (ohne Währung) angegeben ist."
+        }
+      }
+    ],
+    "duration_seconds_total": 23.682,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 11
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:26:48"
+}

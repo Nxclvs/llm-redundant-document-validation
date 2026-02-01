@@ -1,0 +1,318 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_002.png",
+    "name": "EXP_002.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_002.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=1, Warnings=0, Infos=9 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Jürgen Gerlach",
+          "zielort": "Miesbach",
+          "start": "16.01.2026",
+          "ende": "18.01.2026",
+          "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "335.58"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Jürgen Gerlach\",\n  \"zielort\": \"Miesbach\",\n  \"start\": \"16.01.2026\",\n  \"ende\": \"18.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"335.58\"\n}",
+        "duration_seconds": 15.95,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Jürgen Gerlach",
+      "zielort": "Miesbach",
+      "start": "16.01.2026",
+      "ende": "18.01.2026",
+      "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "335.58"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '335.58 EUR', während in der JSON '335.58' ohne Währung angegeben ist."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung (EUR) im Dokument angegeben, aber nicht in der JSON."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Dokumenttyp korrekt als 'reisekosten' erkannt."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Mitarbeitername korrekt extrahiert."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Reiseziel korrekt extrahiert."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Startdatum korrekt extrahiert."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Endedatum korrekt extrahiert."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Kostenaufstellung korrekt extrahiert."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Erstattungsbetrag korrekt extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung nicht korrekt angibt. Zudem fehlt die Währung in den Kostenangaben. | Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '335.58 EUR', während in der JSON '335.58' ohne Währung angegeben ist."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung (EUR) im Dokument angegeben, aber nicht in der JSON."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung nicht korrekt angibt. Zudem fehlt die Währung in den Kostenangaben.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '335.58 EUR', während in der JSON '335.58' ohne Währung angegeben ist.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Währung (EUR) im Dokument angegeben, aber nicht in der JSON.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung nicht korrekt angibt. Zudem fehlt die Währung in den Kostenangaben.\"\n}",
+        "duration_seconds": 6.311,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '335.58 EUR', während in der JSON '335.58' ohne Währung angegeben ist."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Währung (EUR) im Dokument angegeben, aber nicht in der JSON."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen klaren Fehler beim Erstattungsbetrag, der die Währung nicht korrekt angibt. Zudem fehlt die Währung in den Kostenangaben."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Dokumenttyp korrekt als 'reisekosten' erkannt."
+          },
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Mitarbeitername korrekt extrahiert."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Reiseziel korrekt extrahiert."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Startdatum korrekt extrahiert."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Endedatum korrekt extrahiert."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Kostenaufstellung korrekt extrahiert."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Erstattungsbetrag korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Dokumenttyp korrekt als 'reisekosten' erkannt.\"\n    },\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Mitarbeitername korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Reiseziel korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Startdatum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Endedatum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Kostenaufstellung korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Erstattungsbetrag korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 20.003,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Dokumenttyp korrekt als 'reisekosten' erkannt."
+            },
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Mitarbeitername korrekt extrahiert."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Reiseziel korrekt extrahiert."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Startdatum korrekt extrahiert."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Endedatum korrekt extrahiert."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Kostenaufstellung korrekt extrahiert."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Erstattungsbetrag korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 26.314,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 0,
+      "infos": 9
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:27:03"
+}

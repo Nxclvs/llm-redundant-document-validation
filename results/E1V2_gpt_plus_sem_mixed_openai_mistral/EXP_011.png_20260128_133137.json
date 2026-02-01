@@ -1,0 +1,192 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_011.png",
+    "name": "EXP_011.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_011.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=1, Warnings=0, Infos=2 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Reiner Dörschner",
+          "zielort": "Genthin",
+          "start": "07.01.2026",
+          "ende": "09.01.2026",
+          "kosten_details": "Fahrtkosten: 114.26, Übernachtungskosten: 84.77, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "283.03"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Reiner Dörschner\",\n  \"zielort\": \"Genthin\",\n  \"start\": \"07.01.2026\",\n  \"ende\": \"09.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 114.26, Übernachtungskosten: 84.77, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"283.03\"\n}",
+        "duration_seconds": 9.054,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Reiner Dörschner",
+      "zielort": "Genthin",
+      "start": "07.01.2026",
+      "ende": "09.01.2026",
+      "kosten_details": "Fahrtkosten: 114.26, Übernachtungskosten: 84.77, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "283.03"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) in der JSON-Daten nicht konsistent mit der deutschen Schreibweise im Dokument."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Wert im Dokument überein."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument ist 83.03, aber im JSON ist er 283.03."
+      }
+    ],
+    "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, lediglich eine kleine Unstimmigkeit in der Formatierung der Kostenangaben. | Der Erstattungsbetrag weicht deutlich ab, was zu einem 'invalid'-Status führt.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) in der JSON-Daten nicht konsistent mit der deutschen Schreibweise im Dokument."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Wert im Dokument überein."
+          }
+        ],
+        "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, lediglich eine kleine Unstimmigkeit in der Formatierung der Kostenangaben.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) in der JSON-Daten nicht konsistent mit der deutschen Schreibweise im Dokument.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Wert im Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, lediglich eine kleine Unstimmigkeit in der Formatierung der Kostenangaben.\"\n}",
+        "duration_seconds": 5.26,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) in der JSON-Daten nicht konsistent mit der deutschen Schreibweise im Dokument."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Wert im Dokument überein."
+            }
+          ],
+          "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, lediglich eine kleine Unstimmigkeit in der Formatierung der Kostenangaben."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument ist 83.03, aber im JSON ist er 283.03."
+          }
+        ],
+        "comments": "Der Erstattungsbetrag weicht deutlich ab, was zu einem 'invalid'-Status führt.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument ist 83.03, aber im JSON ist er 283.03.\"\n    }\n  ],\n  \"comments\": \"Der Erstattungsbetrag weicht deutlich ab, was zu einem 'invalid'-Status führt.\"\n}",
+        "duration_seconds": 7.26,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument ist 83.03, aber im JSON ist er 283.03."
+            }
+          ],
+          "comments": "Der Erstattungsbetrag weicht deutlich ab, was zu einem 'invalid'-Status führt."
+        }
+      }
+    ],
+    "duration_seconds_total": 12.52,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 0,
+      "infos": 2
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:31:37"
+}

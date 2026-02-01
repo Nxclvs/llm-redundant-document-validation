@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "15466",
+  "name": "Lisette Bolander",
+  "abteilung": "Vertrieb",
+  "art": "Erholungsurlaub",
+  "von": "26.01.2026",
+  "bis": "15.02.2026",
+  "tage": 20
+}

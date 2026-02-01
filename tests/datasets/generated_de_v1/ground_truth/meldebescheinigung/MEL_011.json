@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Büsingen am Hochrhein",
+  "person": {
+    "name": "Ing. Helge Krebs MBA.",
+    "geburtsdatum": "16.02.1962"
+  },
+  "wohnungen": {
+    "aktuell": "Speerstraße 85-20, 50510 Büsingen am Hochrhein",
+    "einzugsdatum": "09.06.2023",
+    "vorherig": "Gertzgasse 2-6, 08723 Eberswalde"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Günzburg",
+  "person": {
+    "name": "Arnd Schacht B.A.",
+    "geburtsdatum": "06.04.1944"
+  },
+  "wohnungen": {
+    "aktuell": "Hellwigplatz 2-8, 32217 Günzburg",
+    "einzugsdatum": "30.05.2025",
+    "vorherig": "Helmar-Cichorius-Platz 7848, 43309 Diepholz"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

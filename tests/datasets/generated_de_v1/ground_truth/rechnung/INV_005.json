@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Jacob\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Meik Wulff\nJockelallee 4-2\n57628 Stade",
+  "rechnungsnummer": "RE-2026-4173",
+  "datum": "23.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Implement robust methodologies",
+      "menge": 1,
+      "einzelpreis": 99.5,
+      "gesamtpreis": 99.5
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Seize visionary e-tailers",
+      "menge": 2,
+      "einzelpreis": 106.62,
+      "gesamtpreis": 213.24
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Harness turn-key synergies",
+      "menge": 7,
+      "einzelpreis": 57.93,
+      "gesamtpreis": 405.51
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Matrix efficient systems",
+      "menge": 4,
+      "einzelpreis": 31.0,
+      "gesamtpreis": 124.0
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Benchmark world-class schemas",
+      "menge": 3,
+      "einzelpreis": 122.88,
+      "gesamtpreis": 368.64
+    }
+  ],
+  "total_net": 1210.89,
+  "total_vat": 230.07,
+  "total_gross": 1440.96
+}

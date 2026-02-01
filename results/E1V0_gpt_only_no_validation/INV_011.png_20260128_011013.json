@@ -1,0 +1,110 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_011.png",
+    "name": "INV_011.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_011.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Werner Dippel KGaA\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Ute Finke\nNaserweg 88\n20809 Ebermannstadt",
+          "rechnungsnummer": "RE-2026-8345",
+          "datum": "18.01.2026",
+          "items": "1. Transform cutting-edge relationships, Menge: 7, Einzel: 17.72, Gesamt: 124.04\n2. Target compelling action-items, Menge: 6, Einzel: 45.67, Gesamt: 274.02\n3. Harness bricks-and-clicks paradigms, Menge: 2, Einzel: 34.49, Gesamt: 68.98\n4. Benchmark distributed e-tailers, Menge: 9, Einzel: 15.56, Gesamt: 140.04\n5. Engineer extensible convergence, Menge: 4, Einzel: 50.54, Gesamt: 202.16",
+          "total_net": "809.24",
+          "total_vat": "153.76",
+          "total_gross": "963.00"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Werner Dippel KGaA\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Ute Finke\\nNaserweg 88\\n20809 Ebermannstadt\",\n  \"rechnungsnummer\": \"RE-2026-8345\",\n  \"datum\": \"18.01.2026\",\n  \"items\": \"1. Transform cutting-edge relationships, Menge: 7, Einzel: 17.72, Gesamt: 124.04\\n2. Target compelling action-items, Menge: 6, Einzel: 45.67, Gesamt: 274.02\\n3. Harness bricks-and-clicks paradigms, Menge: 2, Einzel: 34.49, Gesamt: 68.98\\n4. Benchmark distributed e-tailers, Menge: 9, Einzel: 15.56, Gesamt: 140.04\\n5. Engineer extensible convergence, Menge: 4, Einzel: 50.54, Gesamt: 202.16\",\n  \"total_net\": \"809.24\",\n  \"total_vat\": \"153.76\",\n  \"total_gross\": \"963.00\"\n}",
+        "duration_seconds": 11.032,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Werner Dippel KGaA\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Ute Finke\nNaserweg 88\n20809 Ebermannstadt",
+      "rechnungsnummer": "RE-2026-8345",
+      "datum": "18.01.2026",
+      "items": "1. Transform cutting-edge relationships, Menge: 7, Einzel: 17.72, Gesamt: 124.04\n2. Target compelling action-items, Menge: 6, Einzel: 45.67, Gesamt: 274.02\n3. Harness bricks-and-clicks paradigms, Menge: 2, Einzel: 34.49, Gesamt: 68.98\n4. Benchmark distributed e-tailers, Menge: 9, Einzel: 15.56, Gesamt: 140.04\n5. Engineer extensible convergence, Menge: 4, Einzel: 50.54, Gesamt: 202.16",
+      "total_net": "809.24",
+      "total_vat": "153.76",
+      "total_gross": "963.00"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:10:13"
+}

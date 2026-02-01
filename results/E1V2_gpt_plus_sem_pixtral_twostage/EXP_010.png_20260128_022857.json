@@ -1,0 +1,208 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_010.png",
+    "name": "EXP_010.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: EXP_010.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=4 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Chantal Sager",
+          "zielort": "Stadtsteinach",
+          "start": "02.01.2026",
+          "ende": "04.01.2026",
+          "kosten_details": "Fahrtkosten: 65.04 EUR, Übernachtungskosten: 101.54 EUR, Verpflegungsmehraufwand: 84.00 EUR",
+          "erstattungsbetrag": "250.58"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Chantal Sager\",\n  \"zielort\": \"Stadtsteinach\",\n  \"start\": \"02.01.2026\",\n  \"ende\": \"04.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 65.04 EUR, Übernachtungskosten: 101.54 EUR, Verpflegungsmehraufwand: 84.00 EUR\",\n  \"erstattungsbetrag\": \"250.58\"\n}",
+        "duration_seconds": 5.28,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Chantal Sager",
+      "zielort": "Stadtsteinach",
+      "start": "02.01.2026",
+      "ende": "04.01.2026",
+      "kosten_details": "Fahrtkosten: 65.04 EUR, Übernachtungskosten: 101.54 EUR, Verpflegungsmehraufwand: 84.00 EUR",
+      "erstattungsbetrag": "250.58"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre sinnvoller."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währungseinheit (EUR)."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währung (EUR)."
+      }
+    ],
+    "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten einige Felder strukturierter dargestellt werden. | Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten die Kosten in separate Felder aufgeteilt werden, um die Datenstruktur zu verbessern.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre sinnvoller."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währungseinheit (EUR)."
+          }
+        ],
+        "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten einige Felder strukturierter dargestellt werden.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre sinnvoller.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währungseinheit (EUR).\"\n    }\n  ],\n  \"comments\": \"Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten einige Felder strukturierter dargestellt werden.\"\n}",
+        "duration_seconds": 5.759,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre sinnvoller."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währungseinheit (EUR)."
+            }
+          ],
+          "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten einige Felder strukturierter dargestellt werden."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währung (EUR)."
+          }
+        ],
+        "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten die Kosten in separate Felder aufgeteilt werden, um die Datenstruktur zu verbessern.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währung (EUR).\"\n    }\n  ],\n  \"comments\": \"Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten die Kosten in separate Felder aufgeteilt werden, um die Datenstruktur zu verbessern.\"\n}",
+        "duration_seconds": 6.341,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch in einem einzigen Feld zusammengefasst. Eine Trennung in separate Felder wäre besser."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert, jedoch fehlt die Währung (EUR)."
+            }
+          ],
+          "comments": "Alle relevanten Informationen wurden korrekt extrahiert. Es gibt keine klaren Fehler, jedoch könnten die Kosten in separate Felder aufgeteilt werden, um die Datenstruktur zu verbessern."
+        }
+      }
+    ],
+    "duration_seconds_total": 12.1,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:28:57"
+}

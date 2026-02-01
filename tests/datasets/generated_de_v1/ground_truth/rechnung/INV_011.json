@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Werner Dippel KGaA\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Ute Finke\nNaserweg 88\n20809 Ebermannstadt",
+  "rechnungsnummer": "RE-2026-8345",
+  "datum": "18.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Transform cutting-edge relationships",
+      "menge": 7,
+      "einzelpreis": 17.72,
+      "gesamtpreis": 124.04
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Target compelling action-items",
+      "menge": 6,
+      "einzelpreis": 45.67,
+      "gesamtpreis": 274.02
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Harness bricks-and-clicks paradigms",
+      "menge": 2,
+      "einzelpreis": 34.49,
+      "gesamtpreis": 68.98
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Benchmark distributed e-tailers",
+      "menge": 9,
+      "einzelpreis": 15.56,
+      "gesamtpreis": 140.04
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Engineer extensible convergence",
+      "menge": 4,
+      "einzelpreis": 50.54,
+      "gesamtpreis": 202.16
+    }
+  ],
+  "total_net": 809.24,
+  "total_vat": 153.76,
+  "total_gross": 963.0
+}

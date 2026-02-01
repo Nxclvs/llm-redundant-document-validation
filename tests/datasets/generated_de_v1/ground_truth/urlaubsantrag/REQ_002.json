@@ -1,0 +1,10 @@
+{
+  "typ": "urlaubsantrag",
+  "personalnummer": "21832",
+  "name": "Annie Jessel",
+  "abteilung": "HR",
+  "art": "Bildungsurlaub",
+  "von": "02.06.2026",
+  "bis": "21.06.2026",
+  "tage": 19
+}

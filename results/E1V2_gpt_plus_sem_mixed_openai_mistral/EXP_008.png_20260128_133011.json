@@ -1,0 +1,318 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_008.png",
+    "name": "EXP_008.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_008.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=1, Warnings=0, Infos=9 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Univ.Prof. Adelinde Spieß B.Eng.",
+          "zielort": "Oschatz",
+          "start": "18.01.2026",
+          "ende": "20.01.2026",
+          "kosten_details": "Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "380.37"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Univ.Prof. Adelinde Spieß B.Eng.\",\n  \"zielort\": \"Oschatz\",\n  \"start\": \"18.01.2026\",\n  \"ende\": \"20.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"380.37\"\n}",
+        "duration_seconds": 5.629,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Univ.Prof. Adelinde Spieß B.Eng.",
+      "zielort": "Oschatz",
+      "start": "18.01.2026",
+      "ende": "20.01.2026",
+      "kosten_details": "Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "380.37"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '80.37', während in den JSON-Daten '380.37' angegeben ist."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String ungünstig für eine strukturierte Weiterverarbeitung."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'reisekosten' ist korrekt extrahiert."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Mitarbeitername 'Univ.Prof. Adelinde Spieß B.Eng.' ist korrekt extrahiert."
+      },
+      {
+        "field": "zielort",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Zielort 'Oschatz' ist korrekt extrahiert."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Startdatum '18.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Enddatum '20.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kostenangaben sind korrekt extrahiert: Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag '380.37' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden. | Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '80.37', während in den JSON-Daten '380.37' angegeben ist."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String ungünstig für eine strukturierte Weiterverarbeitung."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '80.37', während in den JSON-Daten '380.37' angegeben ist.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String ungünstig für eine strukturierte Weiterverarbeitung.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden.\"\n}",
+        "duration_seconds": 6.733,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '80.37', während in den JSON-Daten '380.37' angegeben ist."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String ungünstig für eine strukturierte Weiterverarbeitung."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Dieser muss korrigiert werden."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'reisekosten' ist korrekt extrahiert."
+          },
+          {
+            "field": "mitarbeiter",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Mitarbeitername 'Univ.Prof. Adelinde Spieß B.Eng.' ist korrekt extrahiert."
+          },
+          {
+            "field": "zielort",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Zielort 'Oschatz' ist korrekt extrahiert."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Startdatum '18.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Enddatum '20.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kostenangaben sind korrekt extrahiert: Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag '380.37' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'reisekosten' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Mitarbeitername 'Univ.Prof. Adelinde Spieß B.Eng.' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zielort\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Zielort 'Oschatz' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Startdatum '18.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Enddatum '20.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kostenangaben sind korrekt extrahiert: Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag '380.37' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 16.683,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'reisekosten' ist korrekt extrahiert."
+            },
+            {
+              "field": "mitarbeiter",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Mitarbeitername 'Univ.Prof. Adelinde Spieß B.Eng.' ist korrekt extrahiert."
+            },
+            {
+              "field": "zielort",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Zielort 'Oschatz' ist korrekt extrahiert."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Startdatum '18.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Enddatum '20.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kostenangaben sind korrekt extrahiert: Fahrtkosten: 98.31, Übernachtungskosten: 198.06, Verpflegungsmehraufwand: 84.00."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag '380.37' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle Werte wurden korrekt extrahiert und stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 23.416,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 0,
+      "infos": 9
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T13:30:11"
+}

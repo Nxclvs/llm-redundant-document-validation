@@ -1,0 +1,110 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_010.png",
+    "name": "INV_010.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_010.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=skipped, Errors=0, Warnings=0, Infos=0 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_010431",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": []
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Kaul Ziegert AG & Co. OHG\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Univ.Prof. Claus-Peter Römer\nWojciech-Etzold-Straße 31-20\n21816 Stendal",
+          "rechnungsnummer": "RE-2026-5919",
+          "datum": "25.01.2026",
+          "items": "1 Harness distributed action-items, 9, 144.24, 1298.16; 2 Incubate end-to-end bandwidth, 8, 88.16, 705.28; 3 Syndicate world-class metrics, 5, 44.92, 224.60",
+          "total_net": "2228.04",
+          "total_vat": "423.33",
+          "total_gross": "2651.37"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Kaul Ziegert AG & Co. OHG\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Univ.Prof. Claus-Peter Römer\\nWojciech-Etzold-Straße 31-20\\n21816 Stendal\",\n  \"rechnungsnummer\": \"RE-2026-5919\",\n  \"datum\": \"25.01.2026\",\n  \"items\": \"1 Harness distributed action-items, 9, 144.24, 1298.16; 2 Incubate end-to-end bandwidth, 8, 88.16, 705.28; 3 Syndicate world-class metrics, 5, 44.92, 224.60\",\n  \"total_net\": \"2228.04\",\n  \"total_vat\": \"423.33\",\n  \"total_gross\": \"2651.37\"\n}",
+        "duration_seconds": 8.709,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Kaul Ziegert AG & Co. OHG\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Univ.Prof. Claus-Peter Römer\nWojciech-Etzold-Straße 31-20\n21816 Stendal",
+      "rechnungsnummer": "RE-2026-5919",
+      "datum": "25.01.2026",
+      "items": "1 Harness distributed action-items, 9, 144.24, 1298.16; 2 Incubate end-to-end bandwidth, 8, 88.16, 705.28; 3 Syndicate world-class metrics, 5, 44.92, 224.60",
+      "total_net": "2228.04",
+      "total_vat": "423.33",
+      "total_gross": "2651.37"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "skipped",
+    "issues": [],
+    "comments": "Semantic validation disabled for this experiment.",
+    "stages": [],
+    "duration_seconds_total": 0.0,
+    "models_used": [],
+    "providers_used": [],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:10:02"
+}

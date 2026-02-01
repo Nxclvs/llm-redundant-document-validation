@@ -1,0 +1,280 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_012.png",
+    "name": "EXP_012.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_012.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=4, Warnings=0, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Waltraut Franke",
+          "zielort": "Lüdinghausen",
+          "start": "01.01.2026",
+          "ende": "03.01.2026",
+          "kosten_details": "Fahrtkosten: 96.94, Übernachtungskosten: 280.38, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "461.32"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Waltraut Franke\",\n  \"zielort\": \"Lüdinghausen\",\n  \"start\": \"01.01.2026\",\n  \"ende\": \"03.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 96.94, Übernachtungskosten: 280.38, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"461.32\"\n}",
+        "duration_seconds": 4.984,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Waltraut Franke",
+      "zielort": "Lüdinghausen",
+      "start": "01.01.2026",
+      "ende": "03.01.2026",
+      "kosten_details": "Fahrtkosten: 96.94, Übernachtungskosten: 280.38, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "461.32"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet 61.32 EUR, nicht 461.32 EUR."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Summe der Einzelbeträge nicht korrekt berechnet."
+      },
+      {
+        "field": "start",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+      },
+      {
+        "field": "ende",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '61,32', während in den JSON-Daten '461.32' angegeben ist."
+      },
+      {
+        "field": "start",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Startdatum im Dokument lautet '01.01.2026', während in den JSON-Daten '01.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026'."
+      },
+      {
+        "field": "ende",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Das Enddatum im Dokument lautet '03.01.2026', während in den JSON-Daten '03.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '03.01.2026'."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung im JSON als durchgehender Text könnte verbessert werden."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Die Summe der Einzelbeträge stimmt nicht mit dem Erstattungsbetrag überein. | Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Gesamtstatus auf 'invalid' setzt. Die Datumsformate sind korrekt, aber die Schreibweise im Dokument sollte berücksichtigt werden.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet 61.32 EUR, nicht 461.32 EUR."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Summe der Einzelbeträge nicht korrekt berechnet."
+          },
+          {
+            "field": "start",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+          },
+          {
+            "field": "ende",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Die Summe der Einzelbeträge stimmt nicht mit dem Erstattungsbetrag überein.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet 61.32 EUR, nicht 461.32 EUR.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Summe der Einzelbeträge nicht korrekt berechnet.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Die Summe der Einzelbeträge stimmt nicht mit dem Erstattungsbetrag überein.\"\n}",
+        "duration_seconds": 7.927,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet 61.32 EUR, nicht 461.32 EUR."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Summe der Einzelbeträge nicht korrekt berechnet."
+            },
+            {
+              "field": "start",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+            },
+            {
+              "field": "ende",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datumsformat ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026 bis 03.01.2026'."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es einen schwerwiegenden Fehler beim Erstattungsbetrag. Die Summe der Einzelbeträge stimmt nicht mit dem Erstattungsbetrag überein."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '61,32', während in den JSON-Daten '461.32' angegeben ist."
+          },
+          {
+            "field": "start",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Startdatum im Dokument lautet '01.01.2026', während in den JSON-Daten '01.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026'."
+          },
+          {
+            "field": "ende",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Das Enddatum im Dokument lautet '03.01.2026', während in den JSON-Daten '03.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '03.01.2026'."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung im JSON als durchgehender Text könnte verbessert werden."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Gesamtstatus auf 'invalid' setzt. Die Datumsformate sind korrekt, aber die Schreibweise im Dokument sollte berücksichtigt werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '61,32', während in den JSON-Daten '461.32' angegeben ist.\"\n    },\n    {\n      \"field\": \"start\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Startdatum im Dokument lautet '01.01.2026', während in den JSON-Daten '01.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026'.\"\n    },\n    {\n      \"field\": \"ende\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Das Enddatum im Dokument lautet '03.01.2026', während in den JSON-Daten '03.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '03.01.2026'.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, aber die Formatierung im JSON als durchgehender Text könnte verbessert werden.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Gesamtstatus auf 'invalid' setzt. Die Datumsformate sind korrekt, aber die Schreibweise im Dokument sollte berücksichtigt werden.\"\n}",
+        "duration_seconds": 9.708,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '61,32', während in den JSON-Daten '461.32' angegeben ist."
+            },
+            {
+              "field": "start",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Startdatum im Dokument lautet '01.01.2026', während in den JSON-Daten '01.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '01.01.2026'."
+            },
+            {
+              "field": "ende",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Das Enddatum im Dokument lautet '03.01.2026', während in den JSON-Daten '03.01.2026' angegeben ist. Das Format ist korrekt, aber die Schreibweise im Dokument ist '03.01.2026'."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, aber die Formatierung im JSON als durchgehender Text könnte verbessert werden."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag weicht erheblich ab, was den Gesamtstatus auf 'invalid' setzt. Die Datumsformate sind korrekt, aber die Schreibweise im Dokument sollte berücksichtigt werden."
+        }
+      }
+    ],
+    "duration_seconds_total": 17.635,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 4,
+      "warnings": 0,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:29:44"
+}

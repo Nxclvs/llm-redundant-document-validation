@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Dr. Lara Häring B.A.",
+  "zielort": "Viechtach",
+  "start": "14.01.2026",
+  "ende": "16.01.2026",
+  "kosten_details": {
+    "transport": 115.4,
+    "hotel": 94.31,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 293.71
+}

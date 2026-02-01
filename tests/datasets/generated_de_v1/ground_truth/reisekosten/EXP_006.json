@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Miroslaw Rogner-Kobelt",
+  "zielort": "Oschatz",
+  "start": "27.01.2026",
+  "ende": "29.01.2026",
+  "kosten_details": {
+    "transport": 91.41,
+    "hotel": 272.41,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 447.82
+}

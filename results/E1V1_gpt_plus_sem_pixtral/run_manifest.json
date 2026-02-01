@@ -1,0 +1,26 @@
+{
+  "run_id": "20260128_012235",
+  "experiment": "E1V1_gpt_plus_sem_pixtral",
+  "started_at": "2026-01-28T01:22:35",
+  "finished_at": "2026-01-28T01:54:41",
+  "config_path": "config\\experiments.json",
+  "config_hash": "sha256:2ac6272ae7336e3554a34262adedeb2ab425bd31b45a0806bce8fc994ef9e491",
+  "input_dir": "tests\\datasets\\generated_de_v1\\documents",
+  "output_dir": "results\\E1V1_gpt_plus_sem_pixtral",
+  "num_documents": 75,
+  "primary_extractor": "gpt",
+  "extractors": [
+    {
+      "id": "gpt",
+      "provider": "openai",
+      "model": "gpt-4o"
+    }
+  ],
+  "validators": [
+    {
+      "id": "v1",
+      "provider": "mistral",
+      "model": "pixtral-large-latest"
+    }
+  ]
+}

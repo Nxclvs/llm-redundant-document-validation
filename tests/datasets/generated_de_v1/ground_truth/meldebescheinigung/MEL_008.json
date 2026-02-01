@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Altentreptow",
+  "person": {
+    "name": "Dipl.-Ing. Ivan Süßebier B.Eng.",
+    "geburtsdatum": "07.04.1963"
+  },
+  "wohnungen": {
+    "aktuell": "Marie-Mälzer-Weg 1, 97044 Altentreptow",
+    "einzugsdatum": "03.10.2023",
+    "vorherig": "Christopher-Zorbach-Ring 75-60, 43720 Gera"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

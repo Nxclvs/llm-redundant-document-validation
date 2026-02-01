@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Stefan Gröttner",
+  "zielort": "Augsburg",
+  "start": "15.01.2026",
+  "ende": "17.01.2026",
+  "kosten_details": {
+    "transport": 95.89,
+    "hotel": 83.79,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 263.68
+}

@@ -1,0 +1,244 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_002.png",
+    "name": "EXP_002.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: EXP_002.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=invalid, Errors=2, Warnings=0, Infos=4 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Jürgen Gerlach",
+          "zielort": "Miesbach",
+          "start": "16.01.2026",
+          "ende": "18.01.2026",
+          "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "335.58"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Jürgen Gerlach\",\n  \"zielort\": \"Miesbach\",\n  \"start\": \"16.01.2026\",\n  \"ende\": \"18.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"335.58\"\n}",
+        "duration_seconds": 5.209,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Jürgen Gerlach",
+      "zielort": "Miesbach",
+      "start": "16.01.2026",
+      "ende": "18.01.2026",
+      "kosten_details": "Fahrtkosten: 56.36, Übernachtungskosten: 195.22, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "335.58"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "invalid",
+    "issues": [
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String nicht ideal für eine strukturierte Weiterverarbeitung."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unpräzise. Eine strukturierte Darstellung (z.B. als JSON-Objekt) wäre besser."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+      }
+    ],
+    "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine Unsicherheit bei der Formatierung des Erstattungsbetrags. Die Kosten sollten idealerweise als strukturierte Daten und nicht als durchgehender String extrahiert werden. | Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag ist unklar formatiert. Eine strukturierte Darstellung der Kosten wäre wünschenswert.",
+    "stages": [
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String nicht ideal für eine strukturierte Weiterverarbeitung."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine Unsicherheit bei der Formatierung des Erstattungsbetrags. Die Kosten sollten idealerweise als strukturierte Daten und nicht als durchgehender String extrahiert werden.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String nicht ideal für eine strukturierte Weiterverarbeitung.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine Unsicherheit bei der Formatierung des Erstattungsbetrags. Die Kosten sollten idealerweise als strukturierte Daten und nicht als durchgehender String extrahiert werden.\"\n}",
+        "duration_seconds": 7.039,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String nicht ideal für eine strukturierte Weiterverarbeitung."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Feld 'typ' ist korrekt extrahiert und entspricht dem Dokumententitel 'REISEKOSTENABRECHNUNG'."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, jedoch gibt es eine Unsicherheit bei der Formatierung des Erstattungsbetrags. Die Kosten sollten idealerweise als strukturierte Daten und nicht als durchgehender String extrahiert werden."
+        }
+      },
+      {
+        "status": "invalid",
+        "issues": [
+          {
+            "field": "erstattungsbetrag",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unpräzise. Eine strukturierte Darstellung (z.B. als JSON-Objekt) wäre besser."
+          },
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+          }
+        ],
+        "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag ist unklar formatiert. Eine strukturierte Darstellung der Kosten wäre wünschenswert.",
+        "raw_response": "{\n  \"status\": \"invalid\",\n  \"issues\": [\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unpräzise. Eine strukturierte Darstellung (z.B. als JSON-Objekt) wäre besser.\"\n    },\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag ist unklar formatiert. Eine strukturierte Darstellung der Kosten wäre wünschenswert.\"\n}",
+        "duration_seconds": 8.967,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "invalid",
+          "issues": [
+            {
+              "field": "erstattungsbetrag",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Der Erstattungsbetrag im Dokument lautet '335.58', während in der JSON '335.58' angegeben ist. Der Wert stimmt zwar überein, aber die Formatierung (mit oder ohne Währungssymbol) ist unklar."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung als durchgehender String unpräzise. Eine strukturierte Darstellung (z.B. als JSON-Objekt) wäre besser."
+            },
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'reisekosten' ist korrekt, da es sich um eine Reisekostenabrechnung handelt."
+            }
+          ],
+          "comments": "Die meisten Felder sind korrekt extrahiert, aber der Erstattungsbetrag ist unklar formatiert. Eine strukturierte Darstellung der Kosten wäre wünschenswert."
+        }
+      }
+    ],
+    "duration_seconds_total": 16.006,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 2,
+      "warnings": 0,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:25:57"
+}

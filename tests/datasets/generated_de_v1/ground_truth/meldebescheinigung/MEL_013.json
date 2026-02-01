@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Eichstätt",
+  "person": {
+    "name": "Kornelia Kraus MBA.",
+    "geburtsdatum": "11.06.1936"
+  },
+  "wohnungen": {
+    "aktuell": "Mosemannring 62/89, 87733 Eichstätt",
+    "einzugsdatum": "10.05.2024",
+    "vorherig": "Diana-Knappe-Ring 7/6, 66038 Hannoversch Münden"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

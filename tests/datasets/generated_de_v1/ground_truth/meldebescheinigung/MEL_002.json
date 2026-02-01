@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Teterow",
+  "person": {
+    "name": "Giuseppina Hertrampf",
+    "geburtsdatum": "27.03.2001"
+  },
+  "wohnungen": {
+    "aktuell": "Meike-Heser-Allee 8231, 70444 Teterow",
+    "einzugsdatum": "13.11.2024",
+    "vorherig": "Arndt-Schulz-Ring 8/9, 84982 Dresden"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Hornig Kramer KG\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Dr. Wolf-Dieter Bohnbach MBA.\nFriedhilde-Beckmann-Platz 9\n49563 Crailsheim",
+  "rechnungsnummer": "RE-2026-6897",
+  "datum": "23.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Empower mission-critical partnerships",
+      "menge": 3,
+      "einzelpreis": 57.89,
+      "gesamtpreis": 173.67
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Incubate dot-com e-commerce",
+      "menge": 4,
+      "einzelpreis": 112.12,
+      "gesamtpreis": 448.48
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Monetize wireless info-mediaries",
+      "menge": 2,
+      "einzelpreis": 67.86,
+      "gesamtpreis": 135.72
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Drive plug-and-play web services",
+      "menge": 2,
+      "einzelpreis": 144.39,
+      "gesamtpreis": 288.78
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Harness proactive metrics",
+      "menge": 3,
+      "einzelpreis": 95.63,
+      "gesamtpreis": 286.89
+    }
+  ],
+  "total_net": 1333.54,
+  "total_vat": 253.37,
+  "total_gross": 1586.91
+}

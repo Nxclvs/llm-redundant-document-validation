@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Moers",
+  "person": {
+    "name": "Ramon Matthäi",
+    "geburtsdatum": "20.01.1965"
+  },
+  "wohnungen": {
+    "aktuell": "Roseallee 6, 50333 Moers",
+    "einzugsdatum": "20.09.2022",
+    "vorherig": "Leni-Lindau-Weg 69-71, 66841 Höxter"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

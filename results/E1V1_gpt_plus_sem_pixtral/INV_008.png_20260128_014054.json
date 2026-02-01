@@ -1,0 +1,282 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_008.png",
+    "name": "INV_008.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_008.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=8 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Trupp, Musterstraße 1, 12345 Musterstadt",
+          "empfaenger": "Marlis Grein Groth-Rörricht, Hans-Jochen-Conradi-Weg 4565, 33650 Dessau",
+          "rechnungsnummer": "RE-2026-1083",
+          "datum": "08.01.2026",
+          "items": "1. Redefine transparent web-readiness, Menge: 2, Einzel: 140.97, Gesamt: 281.94; 2. Visualize transparent bandwidth, Menge: 7, Einzel: 46.12, Gesamt: 322.84",
+          "total_net": "604.78",
+          "total_vat": "114.91",
+          "total_gross": "719.69"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Trupp, Musterstraße 1, 12345 Musterstadt\",\n  \"empfaenger\": \"Marlis Grein Groth-Rörricht, Hans-Jochen-Conradi-Weg 4565, 33650 Dessau\",\n  \"rechnungsnummer\": \"RE-2026-1083\",\n  \"datum\": \"08.01.2026\",\n  \"items\": \"1. Redefine transparent web-readiness, Menge: 2, Einzel: 140.97, Gesamt: 281.94; 2. Visualize transparent bandwidth, Menge: 7, Einzel: 46.12, Gesamt: 322.84\",\n  \"total_net\": \"604.78\",\n  \"total_vat\": \"114.91\",\n  \"total_gross\": \"719.69\"\n}",
+        "duration_seconds": 17.285,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Trupp, Musterstraße 1, 12345 Musterstadt",
+      "empfaenger": "Marlis Grein Groth-Rörricht, Hans-Jochen-Conradi-Weg 4565, 33650 Dessau",
+      "rechnungsnummer": "RE-2026-1083",
+      "datum": "08.01.2026",
+      "items": "1. Redefine transparent web-readiness, Menge: 2, Einzel: 140.97, Gesamt: 281.94; 2. Visualize transparent bandwidth, Menge: 7, Einzel: 46.12, Gesamt: 322.84",
+      "total_net": "604.78",
+      "total_vat": "114.91",
+      "total_gross": "719.69"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "sender",
+        "type": "info",
+        "severity": "info",
+        "message": "Sender korrekt extrahiert, Format stimmt mit Originaldokument überein."
+      },
+      {
+        "field": "empfaenger",
+        "type": "info",
+        "severity": "info",
+        "message": "Empfänger korrekt extrahiert, Format stimmt mit Originaldokument überein."
+      },
+      {
+        "field": "rechnungsnummer",
+        "type": "info",
+        "severity": "info",
+        "message": "Rechnungsnummer korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "items",
+        "type": "info",
+        "severity": "info",
+        "message": "Alle Positionen korrekt extrahiert, Mengen, Einzelpreise und Gesamtpreise stimmen mit Originaldokument überein."
+      },
+      {
+        "field": "total_net",
+        "type": "info",
+        "severity": "info",
+        "message": "Netto-Gesamtsumme korrekt extrahiert."
+      },
+      {
+        "field": "total_vat",
+        "type": "info",
+        "severity": "info",
+        "message": "Mehrwertsteuer korrekt extrahiert."
+      },
+      {
+        "field": "total_gross",
+        "type": "info",
+        "severity": "info",
+        "message": "Brutto-Gesamtsumme korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "sender",
+            "type": "info",
+            "severity": "info",
+            "message": "Sender korrekt extrahiert, Format stimmt mit Originaldokument überein."
+          },
+          {
+            "field": "empfaenger",
+            "type": "info",
+            "severity": "info",
+            "message": "Empfänger korrekt extrahiert, Format stimmt mit Originaldokument überein."
+          },
+          {
+            "field": "rechnungsnummer",
+            "type": "info",
+            "severity": "info",
+            "message": "Rechnungsnummer korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "items",
+            "type": "info",
+            "severity": "info",
+            "message": "Alle Positionen korrekt extrahiert, Mengen, Einzelpreise und Gesamtpreise stimmen mit Originaldokument überein."
+          },
+          {
+            "field": "total_net",
+            "type": "info",
+            "severity": "info",
+            "message": "Netto-Gesamtsumme korrekt extrahiert."
+          },
+          {
+            "field": "total_vat",
+            "type": "info",
+            "severity": "info",
+            "message": "Mehrwertsteuer korrekt extrahiert."
+          },
+          {
+            "field": "total_gross",
+            "type": "info",
+            "severity": "info",
+            "message": "Brutto-Gesamtsumme korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"sender\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Sender korrekt extrahiert, Format stimmt mit Originaldokument überein.\"\n    },\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Empfänger korrekt extrahiert, Format stimmt mit Originaldokument überein.\"\n    },\n    {\n      \"field\": \"rechnungsnummer\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Rechnungsnummer korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Alle Positionen korrekt extrahiert, Mengen, Einzelpreise und Gesamtpreise stimmen mit Originaldokument überein.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Netto-Gesamtsumme korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Mehrwertsteuer korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Brutto-Gesamtsumme korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 11.13,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "sender",
+              "type": "info",
+              "severity": "info",
+              "message": "Sender korrekt extrahiert, Format stimmt mit Originaldokument überein."
+            },
+            {
+              "field": "empfaenger",
+              "type": "info",
+              "severity": "info",
+              "message": "Empfänger korrekt extrahiert, Format stimmt mit Originaldokument überein."
+            },
+            {
+              "field": "rechnungsnummer",
+              "type": "info",
+              "severity": "info",
+              "message": "Rechnungsnummer korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "items",
+              "type": "info",
+              "severity": "info",
+              "message": "Alle Positionen korrekt extrahiert, Mengen, Einzelpreise und Gesamtpreise stimmen mit Originaldokument überein."
+            },
+            {
+              "field": "total_net",
+              "type": "info",
+              "severity": "info",
+              "message": "Netto-Gesamtsumme korrekt extrahiert."
+            },
+            {
+              "field": "total_vat",
+              "type": "info",
+              "severity": "info",
+              "message": "Mehrwertsteuer korrekt extrahiert."
+            },
+            {
+              "field": "total_gross",
+              "type": "info",
+              "severity": "info",
+              "message": "Brutto-Gesamtsumme korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Daten stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 11.13,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 8
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:40:54"
+}

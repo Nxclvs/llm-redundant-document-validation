@@ -94,7 +94,7 @@ def aggregate_validation(
         else:
             num_infos += 1
 
-    # 5) cross-model-redundancy
+    # cross-model-redundancy
     cm_errors = cm_warnings = cm_infos = 0
     cm_conflicts = []
 

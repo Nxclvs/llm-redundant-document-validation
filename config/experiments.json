@@ -1,0 +1,95 @@
+{
+  "experiments": [
+    {
+      "name": "E1V0_gpt_only_no_validation",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" }
+      ],
+      "validators": []
+    },
+    {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "mistral", "model": "pixtral-large-latest" }
+      ]
+    },
+    {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "mistral", "model": "pixtral-large-latest" },
+        { "id": "v2", "provider": "mistral", "model": "pixtral-large-latest" }
+      ]
+    },
+    {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "mistral", "model": "pixtral-large-latest" },
+        { "id": "v2", "provider": "openai", "model": "gpt-4o" }
+      ]
+    },
+
+    {
+      "name": "E2V0_gpt_pixtral_no_semantic",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" },
+        { "id": "pixtral", "provider": "mistral", "model": "pixtral-large-latest" }
+      ],
+      "validators": []
+    },
+    {
+      "name": "E2V1_gpt_pixtral_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" },
+        { "id": "pixtral", "provider": "mistral", "model": "pixtral-large-latest" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "mistral", "model": "pixtral-large-latest" }
+      ]
+    },
+    {
+      "name": "E2V2_gpt_pixtral_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" },
+        { "id": "pixtral", "provider": "mistral", "model": "pixtral-large-latest" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "mistral", "model": "pixtral-large-latest" },
+        { "id": "v2", "provider": "mistral", "model": "pixtral-large-latest" }
+      ]
+    },
+    {
+      "name": "E2V2_gpt_pixtral_plus_sem_mixed",
+      "primary_extractor": "gpt",
+      "extractors": [
+        { "id": "gpt", "provider": "openai", "model": "gpt-4o" },
+        { "id": "pixtral", "provider": "mistral", "model": "pixtral-large-latest" }
+      ],
+      "validator_defaults": { "temperature": 0.0, "max_tokens": 1200, "retry_on_parse_error": 1 },
+      "validators": [
+        { "id": "v1", "provider": "openai", "model": "gpt-4o" },
+        { "id": "v2", "provider": "mistral", "model": "pixtral-large-latest" }
+      ]
+    }
+  ]
+}

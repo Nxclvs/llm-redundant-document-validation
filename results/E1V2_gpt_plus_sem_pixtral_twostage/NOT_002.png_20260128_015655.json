@@ -1,0 +1,384 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_002.png",
+    "name": "NOT_002.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: NOT_002.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=14 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "gebührenbescheid",
+          "behoerde": "Stadtverwaltung Kötzting, Amt für öffentliche Ordnung",
+          "adressat": "Dr. Klothilde Tintzmann, Bernhardine-Conradi-Ring 84-30, 98315 Stuttgart",
+          "aktenzeichen": "AZ-988846",
+          "datum": "02.01.2026",
+          "grund": "Falschparken",
+          "betrag": "56.79 Euro",
+          "zahlungsfrist": "26.01.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"gebührenbescheid\",\n  \"behoerde\": \"Stadtverwaltung Kötzting, Amt für öffentliche Ordnung\",\n  \"adressat\": \"Dr. Klothilde Tintzmann, Bernhardine-Conradi-Ring 84-30, 98315 Stuttgart\",\n  \"aktenzeichen\": \"AZ-988846\",\n  \"datum\": \"02.01.2026\",\n  \"grund\": \"Falschparken\",\n  \"betrag\": \"56.79 Euro\",\n  \"zahlungsfrist\": \"26.01.2026\"\n}",
+        "duration_seconds": 16.813,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "gebührenbescheid",
+      "behoerde": "Stadtverwaltung Kötzting, Amt für öffentliche Ordnung",
+      "adressat": "Dr. Klothilde Tintzmann, Bernhardine-Conradi-Ring 84-30, 98315 Stuttgart",
+      "aktenzeichen": "AZ-988846",
+      "datum": "02.01.2026",
+      "grund": "Falschparken",
+      "betrag": "56.79 Euro",
+      "zahlungsfrist": "26.01.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt extrahiert, einschließlich Abteilung."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, einschließlich Titel, Name und Adresse."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt extrahiert, einschließlich des Amtsnamens."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, einschließlich Name, Titel und Adresse."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt extrahiert, einschließlich Abteilung."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, einschließlich Titel, Name und Adresse."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt extrahiert, einschließlich Abteilung.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, einschließlich Titel, Name und Adresse.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 8.791,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt extrahiert, einschließlich Abteilung."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, einschließlich Titel, Name und Adresse."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt extrahiert, einschließlich des Amtsnamens."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, einschließlich Name, Titel und Adresse."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt extrahiert, einschließlich des Amtsnamens.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, einschließlich Name, Titel und Adresse.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 9.953,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt extrahiert, einschließlich des Amtsnamens."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, einschließlich Name, Titel und Adresse."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 18.744,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 14
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:56:55"
+}

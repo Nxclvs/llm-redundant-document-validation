@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Reiner Dörschner",
+  "zielort": "Genthin",
+  "start": "07.01.2026",
+  "ende": "09.01.2026",
+  "kosten_details": {
+    "transport": 114.26,
+    "hotel": 84.77,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 283.03
+}

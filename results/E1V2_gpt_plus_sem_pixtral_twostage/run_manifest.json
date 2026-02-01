@@ -1,0 +1,31 @@
+{
+  "run_id": "20260128_015536",
+  "experiment": "E1V2_gpt_plus_sem_pixtral_twostage",
+  "started_at": "2026-01-28T01:55:36",
+  "finished_at": "2026-01-28T02:40:36",
+  "config_path": "config\\experiments.json",
+  "config_hash": "sha256:2ac6272ae7336e3554a34262adedeb2ab425bd31b45a0806bce8fc994ef9e491",
+  "input_dir": "tests\\datasets\\generated_de_v1\\documents",
+  "output_dir": "results\\E1V2_gpt_plus_sem_pixtral_twostage",
+  "num_documents": 75,
+  "primary_extractor": "gpt",
+  "extractors": [
+    {
+      "id": "gpt",
+      "provider": "openai",
+      "model": "gpt-4o"
+    }
+  ],
+  "validators": [
+    {
+      "id": "v1",
+      "provider": "mistral",
+      "model": "pixtral-large-latest"
+    },
+    {
+      "id": "v2",
+      "provider": "mistral",
+      "model": "pixtral-large-latest"
+    }
+  ]
+}

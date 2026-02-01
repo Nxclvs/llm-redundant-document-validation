@@ -1,0 +1,26 @@
+{
+  "typ": "rechnung",
+  "sender": "Trupp\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Marlis Grein Groth-Rörricht\nHans-Jochen-Conradi-Weg 4565\n33650 Dessau",
+  "rechnungsnummer": "RE-2026-1083",
+  "datum": "08.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Redefine transparent web-readiness",
+      "menge": 2,
+      "einzelpreis": 140.97,
+      "gesamtpreis": 281.94
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Visualize transparent bandwidth",
+      "menge": 7,
+      "einzelpreis": 46.12,
+      "gesamtpreis": 322.84
+    }
+  ],
+  "total_net": 604.78,
+  "total_vat": 114.91,
+  "total_gross": 719.69
+}

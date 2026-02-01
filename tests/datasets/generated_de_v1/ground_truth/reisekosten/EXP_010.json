@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Chantal Sager",
+  "zielort": "Stadtsteinach",
+  "start": "02.01.2026",
+  "ende": "04.01.2026",
+  "kosten_details": {
+    "transport": 65.04,
+    "hotel": 101.54,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 250.58
+}

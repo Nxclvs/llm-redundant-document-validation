@@ -1,0 +1,339 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\rechnung\\INV_001.png",
+    "name": "INV_001.png"
+  },
+  "final_status": "invalid",
+  "summary": "Dokument: INV_001.png | Schema-Validation: Errors=0, Warnings=4, Infos=0 | Rule-Validation (Extraktion): Errors=1, Warnings=0, Infos=0 | Semantische Validation: Status=uncertain, Errors=1, Warnings=3, Infos=6 | Finaler Status: invalid",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "rechnung",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "rechnung",
+          "sender": "Täsche KGaA\nMusterstraße 1\n12345 Musterstadt",
+          "empfaenger": "Sigfried Etzler\nEckhart-Eckbauer-Gasse 13-66\n40451 Tecklenburg",
+          "rechnungsnummer": "RE-2026-3434",
+          "datum": "13.01.2026",
+          "items": "1. Seize out-of-the-box paradigms, 2, 83.48, 166.96\n2. Incentivize plug-and-play roi, 9, 54.56, 491.04\n3. Synthesize real-time infrastructures, 6, 82.74, 496.44",
+          "total_net": "1154.44",
+          "total_vat": "219.34",
+          "total_gross": "1373.78"
+        },
+        "raw_response": "{\n  \"typ\": \"rechnung\",\n  \"sender\": \"Täsche KGaA\\nMusterstraße 1\\n12345 Musterstadt\",\n  \"empfaenger\": \"Sigfried Etzler\\nEckhart-Eckbauer-Gasse 13-66\\n40451 Tecklenburg\",\n  \"rechnungsnummer\": \"RE-2026-3434\",\n  \"datum\": \"13.01.2026\",\n  \"items\": \"1. Seize out-of-the-box paradigms, 2, 83.48, 166.96\\n2. Incentivize plug-and-play roi, 9, 54.56, 491.04\\n3. Synthesize real-time infrastructures, 6, 82.74, 496.44\",\n  \"total_net\": \"1154.44\",\n  \"total_vat\": \"219.34\",\n  \"total_gross\": \"1373.78\"\n}",
+        "duration_seconds": 16.82,
+        "model": "gpt-4o",
+        "doc_type": "rechnung"
+      }
+    },
+    "data": {
+      "typ": "rechnung",
+      "sender": "Täsche KGaA\nMusterstraße 1\n12345 Musterstadt",
+      "empfaenger": "Sigfried Etzler\nEckhart-Eckbauer-Gasse 13-66\n40451 Tecklenburg",
+      "rechnungsnummer": "RE-2026-3434",
+      "datum": "13.01.2026",
+      "items": "1. Seize out-of-the-box paradigms, 2, 83.48, 166.96\n2. Incentivize plug-and-play roi, 9, 54.56, 491.04\n3. Synthesize real-time infrastructures, 6, 82.74, 496.44",
+      "total_net": "1154.44",
+      "total_vat": "219.34",
+      "total_gross": "1373.78"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'items' hat falschen Datentyp. Erwartet: list, Gefunden: str."
+      },
+      {
+        "field": "total_net",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_net' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_vat",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_vat' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      },
+      {
+        "field": "total_gross",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'total_gross' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": false,
+    "violations": [
+      {
+        "field": "items",
+        "rule": "type",
+        "severity": "error",
+        "message": "items ist kein Array/Liste."
+      }
+    ]
+  },
+  "semantic_validation": {
+    "status": "uncertain",
+    "issues": [
+      {
+        "field": "empfaenger",
+        "type": "mismatch",
+        "severity": "error",
+        "message": "Vorname des Empfängers lautet 'Sigfried', korrekt wäre 'Sigfried'."
+      },
+      {
+        "field": "items",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Die Beschreibungen der Positionen sind korrekt, aber die Formatierung (z. B. Kommas statt Punkte) ist ungewöhnlich."
+      },
+      {
+        "field": "total_net",
+        "type": "match",
+        "severity": "info",
+        "message": "Nettobetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_vat",
+        "type": "match",
+        "severity": "info",
+        "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_gross",
+        "type": "match",
+        "severity": "info",
+        "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "empfaenger",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Vorname des Empfängers im Dokument ist 'Sigfried', im JSON 'Sigfried'. Tippfehler im Dokument möglich, aber unklar."
+      },
+      {
+        "field": "items",
+        "type": "uncertain",
+        "severity": "warning",
+        "message": "Beschreibungen der Positionen sind korrekt, aber Formatierung im JSON als durchgehender String ist ungewöhnlich."
+      },
+      {
+        "field": "total_net",
+        "type": "match",
+        "severity": "info",
+        "message": "Nettobetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_vat",
+        "type": "match",
+        "severity": "info",
+        "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+      },
+      {
+        "field": "total_gross",
+        "type": "match",
+        "severity": "info",
+        "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+      }
+    ],
+    "comments": "Die meisten Felder stimmen mit dem Dokument überein, aber der Vorname des Empfängers ist falsch. Die Formatierung der Positionen ist ungewöhnlich, was auf mögliche Probleme bei der Extraktion hinweist. | Die meisten Felder stimmen mit dem Dokument überein. Der Vorname des Empfängers ist jedoch unklar, da 'Sigfried' im Dokument möglicherweise ein Tippfehler ist. Die Formatierung der Positionen im JSON ist ungewöhnlich, aber inhaltlich korrekt.",
+    "stages": [
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "empfaenger",
+            "type": "mismatch",
+            "severity": "error",
+            "message": "Vorname des Empfängers lautet 'Sigfried', korrekt wäre 'Sigfried'."
+          },
+          {
+            "field": "items",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Die Beschreibungen der Positionen sind korrekt, aber die Formatierung (z. B. Kommas statt Punkte) ist ungewöhnlich."
+          },
+          {
+            "field": "total_net",
+            "type": "match",
+            "severity": "info",
+            "message": "Nettobetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_vat",
+            "type": "match",
+            "severity": "info",
+            "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_gross",
+            "type": "match",
+            "severity": "info",
+            "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen mit dem Dokument überein, aber der Vorname des Empfängers ist falsch. Die Formatierung der Positionen ist ungewöhnlich, was auf mögliche Probleme bei der Extraktion hinweist.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"mismatch\",\n      \"severity\": \"error\",\n      \"message\": \"Vorname des Empfängers lautet 'Sigfried', korrekt wäre 'Sigfried'.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Die Beschreibungen der Positionen sind korrekt, aber die Formatierung (z. B. Kommas statt Punkte) ist ungewöhnlich.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Nettobetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Mehrwertsteuerbetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Gesamtbetrag stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen mit dem Dokument überein, aber der Vorname des Empfängers ist falsch. Die Formatierung der Positionen ist ungewöhnlich, was auf mögliche Probleme bei der Extraktion hinweist.\"\n}",
+        "duration_seconds": 10.352,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "empfaenger",
+              "type": "mismatch",
+              "severity": "error",
+              "message": "Vorname des Empfängers lautet 'Sigfried', korrekt wäre 'Sigfried'."
+            },
+            {
+              "field": "items",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Die Beschreibungen der Positionen sind korrekt, aber die Formatierung (z. B. Kommas statt Punkte) ist ungewöhnlich."
+            },
+            {
+              "field": "total_net",
+              "type": "match",
+              "severity": "info",
+              "message": "Nettobetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_vat",
+              "type": "match",
+              "severity": "info",
+              "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_gross",
+              "type": "match",
+              "severity": "info",
+              "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen mit dem Dokument überein, aber der Vorname des Empfängers ist falsch. Die Formatierung der Positionen ist ungewöhnlich, was auf mögliche Probleme bei der Extraktion hinweist."
+        }
+      },
+      {
+        "status": "uncertain",
+        "issues": [
+          {
+            "field": "empfaenger",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Vorname des Empfängers im Dokument ist 'Sigfried', im JSON 'Sigfried'. Tippfehler im Dokument möglich, aber unklar."
+          },
+          {
+            "field": "items",
+            "type": "uncertain",
+            "severity": "warning",
+            "message": "Beschreibungen der Positionen sind korrekt, aber Formatierung im JSON als durchgehender String ist ungewöhnlich."
+          },
+          {
+            "field": "total_net",
+            "type": "match",
+            "severity": "info",
+            "message": "Nettobetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_vat",
+            "type": "match",
+            "severity": "info",
+            "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+          },
+          {
+            "field": "total_gross",
+            "type": "match",
+            "severity": "info",
+            "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Die meisten Felder stimmen mit dem Dokument überein. Der Vorname des Empfängers ist jedoch unklar, da 'Sigfried' im Dokument möglicherweise ein Tippfehler ist. Die Formatierung der Positionen im JSON ist ungewöhnlich, aber inhaltlich korrekt.",
+        "raw_response": "{\n  \"status\": \"uncertain\",\n  \"issues\": [\n    {\n      \"field\": \"empfaenger\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Vorname des Empfängers im Dokument ist 'Sigfried', im JSON 'Sigfried'. Tippfehler im Dokument möglich, aber unklar.\"\n    },\n    {\n      \"field\": \"items\",\n      \"type\": \"uncertain\",\n      \"severity\": \"warning\",\n      \"message\": \"Beschreibungen der Positionen sind korrekt, aber Formatierung im JSON als durchgehender String ist ungewöhnlich.\"\n    },\n    {\n      \"field\": \"total_net\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Nettobetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_vat\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Mehrwertsteuerbetrag stimmt mit dem Dokument überein.\"\n    },\n    {\n      \"field\": \"total_gross\",\n      \"type\": \"match\",\n      \"severity\": \"info\",\n      \"message\": \"Gesamtbetrag stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die meisten Felder stimmen mit dem Dokument überein. Der Vorname des Empfängers ist jedoch unklar, da 'Sigfried' im Dokument möglicherweise ein Tippfehler ist. Die Formatierung der Positionen im JSON ist ungewöhnlich, aber inhaltlich korrekt.\"\n}",
+        "duration_seconds": 8.802,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "uncertain",
+          "issues": [
+            {
+              "field": "empfaenger",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Vorname des Empfängers im Dokument ist 'Sigfried', im JSON 'Sigfried'. Tippfehler im Dokument möglich, aber unklar."
+            },
+            {
+              "field": "items",
+              "type": "uncertain",
+              "severity": "warning",
+              "message": "Beschreibungen der Positionen sind korrekt, aber Formatierung im JSON als durchgehender String ist ungewöhnlich."
+            },
+            {
+              "field": "total_net",
+              "type": "match",
+              "severity": "info",
+              "message": "Nettobetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_vat",
+              "type": "match",
+              "severity": "info",
+              "message": "Mehrwertsteuerbetrag stimmt mit dem Dokument überein."
+            },
+            {
+              "field": "total_gross",
+              "type": "match",
+              "severity": "info",
+              "message": "Gesamtbetrag stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Die meisten Felder stimmen mit dem Dokument überein. Der Vorname des Empfängers ist jedoch unklar, da 'Sigfried' im Dokument möglicherweise ein Tippfehler ist. Die Formatierung der Positionen im JSON ist ungewöhnlich, aber inhaltlich korrekt."
+        }
+      }
+    ],
+    "duration_seconds_total": 19.154,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 1,
+      "warnings": 3,
+      "infos": 6
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:16:00"
+}

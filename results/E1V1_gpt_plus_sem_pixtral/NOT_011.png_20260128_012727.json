@@ -1,0 +1,237 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_011.png",
+    "name": "NOT_011.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: NOT_011.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=7 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_012235",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V1_gpt_plus_sem_pixtral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "bescheid",
+          "behoerde": "Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung, 38418 Euskirchen",
+          "adressat": "Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg",
+          "aktenzeichen": "AZ-204656",
+          "datum": "18.01.2026",
+          "grund": "Hundesteuer",
+          "betrag": "68.02 Euro",
+          "zahlungsfrist": "02.02.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"bescheid\",\n  \"behoerde\": \"Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung, 38418 Euskirchen\",\n  \"adressat\": \"Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg\",\n  \"aktenzeichen\": \"AZ-204656\",\n  \"datum\": \"18.01.2026\",\n  \"grund\": \"Hundesteuer\",\n  \"betrag\": \"68.02 Euro\",\n  \"zahlungsfrist\": \"02.02.2026\"\n}",
+        "duration_seconds": 15.167,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "bescheid",
+      "behoerde": "Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung, 38418 Euskirchen",
+      "adressat": "Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg",
+      "aktenzeichen": "AZ-204656",
+      "datum": "18.01.2026",
+      "grund": "Hundesteuer",
+      "betrag": "68.02 Euro",
+      "zahlungsfrist": "02.02.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert, einschließlich Währung."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert, einschließlich Währung."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt extrahiert, einschließlich Adresse und Amt.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund der Gebühr korrekt als 'Hundesteuer' extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert, einschließlich Währung.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 9.261,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt extrahiert, einschließlich Adresse und Amt."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund der Gebühr korrekt als 'Hundesteuer' extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert, einschließlich Währung."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit dem Originaldokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      }
+    ],
+    "duration_seconds_total": 9.261,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 7
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T01:27:27"
+}

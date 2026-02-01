@@ -1,0 +1,244 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\reisekosten\\EXP_014.png",
+    "name": "EXP_014.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: EXP_014.png | Schema-Validation: Errors=0, Warnings=2, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=2, Infos=4 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_015536",
+    "doc_type": "reisekosten",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_pixtral_twostage",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "reisekosten",
+          "mitarbeiter": "Stefan Gröttner",
+          "zielort": "Augsburg",
+          "start": "15.01.2026",
+          "ende": "17.01.2026",
+          "kosten_details": "Fahrtkosten: 95.89, Übernachtungskosten: 83.79, Verpflegungsmehraufwand: 84.00",
+          "erstattungsbetrag": "263.68"
+        },
+        "raw_response": "{\n  \"typ\": \"reisekosten\",\n  \"mitarbeiter\": \"Stefan Gröttner\",\n  \"zielort\": \"Augsburg\",\n  \"start\": \"15.01.2026\",\n  \"ende\": \"17.01.2026\",\n  \"kosten_details\": \"Fahrtkosten: 95.89, Übernachtungskosten: 83.79, Verpflegungsmehraufwand: 84.00\",\n  \"erstattungsbetrag\": \"263.68\"\n}",
+        "duration_seconds": 4.808,
+        "model": "gpt-4o",
+        "doc_type": "reisekosten"
+      }
+    },
+    "data": {
+      "typ": "reisekosten",
+      "mitarbeiter": "Stefan Gröttner",
+      "zielort": "Augsburg",
+      "start": "15.01.2026",
+      "ende": "17.01.2026",
+      "kosten_details": "Fahrtkosten: 95.89, Übernachtungskosten: 83.79, Verpflegungsmehraufwand: 84.00",
+      "erstattungsbetrag": "263.68"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "kosten_details",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'kosten_details' hat falschen Datentyp. Erwartet: dict, Gefunden: str."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'erstattungsbetrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "mitarbeiter",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Name im Dokument ist 'Stefan Gröflner', extrahierter Name lautet 'Stefan Gröttner'. Möglicher Tippfehler oder Schreibweise unklar."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Alle Kostenbeträge stimmen mit den Werten im Dokument überein."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Erstattungsbetrag stimmt mit dem Wert im Dokument überein."
+      },
+      {
+        "field": "mitarbeiter",
+        "type": "mismatch",
+        "severity": "warning",
+        "message": "Name im Dokument lautet 'Stefan Grötiner', während in JSON 'Stefan Gröttner' steht. Möglicher Tippfehler im Dokument oder JSON."
+      },
+      {
+        "field": "kosten_details",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) im JSON-Feld 'kosten_details' ungewöhnlich."
+      },
+      {
+        "field": "erstattungsbetrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+      }
+    ],
+    "comments": "Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung beim Namen des Mitarbeiters. Alle anderen Werte sind korrekt extrahiert. | Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung im Namen des Mitarbeiters. Alle anderen Werte stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "mitarbeiter",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Name im Dokument ist 'Stefan Gröflner', extrahierter Name lautet 'Stefan Gröttner'. Möglicher Tippfehler oder Schreibweise unklar."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Alle Kostenbeträge stimmen mit den Werten im Dokument überein."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Erstattungsbetrag stimmt mit dem Wert im Dokument überein."
+          }
+        ],
+        "comments": "Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung beim Namen des Mitarbeiters. Alle anderen Werte sind korrekt extrahiert.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Name im Dokument ist 'Stefan Gröflner', extrahierter Name lautet 'Stefan Gröttner'. Möglicher Tippfehler oder Schreibweise unklar.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Alle Kostenbeträge stimmen mit den Werten im Dokument überein.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Erstattungsbetrag stimmt mit dem Wert im Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung beim Namen des Mitarbeiters. Alle anderen Werte sind korrekt extrahiert.\"\n}",
+        "duration_seconds": 6.641,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "mitarbeiter",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Name im Dokument ist 'Stefan Gröflner', extrahierter Name lautet 'Stefan Gröttner'. Möglicher Tippfehler oder Schreibweise unklar."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Alle Kostenbeträge stimmen mit den Werten im Dokument überein."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Erstattungsbetrag stimmt mit dem Wert im Dokument überein."
+            }
+          ],
+          "comments": "Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung beim Namen des Mitarbeiters. Alle anderen Werte sind korrekt extrahiert."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "mitarbeiter",
+            "type": "mismatch",
+            "severity": "warning",
+            "message": "Name im Dokument lautet 'Stefan Grötiner', während in JSON 'Stefan Gröttner' steht. Möglicher Tippfehler im Dokument oder JSON."
+          },
+          {
+            "field": "kosten_details",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) im JSON-Feld 'kosten_details' ungewöhnlich."
+          },
+          {
+            "field": "erstattungsbetrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+          }
+        ],
+        "comments": "Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung im Namen des Mitarbeiters. Alle anderen Werte stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"mitarbeiter\",\n      \"type\": \"mismatch\",\n      \"severity\": \"warning\",\n      \"message\": \"Name im Dokument lautet 'Stefan Grötiner', während in JSON 'Stefan Gröttner' steht. Möglicher Tippfehler im Dokument oder JSON.\"\n    },\n    {\n      \"field\": \"kosten_details\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) im JSON-Feld 'kosten_details' ungewöhnlich.\"\n    },\n    {\n      \"field\": \"erstattungsbetrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein.\"\n    }\n  ],\n  \"comments\": \"Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung im Namen des Mitarbeiters. Alle anderen Werte stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 9.963,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "mitarbeiter",
+              "type": "mismatch",
+              "severity": "warning",
+              "message": "Name im Dokument lautet 'Stefan Grötiner', während in JSON 'Stefan Gröttner' steht. Möglicher Tippfehler im Dokument oder JSON."
+            },
+            {
+              "field": "kosten_details",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Kosten sind korrekt extrahiert, jedoch ist die Formatierung (Komma statt Punkt) im JSON-Feld 'kosten_details' ungewöhnlich."
+            },
+            {
+              "field": "erstattungsbetrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Erstattungsbetrag ist korrekt extrahiert und stimmt mit dem Dokument überein."
+            }
+          ],
+          "comments": "Die Extraktion ist weitgehend korrekt, jedoch gibt es eine mögliche Abweichung im Namen des Mitarbeiters. Alle anderen Werte stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 16.604,
+    "models_used": [
+      "pixtral-large-latest"
+    ],
+    "providers_used": [
+      "mistral"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 2,
+      "infos": 4
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T02:30:27"
+}

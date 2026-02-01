@@ -1,0 +1,13 @@
+{
+  "typ": "reisekosten",
+  "mitarbeiter": "Ron Beier",
+  "zielort": "Wolfach",
+  "start": "02.01.2026",
+  "ende": "04.01.2026",
+  "kosten_details": {
+    "transport": 141.12,
+    "hotel": 236.1,
+    "tagegeld": 84.0
+  },
+  "erstattungsbetrag": 461.22
+}

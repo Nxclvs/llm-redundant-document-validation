@@ -1,0 +1,47 @@
+{
+  "typ": "rechnung",
+  "sender": "Gude AG\nMusterstraße 1\n12345 Musterstadt",
+  "empfaenger": "Karlheinz Binner\nBirnbaumweg 229\n47893 Guben",
+  "rechnungsnummer": "RE-2026-1568",
+  "datum": "15.01.2026",
+  "items": [
+    {
+      "pos": 1,
+      "beschreibung": "Strategize clicks-and-mortar bandwidth",
+      "menge": 9,
+      "einzelpreis": 125.51,
+      "gesamtpreis": 1129.59
+    },
+    {
+      "pos": 2,
+      "beschreibung": "Enable wireless roi",
+      "menge": 7,
+      "einzelpreis": 75.18,
+      "gesamtpreis": 526.26
+    },
+    {
+      "pos": 3,
+      "beschreibung": "Synergize revolutionary paradigms",
+      "menge": 7,
+      "einzelpreis": 67.57,
+      "gesamtpreis": 472.99
+    },
+    {
+      "pos": 4,
+      "beschreibung": "Incentivize out-of-the-box communities",
+      "menge": 10,
+      "einzelpreis": 45.45,
+      "gesamtpreis": 454.5
+    },
+    {
+      "pos": 5,
+      "beschreibung": "Implement distributed mindshare",
+      "menge": 5,
+      "einzelpreis": 135.42,
+      "gesamtpreis": 677.1
+    }
+  ],
+  "total_net": 3260.44,
+  "total_vat": 619.48,
+  "total_gross": 3879.92
+}

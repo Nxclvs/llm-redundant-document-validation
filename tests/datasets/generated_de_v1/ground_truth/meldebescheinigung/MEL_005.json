@@ -1,0 +1,14 @@
+{
+  "typ": "meldebescheinigung",
+  "behoerde": "Einwohnermeldeamt Querfurt",
+  "person": {
+    "name": "Prof. Gaby Kobelt",
+    "geburtsdatum": "03.07.1944"
+  },
+  "wohnungen": {
+    "aktuell": "Radischallee 7/2, 07637 Querfurt",
+    "einzugsdatum": "07.11.2022",
+    "vorherig": "Kaulgasse 5/1, 27986 Bad Langensalza"
+  },
+  "ausstellungsdatum": "28.01.2026"
+}

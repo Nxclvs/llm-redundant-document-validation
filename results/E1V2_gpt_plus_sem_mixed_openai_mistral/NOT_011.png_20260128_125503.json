@@ -1,0 +1,404 @@
+{
+  "document": {
+    "path": "tests\\datasets\\generated_de_v1\\documents\\bescheid\\NOT_011.png",
+    "name": "NOT_011.png"
+  },
+  "final_status": "review_needed",
+  "summary": "Dokument: NOT_011.png | Schema-Validation: Errors=0, Warnings=1, Infos=0 | Rule-Validation (Extraktion): Errors=0, Warnings=0, Infos=0 | Semantische Validation: Status=valid, Errors=0, Warnings=0, Infos=15 | Finaler Status: review_needed",
+  "extraction": {
+    "run_id": "20260128_124445",
+    "doc_type": "bescheid",
+    "experiment": {
+      "name": "E1V2_gpt_plus_sem_mixed_openai_mistral",
+      "primary_extractor": "gpt",
+      "extractors": [
+        {
+          "id": "gpt",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ],
+      "validators": [
+        {
+          "id": "v1",
+          "provider": "mistral",
+          "model": "pixtral-large-latest"
+        },
+        {
+          "id": "v2",
+          "provider": "openai",
+          "model": "gpt-4o"
+        }
+      ]
+    },
+    "extractors": {
+      "gpt": {
+        "data": {
+          "typ": "gebührenbescheid",
+          "behoerde": "Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung",
+          "adressat": "Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg",
+          "aktenzeichen": "AZ-204656",
+          "datum": "18.01.2026",
+          "grund": "Hundesteuer",
+          "betrag": "68.02 Euro",
+          "zahlungsfrist": "02.02.2026"
+        },
+        "raw_response": "{\n  \"typ\": \"gebührenbescheid\",\n  \"behoerde\": \"Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung\",\n  \"adressat\": \"Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg\",\n  \"aktenzeichen\": \"AZ-204656\",\n  \"datum\": \"18.01.2026\",\n  \"grund\": \"Hundesteuer\",\n  \"betrag\": \"68.02 Euro\",\n  \"zahlungsfrist\": \"02.02.2026\"\n}",
+        "duration_seconds": 18.197,
+        "model": "gpt-4o",
+        "doc_type": "bescheid"
+      }
+    },
+    "data": {
+      "typ": "gebührenbescheid",
+      "behoerde": "Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung",
+      "adressat": "Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg",
+      "aktenzeichen": "AZ-204656",
+      "datum": "18.01.2026",
+      "grund": "Hundesteuer",
+      "betrag": "68.02 Euro",
+      "zahlungsfrist": "02.02.2026"
+    }
+  },
+  "schema_validation": {
+    "is_valid": true,
+    "violations": [
+      {
+        "field": "betrag",
+        "rule": "type_mismatch",
+        "severity": "warning",
+        "message": "Feld 'betrag' hat falschen Datentyp. Erwartet: float, Gefunden: str."
+      }
+    ]
+  },
+  "rule_validation": {
+    "is_valid": true,
+    "violations": []
+  },
+  "semantic_validation": {
+    "status": "valid",
+    "issues": [
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Behörde korrekt extrahiert, einschließlich Adresse und Abteilung."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Aktenzeichen korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Datum korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Grund korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Betrag korrekt extrahiert, einschließlich Währung."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Zahlungsfrist korrekt extrahiert."
+      },
+      {
+        "field": "typ",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+      },
+      {
+        "field": "behoerde",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Behörde 'Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung' ist korrekt extrahiert."
+      },
+      {
+        "field": "adressat",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Adressat 'Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg' ist korrekt extrahiert."
+      },
+      {
+        "field": "aktenzeichen",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Aktenzeichen 'AZ-204656' ist korrekt extrahiert."
+      },
+      {
+        "field": "datum",
+        "type": "info",
+        "severity": "info",
+        "message": "Das Datum '18.01.2026' ist korrekt extrahiert."
+      },
+      {
+        "field": "grund",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+      },
+      {
+        "field": "betrag",
+        "type": "info",
+        "severity": "info",
+        "message": "Der Betrag '68.02 Euro' ist korrekt extrahiert."
+      },
+      {
+        "field": "zahlungsfrist",
+        "type": "info",
+        "severity": "info",
+        "message": "Die Zahlungsfrist '02.02.2026' ist korrekt extrahiert."
+      }
+    ],
+    "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten. | Alle extrahierten Werte stimmen mit dem Dokument überein.",
+    "stages": [
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Behörde korrekt extrahiert, einschließlich Adresse und Abteilung."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Aktenzeichen korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Datum korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Grund korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Betrag korrekt extrahiert, einschließlich Währung."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Zahlungsfrist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Behörde korrekt extrahiert, einschließlich Adresse und Abteilung.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Aktenzeichen korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Datum korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Grund korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Betrag korrekt extrahiert, einschließlich Währung.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Zahlungsfrist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten.\"\n}",
+        "duration_seconds": 9.346,
+        "model": "pixtral-large-latest",
+        "provider": "mistral",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Behörde korrekt extrahiert, einschließlich Adresse und Abteilung."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Adressat korrekt extrahiert, einschließlich Name, Straße und Postleitzahl."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Aktenzeichen korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Datum korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Grund korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Betrag korrekt extrahiert, einschließlich Währung."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Zahlungsfrist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Felder stimmen mit den Informationen im Dokument überein. Es gibt keine Abweichungen oder Unsicherheiten."
+        }
+      },
+      {
+        "status": "valid",
+        "issues": [
+          {
+            "field": "typ",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+          },
+          {
+            "field": "behoerde",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Behörde 'Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung' ist korrekt extrahiert."
+          },
+          {
+            "field": "adressat",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Adressat 'Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg' ist korrekt extrahiert."
+          },
+          {
+            "field": "aktenzeichen",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Aktenzeichen 'AZ-204656' ist korrekt extrahiert."
+          },
+          {
+            "field": "datum",
+            "type": "info",
+            "severity": "info",
+            "message": "Das Datum '18.01.2026' ist korrekt extrahiert."
+          },
+          {
+            "field": "grund",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+          },
+          {
+            "field": "betrag",
+            "type": "info",
+            "severity": "info",
+            "message": "Der Betrag '68.02 Euro' ist korrekt extrahiert."
+          },
+          {
+            "field": "zahlungsfrist",
+            "type": "info",
+            "severity": "info",
+            "message": "Die Zahlungsfrist '02.02.2026' ist korrekt extrahiert."
+          }
+        ],
+        "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein.",
+        "raw_response": "{\n  \"status\": \"valid\",\n  \"issues\": [\n    {\n      \"field\": \"typ\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Typ 'gebührenbescheid' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"behoerde\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Behörde 'Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"adressat\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Adressat 'Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"aktenzeichen\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Aktenzeichen 'AZ-204656' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"datum\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Das Datum '18.01.2026' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"grund\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Grund 'Hundesteuer' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"betrag\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Der Betrag '68.02 Euro' ist korrekt extrahiert.\"\n    },\n    {\n      \"field\": \"zahlungsfrist\",\n      \"type\": \"info\",\n      \"severity\": \"info\",\n      \"message\": \"Die Zahlungsfrist '02.02.2026' ist korrekt extrahiert.\"\n    }\n  ],\n  \"comments\": \"Alle extrahierten Werte stimmen mit dem Dokument überein.\"\n}",
+        "duration_seconds": 26.941,
+        "model": "gpt-4o",
+        "provider": "openai",
+        "parsed": {
+          "status": "valid",
+          "issues": [
+            {
+              "field": "typ",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Typ 'gebührenbescheid' ist korrekt extrahiert."
+            },
+            {
+              "field": "behoerde",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Behörde 'Stadtverwaltung Euskirchen, Amt für öffentliche Ordnung' ist korrekt extrahiert."
+            },
+            {
+              "field": "adressat",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Adressat 'Sedat Trubin, Lehmannstraße 71-86, 73962 Ludwigsburg' ist korrekt extrahiert."
+            },
+            {
+              "field": "aktenzeichen",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Aktenzeichen 'AZ-204656' ist korrekt extrahiert."
+            },
+            {
+              "field": "datum",
+              "type": "info",
+              "severity": "info",
+              "message": "Das Datum '18.01.2026' ist korrekt extrahiert."
+            },
+            {
+              "field": "grund",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Grund 'Hundesteuer' ist korrekt extrahiert."
+            },
+            {
+              "field": "betrag",
+              "type": "info",
+              "severity": "info",
+              "message": "Der Betrag '68.02 Euro' ist korrekt extrahiert."
+            },
+            {
+              "field": "zahlungsfrist",
+              "type": "info",
+              "severity": "info",
+              "message": "Die Zahlungsfrist '02.02.2026' ist korrekt extrahiert."
+            }
+          ],
+          "comments": "Alle extrahierten Werte stimmen mit dem Dokument überein."
+        }
+      }
+    ],
+    "duration_seconds_total": 36.287,
+    "models_used": [
+      "pixtral-large-latest",
+      "gpt-4o"
+    ],
+    "providers_used": [
+      "mistral",
+      "openai"
+    ],
+    "stats": {
+      "errors": 0,
+      "warnings": 0,
+      "infos": 15
+    }
+  },
+  "cross_model_validation": null,
+  "created_at": "2026-01-28T12:55:03"
+}
