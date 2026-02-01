@@ -57,17 +57,17 @@ The project structure strictly separates core logic (`src`), data (`data`), and 
 │   └── datasets/            # test data
 ├── results/ 
 │              
-├── framework/                    # Framework source code
-│   ├── extraction/               # Core logic (Pipeline, Validator, Extractor)
-│   ├── metrics/             # Adapters for LLMs (OpenAI, Mistral/Pixtral)
-│   ├── models/            # Pydantic models for internal data structures
+├── framework/                # Framework source code
+│   ├── extraction/           # Extractor stage
+│   ├── metrics/              # Predefined Metrics
+│   ├── models/               # LLM Models
 │   ├── pipeline/
-│   ├── schemes/              # Helper functions (Image Processing, Logging)
+│   ├── schemes/              # Defined shemes
     └── validation/   
 ├── scripts/                # Executable scripts
 │   ├── generate_test_data.py    # Synthetic corpus generation
-│   ├── batch_run.py   # Execution of validation pipelines
-│   └── plot_*.py           # Visualization scripts (Analysis)
+│   └── batch_run.py             # Execution of validation pipelines
+│               
 ├── config                  # Experiment configuration
 ├── requirements.txt        # Python dependencies
 └── README.md               # Documentation
