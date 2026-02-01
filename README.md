@@ -110,7 +110,7 @@ config = {
 Generates test documents (invoices, applications, notifications) to populate `tests/datasets/`.
 
 ```bash
-python generate_data.py
+python generate_data.py --input <DATASET NAME> --num-per-type <NUM PER TYPE> --seed <SEED>
 ```
 
 ## 2. Run Experiment Batch
